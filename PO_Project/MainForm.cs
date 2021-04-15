@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
         }
@@ -23,7 +23,14 @@ namespace PO_Project
 
         private void Nowa_Biblioteka_Click(object sender, EventArgs e)
         {
-
+            AddLibrary addLibrary = new AddLibrary();
+            
+            // Show testDialog as a modal dialog and determine if DialogResult = OK.
+            if (addLibrary.ShowDialog(this) == DialogResult.OK)
+            {
+           
+            }
+            addLibrary.Dispose();
         }
 
         private void Otworz_Biblioteke_Click(object sender, EventArgs e)
