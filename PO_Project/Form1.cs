@@ -16,5 +16,44 @@ namespace PO_Project
         {
             InitializeComponent();
         }
+
+
+
+
+
+        private void Nowa_Biblioteka_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Otworz_Biblioteke_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Dodaj_Element_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Usun_Element_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Edytuj_Element_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Zmien_Widok_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Instrukcja_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
