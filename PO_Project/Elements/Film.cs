@@ -12,11 +12,11 @@ namespace PO_Project
     /// </summary>
     class Film : IElement
     {
-        public Film(string name, Category category, string describtion, TimeSpan running_time, string filelocation, string photo_location, DateTime release_date)
+        public Film(string name, Category category, string description, TimeSpan running_time, string filelocation, string photo_location, DateTime release_date)
         {
             Name = name;
             Category = category;
-            Describtion = describtion;
+            Description = description;
             Running_time = running_time;
             this.filelocation = filelocation;
             this.photo_location = photo_location;
@@ -28,7 +28,7 @@ namespace PO_Project
         /// <value>Gets or Sets the film category.</value>
         public Category Category { get; set; }
         /// <value>Gets or Sets describtion of the film.</value>
-        public string Describtion { get; set; }
+        public string Description { get; set; }
         /// <value>Gets or Sets film lenght.</value>
         public TimeSpan Running_time { get; set; }
         /// <value>Gets or Sets the film location.</value>

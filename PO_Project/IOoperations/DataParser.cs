@@ -38,7 +38,7 @@ namespace PO_Project
             {
                 s += element.GetType().ToString()[i];
             }
-            StringBuilder = new StringBuilder( s+ "," + (element as Film).Name + "," + (element as Film).Category.ToString() + "," + (element as Film).Describtion + "," + (element as Film).Running_time.ToString() + "," + (element as Film).filelocation + "," + (element as Film).photo_location + "," + (element as Film).Release_date.ToString() + ",") ;
+            StringBuilder = new StringBuilder( s+ "," + (element as Film).Name + "," + (element as Film).Category.ToString() + "," + (element as Film).Description + "," + (element as Film).Running_time.ToString() + "," + (element as Film).filelocation + "," + (element as Film).photo_location + "," + (element as Film).Release_date.ToString() + ",") ;
                 return StringBuilder.ToString();
 
         }
