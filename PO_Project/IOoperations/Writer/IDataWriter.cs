@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace PO_Project
 {
-    class Writer :IDataWriter
+    interface IDataWriter
     {
-
+        List<IElement> EditElement();
+        List<IElement> DeleteElement();
+        IElement AddElement();
     }
 }

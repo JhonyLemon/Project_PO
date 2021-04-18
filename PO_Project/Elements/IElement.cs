@@ -10,7 +10,6 @@ namespace PO_Project
     {
         string Name { get; set; }
         string filelocation { get; set; }
-        bool defaultpath { get; set; }
 
         string photo_location { get; set; }
 

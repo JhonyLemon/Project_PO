@@ -32,18 +32,14 @@ namespace PO_Project
             this.components = new System.ComponentModel.Container();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.Nowa_Biblioteka = new System.Windows.Forms.MenuItem();
-            this.Otworz_Biblioteke = new System.Windows.Forms.MenuItem();
-            this.menuItem2 = new System.Windows.Forms.MenuItem();
-            this.Dodaj_Element = new System.Windows.Forms.MenuItem();
-            this.Usun_Element = new System.Windows.Forms.MenuItem();
-            this.Edytuj_Element = new System.Windows.Forms.MenuItem();
-            this.menuItem3 = new System.Windows.Forms.MenuItem();
-            this.Zmien_Widok = new System.Windows.Forms.MenuItem();
-            this.menuItem4 = new System.Windows.Forms.MenuItem();
-            this.Instrukcja = new System.Windows.Forms.MenuItem();
+            this.Search_Button = new System.Windows.Forms.MenuItem();
             this.Podwojny_Kontener = new System.Windows.Forms.SplitContainer();
             this.Lista_Obrazkow = new System.Windows.Forms.ListView();
+            this.Add_Button = new System.Windows.Forms.MenuItem();
+            this.Edit_Button = new System.Windows.Forms.MenuItem();
+            this.Delete_Button = new System.Windows.Forms.MenuItem();
+            this.Sort_Button = new System.Windows.Forms.MenuItem();
+            this.Filter_Button = new System.Windows.Forms.MenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.Podwojny_Kontener)).BeginInit();
             this.Podwojny_Kontener.Panel1.SuspendLayout();
             this.Podwojny_Kontener.SuspendLayout();
@@ -53,82 +49,24 @@ namespace PO_Project
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItem1,
-            this.menuItem2,
-            this.menuItem3,
-            this.menuItem4});
+            this.Search_Button,
+            this.Sort_Button,
+            this.Filter_Button});
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.Nowa_Biblioteka,
-            this.Otworz_Biblioteke});
-            this.menuItem1.Text = "Plik";
+            this.Add_Button,
+            this.Edit_Button,
+            this.Delete_Button});
+            this.menuItem1.Text = "Edycja";
             // 
-            // Nowa_Biblioteka
+            // Search_Button
             // 
-            this.Nowa_Biblioteka.Index = 0;
-            this.Nowa_Biblioteka.Text = "Nowa Biblioteka";
-            this.Nowa_Biblioteka.Click += new System.EventHandler(this.Nowa_Biblioteka_Click);
-            // 
-            // Otworz_Biblioteke
-            // 
-            this.Otworz_Biblioteke.Index = 1;
-            this.Otworz_Biblioteke.Text = "Otworz Biblioteke";
-            this.Otworz_Biblioteke.Click += new System.EventHandler(this.Otworz_Biblioteke_Click);
-            // 
-            // menuItem2
-            // 
-            this.menuItem2.Index = 1;
-            this.menuItem2.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.Dodaj_Element,
-            this.Usun_Element,
-            this.Edytuj_Element});
-            this.menuItem2.Text = "Edycja";
-            // 
-            // Dodaj_Element
-            // 
-            this.Dodaj_Element.Index = 0;
-            this.Dodaj_Element.Text = "Dodaj ";
-            this.Dodaj_Element.Click += new System.EventHandler(this.Dodaj_Element_Click);
-            // 
-            // Usun_Element
-            // 
-            this.Usun_Element.Index = 1;
-            this.Usun_Element.Text = "Usuń";
-            this.Usun_Element.Click += new System.EventHandler(this.Usun_Element_Click);
-            // 
-            // Edytuj_Element
-            // 
-            this.Edytuj_Element.Index = 2;
-            this.Edytuj_Element.Text = "Edytuj";
-            this.Edytuj_Element.Click += new System.EventHandler(this.Edytuj_Element_Click);
-            // 
-            // menuItem3
-            // 
-            this.menuItem3.Index = 2;
-            this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.Zmien_Widok});
-            this.menuItem3.Text = "Widok";
-            // 
-            // Zmien_Widok
-            // 
-            this.Zmien_Widok.Index = 0;
-            this.Zmien_Widok.Text = "Zmień Widok";
-            this.Zmien_Widok.Click += new System.EventHandler(this.Zmien_Widok_Click);
-            // 
-            // menuItem4
-            // 
-            this.menuItem4.Index = 3;
-            this.menuItem4.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-            this.Instrukcja});
-            this.menuItem4.Text = "Pomoc";
-            // 
-            // Instrukcja
-            // 
-            this.Instrukcja.Index = 0;
-            this.Instrukcja.Text = "Instrukcja";
-            this.Instrukcja.Click += new System.EventHandler(this.Instrukcja_Click);
+            this.Search_Button.Index = 1;
+            this.Search_Button.Text = "Szukaj";
+            this.Search_Button.Click += new System.EventHandler(this.Search_Button_Click);
             // 
             // Podwojny_Kontener
             // 
@@ -167,6 +105,36 @@ namespace PO_Project
             this.Lista_Obrazkow.TabIndex = 0;
             this.Lista_Obrazkow.UseCompatibleStateImageBehavior = false;
             // 
+            // Add_Button
+            // 
+            this.Add_Button.Index = 0;
+            this.Add_Button.Text = "Dodaj";
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
+            // 
+            // Edit_Button
+            // 
+            this.Edit_Button.Index = 1;
+            this.Edit_Button.Text = "Edytuj";
+            this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
+            // 
+            // Delete_Button
+            // 
+            this.Delete_Button.Index = 2;
+            this.Delete_Button.Text = "Usun";
+            this.Delete_Button.Click += new System.EventHandler(this.Delete_Button_Click);
+            // 
+            // Sort_Button
+            // 
+            this.Sort_Button.Index = 2;
+            this.Sort_Button.Text = "Sortuj";
+            this.Sort_Button.Click += new System.EventHandler(this.Sort_Button_Click);
+            // 
+            // Filter_Button
+            // 
+            this.Filter_Button.Index = 3;
+            this.Filter_Button.Text = "Filtruj";
+            this.Filter_Button.Click += new System.EventHandler(this.Filter_Button_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -176,6 +144,7 @@ namespace PO_Project
             this.Controls.Add(this.Podwojny_Kontener);
             this.Menu = this.mainMenu1;
             this.Name = "MainForm";
+            this.ShowIcon = false;
             this.Text = "Domowa Biblioteczka";
             this.Podwojny_Kontener.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Podwojny_Kontener)).EndInit();
@@ -187,18 +156,14 @@ namespace PO_Project
         #endregion
         private System.Windows.Forms.MainMenu mainMenu1;
         private System.Windows.Forms.MenuItem menuItem1;
-        private System.Windows.Forms.MenuItem Nowa_Biblioteka;
-        private System.Windows.Forms.MenuItem Otworz_Biblioteke;
-        private System.Windows.Forms.MenuItem menuItem2;
-        private System.Windows.Forms.MenuItem Dodaj_Element;
-        private System.Windows.Forms.MenuItem Usun_Element;
-        private System.Windows.Forms.MenuItem menuItem3;
-        private System.Windows.Forms.MenuItem menuItem4;
-        private System.Windows.Forms.MenuItem Edytuj_Element;
-        private System.Windows.Forms.MenuItem Zmien_Widok;
-        private System.Windows.Forms.MenuItem Instrukcja;
+        private System.Windows.Forms.MenuItem Search_Button;
         private System.Windows.Forms.SplitContainer Podwojny_Kontener;
         private System.Windows.Forms.ListView Lista_Obrazkow;
+        private System.Windows.Forms.MenuItem Add_Button;
+        private System.Windows.Forms.MenuItem Edit_Button;
+        private System.Windows.Forms.MenuItem Delete_Button;
+        private System.Windows.Forms.MenuItem Sort_Button;
+        private System.Windows.Forms.MenuItem Filter_Button;
     }
 }
 

@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace PO_Project
 {
-    interface IDataWriter
+    interface IDataReader
     {
+    List<IElement> ReadElements();
+
     }
 }

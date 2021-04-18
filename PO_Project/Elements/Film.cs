@@ -8,18 +8,24 @@ namespace PO_Project
 {
     class Film : IElement
     {
+        public Film(string name, Category category, string describtion, TimeSpan running_time, string filelocation, string photo_location, DateTime release_date)
+        {
+            Name = name;
+            Category = category;
+            Describtion = describtion;
+            Running_time = running_time;
+            this.filelocation = filelocation;
+            this.photo_location = photo_location;
+            Release_date = release_date;
+        }
+
         public string Name { get; set; }
         public Category Category { get; set; }
-        public Dictionary<string, byte> Rating { get; set; }
-        public string[] Describtion { get; set; }
-        public string[] Directed_by { get; set; }
-        public string[] Produced_by { get; set; }
-        public string[] Written_by { get; set; }
+        public string Describtion { get; set; }
         public TimeSpan Running_time { get; set; }
         public string filelocation { get; set; }
-        public bool defaultpath { get; set; }
         public string photo_location { get; set; }
-        DateTime Release_date { get; set; }
+        public DateTime Release_date { get; set; }
 
     }
 }
