@@ -32,14 +32,14 @@ namespace PO_Project
             this.components = new System.ComponentModel.Container();
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
-            this.Search_Button = new System.Windows.Forms.MenuItem();
-            this.Podwojny_Kontener = new System.Windows.Forms.SplitContainer();
-            this.Lista_Obrazkow = new System.Windows.Forms.ListView();
             this.Add_Button = new System.Windows.Forms.MenuItem();
             this.Edit_Button = new System.Windows.Forms.MenuItem();
             this.Delete_Button = new System.Windows.Forms.MenuItem();
+            this.Search_Button = new System.Windows.Forms.MenuItem();
             this.Sort_Button = new System.Windows.Forms.MenuItem();
             this.Filter_Button = new System.Windows.Forms.MenuItem();
+            this.Podwojny_Kontener = new System.Windows.Forms.SplitContainer();
+            this.Lista_Obrazkow = new System.Windows.Forms.ListView();
             ((System.ComponentModel.ISupportInitialize)(this.Podwojny_Kontener)).BeginInit();
             this.Podwojny_Kontener.Panel1.SuspendLayout();
             this.Podwojny_Kontener.SuspendLayout();
@@ -62,11 +62,41 @@ namespace PO_Project
             this.Delete_Button});
             this.menuItem1.Text = "Edycja";
             // 
+            // Add_Button
+            // 
+            this.Add_Button.Index = 0;
+            this.Add_Button.Text = "Dodaj";
+            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
+            // 
+            // Edit_Button
+            // 
+            this.Edit_Button.Index = 1;
+            this.Edit_Button.Text = "Edytuj";
+            this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
+            // 
+            // Delete_Button
+            // 
+            this.Delete_Button.Index = 2;
+            this.Delete_Button.Text = "Usun";
+            this.Delete_Button.Click += new System.EventHandler(this.Delete_Button_Click);
+            // 
             // Search_Button
             // 
             this.Search_Button.Index = 1;
             this.Search_Button.Text = "Szukaj";
             this.Search_Button.Click += new System.EventHandler(this.Search_Button_Click);
+            // 
+            // Sort_Button
+            // 
+            this.Sort_Button.Index = 2;
+            this.Sort_Button.Text = "Sortuj";
+            this.Sort_Button.Click += new System.EventHandler(this.Sort_Button_Click);
+            // 
+            // Filter_Button
+            // 
+            this.Filter_Button.Index = 3;
+            this.Filter_Button.Text = "Filtruj";
+            this.Filter_Button.Click += new System.EventHandler(this.Filter_Button_Click);
             // 
             // Podwojny_Kontener
             // 
@@ -104,36 +134,6 @@ namespace PO_Project
             this.Lista_Obrazkow.Size = new System.Drawing.Size(800, 250);
             this.Lista_Obrazkow.TabIndex = 0;
             this.Lista_Obrazkow.UseCompatibleStateImageBehavior = false;
-            // 
-            // Add_Button
-            // 
-            this.Add_Button.Index = 0;
-            this.Add_Button.Text = "Dodaj";
-            this.Add_Button.Click += new System.EventHandler(this.Add_Button_Click);
-            // 
-            // Edit_Button
-            // 
-            this.Edit_Button.Index = 1;
-            this.Edit_Button.Text = "Edytuj";
-            this.Edit_Button.Click += new System.EventHandler(this.Edit_Button_Click);
-            // 
-            // Delete_Button
-            // 
-            this.Delete_Button.Index = 2;
-            this.Delete_Button.Text = "Usun";
-            this.Delete_Button.Click += new System.EventHandler(this.Delete_Button_Click);
-            // 
-            // Sort_Button
-            // 
-            this.Sort_Button.Index = 2;
-            this.Sort_Button.Text = "Sortuj";
-            this.Sort_Button.Click += new System.EventHandler(this.Sort_Button_Click);
-            // 
-            // Filter_Button
-            // 
-            this.Filter_Button.Index = 3;
-            this.Filter_Button.Text = "Filtruj";
-            this.Filter_Button.Click += new System.EventHandler(this.Filter_Button_Click);
             // 
             // MainForm
             // 

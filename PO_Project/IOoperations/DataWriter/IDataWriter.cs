@@ -8,8 +8,7 @@ namespace PO_Project
 {
     interface IDataWriter
     {
-        List<IElement> EditElement();
-        List<IElement> DeleteElement();
-        IElement AddElement();
+        bool Update(List<IElement> element);
+        IElement AddElement(IElement element);
     }
 }
