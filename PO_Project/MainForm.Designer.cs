@@ -1,6 +1,10 @@
 ﻿
 namespace PO_Project
 {
+    /// <summary>
+    /// Main form class
+    /// Contains declarations of controls
+    /// </summary>
     partial class MainForm
     {
         /// <summary>

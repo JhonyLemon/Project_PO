@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace PO_Project
 {
+    /// <summary>
+    /// Base class DataParser
+    /// Contains methods that can be used to convert: IElement to string,string to IElement
+    /// </summary>
+    /// <remarks>
+    /// This class changes variable type
+    /// </remarks>
     class DataParser
     {
         protected IElement Element;
@@ -17,6 +24,13 @@ namespace PO_Project
 
         }
 
+        /// <summary>
+        /// Method parse IElement to string
+        /// </summary>
+        /// <returns>
+        /// Returns a string
+        /// </returns>
+        /// <param name="element">IElement</param>
         public string FromElementToString(IElement element)
         {
             string s="";
@@ -28,7 +42,13 @@ namespace PO_Project
                 return StringBuilder.ToString();
 
         }
-
+        /// <summary>
+        /// Method parse string to IElement
+        /// </summary>
+        /// <returns>
+        /// Returns IElement
+        /// </returns>
+        /// <param name="s">string</param>
         public IElement FromStringToElement(string s)
         {
             string[] vs = s.Split(',');

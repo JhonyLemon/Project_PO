@@ -7,10 +7,23 @@ using System.IO;
 
 namespace PO_Project
 {
+    /// <summary>
+    /// Derived class from base class DataParser
+    /// Contains methods that can be used to load data to file
+    /// </summary>
+    /// <remarks>
+    /// This class writes data into .csv files
+    /// </remarks>
     class DataWriter : DataParser,IDataWriter 
     {
 
-
+        /// <summary>
+        /// Method adds new element at the end of .csv file
+        /// </summary>
+        /// <returns>
+        /// Returns a variable of IElement type
+        /// </returns>
+        /// <param name="element">IElement</param>
         public IElement AddElement(IElement element)
         {
             if (File.Exists(defaultlocation + @"\data.csv"))
@@ -30,7 +43,13 @@ namespace PO_Project
             }
             return element;
         }
-
+        /// <summary>
+        /// Method updates .scv file, loading new data into it
+        /// </summary>
+        /// <returns>
+        /// Returns a bool value,true if updated successfully
+        /// </returns>
+        /// <param name="elements">List of IElement</param>
         public bool Update(List<IElement> elements)
         {
             if (File.Exists(defaultlocation + @"\data.csv"))

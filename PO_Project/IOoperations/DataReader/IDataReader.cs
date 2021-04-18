@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace PO_Project
 {
+    /// <summary>
+    /// IDataReader interface
+    /// Contains methods used by class DataReader
+    /// </summary>
     interface IDataReader
     {
-    List<IElement> ReadElements();
+        /// <summary>
+        /// Read file
+        /// </summary>
+        List<IElement> ReadElements();
 
     }
 }

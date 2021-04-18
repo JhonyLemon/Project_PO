@@ -8,9 +8,22 @@ using System.Globalization;
 
 namespace PO_Project
 {
+    /// <summary>
+    /// Derived class from base class DataParser
+    /// Contains methods that can be used to read from data file
+    /// </summary>
+    /// <remarks>
+    /// This class load .csv files into program
+    /// </remarks>
     class DataReader : DataParser,IDataReader
     {
 
+        /// <summary>
+        /// DataReader constructor
+        /// </summary>
+        /// <remarks>
+        /// Checks if data file is in default location, if not creates new one
+        /// </remarks>
         public DataReader()
         {
             if (!File.Exists(defaultlocation + @"\data.csv"))
@@ -21,6 +34,12 @@ namespace PO_Project
             }
         }
 
+        /// <summary>
+        /// Method that reads .csv file line by line
+        /// </summary>
+        /// <returns>
+        /// Returns a List of IElement type
+        /// </returns>
         public List<IElement> ReadElements()
         {
             List<IElement> elements = new List<IElement>();

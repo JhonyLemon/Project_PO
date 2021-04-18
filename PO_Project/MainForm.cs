@@ -10,11 +10,19 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
+    /// <summary>
+    /// Main form class
+    /// Handles controls events
+    /// </summary>
     public partial class MainForm : Form
     {
         List<IElement> elements = new List<IElement>();
         DataReader Reader = new DataReader();
         DataWriter Writer = new DataWriter();
+        /// <summary>
+        /// MainForm constructor
+        /// Initializes form components and read file with data
+        /// </summary>
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +50,7 @@ namespace PO_Project
 
         private void Search_Button_Click(object sender, EventArgs e)
         {
-
+            SearchBy searchBy = new SearchBy(elements);
         }
 
         private void Sort_Button_Click(object sender, EventArgs e)
