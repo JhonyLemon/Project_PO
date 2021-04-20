@@ -48,6 +48,18 @@ namespace PO_Project
                                 foundElements.Add(element);
                             break;
                         }
+                    case ElementType.Music:
+                        {
+                            if (element is Music)
+                                foundElements.Add(element);
+                            break;
+                        }
+                    case ElementType.Book:
+                        {
+                            if (element is Book)
+                                foundElements.Add(element);
+                            break;
+                        }
                 }
             }
             return foundElements;
@@ -71,6 +83,29 @@ namespace PO_Project
                 }
             }
             return foundElements;
+        }
+
+        /// <summary>
+        /// Method that searches for specific ID
+        /// </summary>
+        /// <returns>
+        /// Returns a List of IElement type
+        /// </returns>
+        /// <param name="ID">string</param>
+        public IElement FindByID(string ID)
+        {
+            foreach (IElement element in elements)
+            {
+                if(element is Film)
+                {
+                    if (element.PhotoID == ID)
+                    {
+                        return element;
+                    }
+                }
+
+            }
+            return null;
         }
     }
 }

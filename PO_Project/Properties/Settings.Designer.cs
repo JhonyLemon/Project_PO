@@ -22,16 +22,5 @@ namespace PO_Project.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\\DataBase\\data" +
-            ".mdf;Integrated Security=True")]
-        public string dataConnectionString {
-            get {
-                return ((string)(this["dataConnectionString"]));
-            }
-        }
     }
 }

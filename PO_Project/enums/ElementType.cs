@@ -11,10 +11,6 @@
         /// </summary>
         Film,
         /// <summary>
-        /// Type for an element is Game
-        /// </summary>
-        Game,
-        /// <summary>
         /// Type for an element is Music
         /// </summary>
         Music,

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace PO_Project
 {
@@ -15,9 +16,9 @@ namespace PO_Project
     /// </remarks>
     class DataParser
     {
-        protected IElement Element;
+        protected IElement element;
         protected string defaultlocation = @"C:\Users\" + Environment.UserName + @"\Documents\FilmLibrary";
-        protected StringBuilder StringBuilder;
+        protected StringBuilder stringBuilder;
 
         public DataParser()
         {
@@ -38,8 +39,20 @@ namespace PO_Project
             {
                 s += element.GetType().ToString()[i];
             }
-            StringBuilder = new StringBuilder( s+ "," + (element as Film).Name + "," + (element as Film).Category.ToString() + "," + (element as Film).Describtion + "," + (element as Film).Running_time.ToString() + "," + (element as Film).filelocation + "," + (element as Film).photo_location + "," + (element as Film).Release_date.ToString() + ",") ;
-                return StringBuilder.ToString();
+            if (s == "Film")
+            {
+                stringBuilder = new StringBuilder(s + ";" + (element as Film).Name + ";" + (element as Film).Category.ToString() + ";" + (element as Film).Description + ";" + (element as Film).Length.ToString() + ";" + (element as Film).FileLocation + ";" + (element as Film).PhotoID + ";" + (element as Film).ReleaseDate.ToString() + ";" + (element as Film).Author);
+            }
+            else if(s=="Book")
+            {
+                stringBuilder = new StringBuilder(s + ";" + (element as Book).Name + ";" + (element as Book).Description + ";" + (element as Book).FileLocation + ";" + (element as Book).PhotoID + ";" + (element as Book).Author);
+
+            }
+            else if(s=="Music")
+            {
+                stringBuilder = new StringBuilder(s + ";" + (element as Music).Name + ";" + (element as Music).Description + ";" + (element as Music).FileLocation + ";" + (element as Music).PhotoID + ";" + (element as Music).Author);
+            }
+            return stringBuilder.ToString();
 
         }
         /// <summary>
@@ -51,7 +64,7 @@ namespace PO_Project
         /// <param name="s">string</param>
         public IElement FromStringToElement(string s)
         {
-            string[] vs = s.Split(',');
+            string[] vs = s.Split(';');
             switch (vs[0])
             {
                 case "Film":
@@ -62,19 +75,50 @@ namespace PO_Project
                         TimeSpan.TryParse(vs[4], out timeSpan);
                         Category category;
                         Enum.TryParse(vs[2], out category);
-                        Element = new Film(vs[1], category, vs[3], timeSpan, vs[5], vs[6], dateTime);
+                        element = new Film(vs[1], category, vs[3], timeSpan, vs[5], vs[6], dateTime,vs[8]);
                         break;
                     }
                 case "Book":
                     {
+                        element = new Book(vs[1], vs[2],vs[3],vs[4],vs[5]);
                         break;
                     }
                 case "Music":
                     {
+                        element = new Music(vs[1], vs[2], vs[3], vs[4], vs[5]);
                         break;
                     }
             }
-            return Element;
+            return element;
+        }
+
+        /// <summary>
+        /// Method parse PhotoData to string
+        /// </summary>
+        /// <returns>
+        /// Returns a string
+        /// </returns>
+        /// <param name="photo">PhotoData</param>
+        public string FromPhotoDataToString(PhotoData photo)
+        {
+            stringBuilder = new StringBuilder(photo.PhotoID+";"+photo.Location);
+            return stringBuilder.ToString();
+        }
+        /// <summary>
+        /// Method parse string to PhotoData
+        /// </summary>
+        /// <returns>
+        /// Returns PhotoData
+        /// </returns>
+        /// <param name="s">string</param>
+        public PhotoData FromStringToPhotoData(string s)
+        {
+            string[] vs = s.Split(';');
+            if (File.Exists(vs[1])==false)
+            {
+                vs[1] = "";
+            }
+            return new PhotoData(vs[0], vs[1]);
         }
     }
 }

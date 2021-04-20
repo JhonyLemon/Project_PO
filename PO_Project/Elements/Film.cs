@@ -12,15 +12,16 @@ namespace PO_Project
     /// </summary>
     class Film : IElement
     {
-        public Film(string name, Category category, string describtion, TimeSpan running_time, string filelocation, string photo_location, DateTime release_date)
+        public Film(string name, Category category, string describtion, TimeSpan running_time, string filelocation, string photo_location, DateTime release_date,string Author)
         {
             Name = name;
             Category = category;
-            Describtion = describtion;
-            Running_time = running_time;
-            this.filelocation = filelocation;
-            this.photo_location = photo_location;
-            Release_date = release_date;
+            Description = describtion;
+            Length = running_time;
+            this.FileLocation = filelocation;
+            this.PhotoID = photo_location;
+            ReleaseDate = release_date;
+            this.Author = Author;
         }
 
         /// <value>Gets or Sets name of the film.</value>
@@ -28,15 +29,16 @@ namespace PO_Project
         /// <value>Gets or Sets the film category.</value>
         public Category Category { get; set; }
         /// <value>Gets or Sets describtion of the film.</value>
-        public string Describtion { get; set; }
+        public string Description { get; set; }
         /// <value>Gets or Sets film lenght.</value>
-        public TimeSpan Running_time { get; set; }
+        public TimeSpan Length { get; set; }
         /// <value>Gets or Sets the film location.</value>
-        public string filelocation { get; set; }
-        /// <value>Gets or Sets the phto/cover location.</value>
-        public string photo_location { get; set; }
+        public string FileLocation { get; set; }
+        /// <value>Gets or Sets the phto/cover ID.</value>
+        public string PhotoID { get; set; }
         /// <value>Gets or Sets the release date of the film.</value>
-        public DateTime Release_date { get; set; }
-
+        public DateTime ReleaseDate { get; set; }
+        /// <value>Gets or Sets the Author of the film.</value>
+        public string Author { get; set; }
     }
 }

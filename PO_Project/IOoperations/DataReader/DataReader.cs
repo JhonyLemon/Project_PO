@@ -32,6 +32,12 @@ namespace PO_Project
                 FileStream fs = File.Create(defaultlocation + @"\data.csv");
                 fs.Dispose();
             }
+            if (!File.Exists(defaultlocation + @"\photodata.csv"))
+            {
+                Directory.CreateDirectory(defaultlocation);
+                FileStream fs = File.Create(defaultlocation + @"\photodata.csv");
+                fs.Dispose();
+            }
         }
 
         /// <summary>
@@ -60,5 +66,32 @@ namespace PO_Project
             }
             return elements;
         }
+        /// <summary>
+        /// Method that reads .csv file line by line
+        /// </summary>
+        /// <returns>
+        /// Returns a List of PhotoData type
+        /// </returns>
+        public List<PhotoData> ReadPhotoData()
+        {
+            List<PhotoData> photodata = new List<PhotoData>();
+            try
+            {
+                TextReader textReader = null;
+                string line = "";
+                textReader = new StreamReader(defaultlocation + @"\photodata.csv");
+                while (!string.IsNullOrEmpty(line = textReader.ReadLine()))
+                {
+                    photodata.Add(FromStringToPhotoData(line));
+                }
+                textReader.Dispose();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Bd odczytu:" + ex.Message);
+            }
+            return photodata;
+        }
+
     }
 }
