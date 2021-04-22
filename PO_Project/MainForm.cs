@@ -16,10 +16,8 @@ namespace PO_Project
     /// </summary>
     public partial class MainForm : Form
     {
-        List<IElement> elements = new List<IElement>();
-        List<PhotoData> photoDatas = new List<PhotoData>();
-        DataReader reader = new DataReader();
-        DataWriter writer = new DataWriter();
+        List<Element> elements = new List<Element>();
+        DataIO fileOperations;
         SearchBy search;
         /// <summary>
         /// MainForm constructor
@@ -28,37 +26,22 @@ namespace PO_Project
         public MainForm()
         {
             InitializeComponent();
-            elements = reader.ReadElements();
-            photoDatas = reader.ReadPhotoData();
+            fileOperations = DataIO.GetInstance();
+            elements = fileOperations.ReadElements();
             search = new SearchBy(elements);
            // elements.Add(new Film("Powrot do przeszlosci",Category.Action,"Film o potworach i wrozkach",TimeSpan.FromHours(2),"","1",DateTime.Today,"Bartek"));
            // photoDatas.Add(new PhotoData("1", "C:\\Users\\Adam\\Downloads\\powrot.jpg"));
            // writer.Update(elements);
            // writer.Update(photoDatas);
-            foreach (PhotoData photoData in photoDatas)
+            foreach (Element element in elements)
             {
-                if(photoData.Photo==null)
-                {
-                    IElement temp = search.FindByID(photoData.PhotoID);
-                    if (temp is Film)
-                    {
-                        photoData.Photo = Properties.Resources.FilmImage;
-                    }
-                    else if (temp is Book)
-                    {
-                        photoData.Photo = Properties.Resources.BookImage;
-                    }
-                    else if (temp is Music)
-                    {
-                        photoData.Photo = Properties.Resources.MusicImage;
-                    }
-                }
-                ImageList.Images.Add(photoData.PhotoID,photoData.Photo);
+                ImageList.Images.Add(element.ID.ToString(),element.Image);
             }
-            foreach (IElement element in elements)
+            foreach (Element element in elements)
             {
-               var ListViewItem = PhotoList.Items.Add(element.Name, element.PhotoID);
+                var ListViewItem = PhotoList.Items.Add(element.Name, element.ID.ToString());
             }
+
         }
 
         private void Add_Button_Click(object sender, EventArgs e)
@@ -70,17 +53,24 @@ namespace PO_Project
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
-         
+            EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            editElementForm.Dispose();//zwolnienie pamieci
+            Receiver receiver = new Receiver(this,elements);
         }
 
         private void Delete_Button_Click(object sender, EventArgs e)
         {
-            elements.RemoveAt(0);
-            writer.Update(elements);
-            foreach (ListViewItem listView in PhotoList.SelectedItems)
-            {
-                elements.Remove(search.FindByID(listView.ImageKey));
-            }
+
+            DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            deleteElement.Dispose();//zwolnienie pamieci
+            //elements.RemoveAt(0);
+            //fileOperations.Update(elements);
+            //foreach (ListViewItem listView in PhotoList.SelectedItems)
+            //{
+            //    elements.Remove(search.FindByID(listView.ImageKey));
+            //}
         }
 
         private void Search_Button_Click(object sender, EventArgs e)
@@ -100,31 +90,23 @@ namespace PO_Project
 
         private void PhotoList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IElement element;
+            Element element;
             PhotoList.Select();
-            foreach(ListViewItem listView in PhotoList.SelectedItems)
+            foreach (ListViewItem listViewitems in Details_ListView.Items)
+                Details_ListView.Items.Remove(listViewitems);
+
+            foreach (ListViewItem listView in PhotoList.SelectedItems)
             {
                 element = search.FindByID(listView.ImageKey);
-                Name_Dynamic.Text = element.Name;
-                Author_Dynamic.Text = element.Author;
-                FileLocation_Dynamic.Text = element.FileLocation;
-                Description_Dynamic.Text = element.Description;
-                if(element is Film)
+                Details_ListView.Items.Add(new ListViewItem(new string[] { "Name", element.Name }));
+                Details_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
+                Details_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
+                Details_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
+                foreach (KeyValuePair<string,string>pairs in element.ExtraAttributes)
                 {
-                    Category_Dynamic.Text = (element as Film).Category.ToString();
-                    Length_Dynamic.Text = (element as Film).Length.ToString();
-                    ReleaseDate_Dynamic.Text=(element as Film).ReleaseDate.ToString();
-                    FileLocation_Dynamic.Text = (element as Film).FileLocation;
-
+                    Details_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key,pairs.Value }));
                 }
-                else if (element is Book)
-                {
 
-                }
-                else if (element is Music)
-                {
-
-                }
 
             }
 

@@ -10,21 +10,15 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
-    public partial class AddElementForm : Form
+    public partial class EditElementForm : Form
     {
-        public AddElementForm()
+        public EditElementForm()
         {
             InitializeComponent();
         }
-
-        private void AddElement_FileLocation_Button_Click(object sender, EventArgs e)
+        public EditElementForm(List<Element> elements)
         {
-
-        }
-
-        private void AddElement_PhotoLocation_Button_Click(object sender, EventArgs e)
-        {
-
+            InitializeComponent();
         }
     }
 }

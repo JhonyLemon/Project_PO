@@ -4,7 +4,7 @@
     /// ElementType enum
     /// Contains all possible elements types
     /// </summary>
-    public enum ElementType
+    public enum TypeOfElement
     {
         /// <summary>
         /// Type for an element is Film
@@ -18,5 +18,6 @@
         /// Type for an element is Book
         /// </summary>
         Book
+
     }
 }
