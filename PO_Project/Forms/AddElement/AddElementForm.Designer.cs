@@ -29,18 +29,14 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddElement_Type_Dynamic = new System.Windows.Forms.ComboBox();
+            this.AddElement_Type_ComboBox = new System.Windows.Forms.ComboBox();
             this.AddElement_Type_Static = new System.Windows.Forms.Label();
             this.AddElement_Name_Static = new System.Windows.Forms.Label();
             this.AddElement_Author_Static = new System.Windows.Forms.Label();
-            this.AddElement_Name_Dynamic = new System.Windows.Forms.TextBox();
-            this.AddElement_Author_Dynamic = new System.Windows.Forms.TextBox();
-            this.AddElement_Category_Static = new System.Windows.Forms.Label();
-            this.AddElement_Category_Dynamic = new System.Windows.Forms.ComboBox();
+            this.AddElement_Name_TextBox = new System.Windows.Forms.TextBox();
+            this.AddElement_Author_TextBox = new System.Windows.Forms.TextBox();
             this.AddElement_Description_Static = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.AddElement_Length_Static = new System.Windows.Forms.Label();
-            this.AddElement_Length_Dynamic = new System.Windows.Forms.DateTimePicker();
             this.Add_Element_ReleaseDate = new System.Windows.Forms.Label();
             this.AddElement_ReleaseDate_Dynamic = new System.Windows.Forms.DateTimePicker();
             this.AddElement_FileLocation_Static = new System.Windows.Forms.Label();
@@ -51,19 +47,22 @@ namespace PO_Project
             this.AddElement_PhotoLocation_Button = new System.Windows.Forms.Button();
             this.AddElement_Add_Button = new System.Windows.Forms.Button();
             this.AdamElement_Exit_Button = new System.Windows.Forms.Button();
+            this.AddElement_ExtraAttributes_Label = new System.Windows.Forms.Label();
+            this.AddElement_ExtraAttributes_ListView = new System.Windows.Forms.ListView();
+            this.ExtraAttributeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.ExtraAttributeValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // AddElement_Type_Dynamic
+            // AddElement_Type_ComboBox
             // 
-            this.AddElement_Type_Dynamic.FormattingEnabled = true;
-            this.AddElement_Type_Dynamic.Items.AddRange(new object[] {
-            "Film",
-            "Book",
-            "Music"});
-            this.AddElement_Type_Dynamic.Location = new System.Drawing.Point(286, 9);
-            this.AddElement_Type_Dynamic.Name = "AddElement_Type_Dynamic";
-            this.AddElement_Type_Dynamic.Size = new System.Drawing.Size(115, 21);
-            this.AddElement_Type_Dynamic.TabIndex = 0;
+            this.AddElement_Type_ComboBox.FormattingEnabled = true;
+            this.AddElement_Type_ComboBox.Location = new System.Drawing.Point(286, 9);
+            this.AddElement_Type_ComboBox.Name = "AddElement_Type_ComboBox";
+            this.AddElement_Type_ComboBox.Size = new System.Drawing.Size(115, 21);
+            this.AddElement_Type_ComboBox.TabIndex = 0;
             // 
             // AddElement_Type_Static
             // 
@@ -95,46 +94,25 @@ namespace PO_Project
             this.AddElement_Author_Static.TabIndex = 3;
             this.AddElement_Author_Static.Text = "Autor:";
             // 
-            // AddElement_Name_Dynamic
+            // AddElement_Name_TextBox
             // 
-            this.AddElement_Name_Dynamic.Location = new System.Drawing.Point(286, 46);
-            this.AddElement_Name_Dynamic.Name = "AddElement_Name_Dynamic";
-            this.AddElement_Name_Dynamic.Size = new System.Drawing.Size(115, 20);
-            this.AddElement_Name_Dynamic.TabIndex = 4;
+            this.AddElement_Name_TextBox.Location = new System.Drawing.Point(286, 46);
+            this.AddElement_Name_TextBox.Name = "AddElement_Name_TextBox";
+            this.AddElement_Name_TextBox.Size = new System.Drawing.Size(115, 20);
+            this.AddElement_Name_TextBox.TabIndex = 4;
             // 
-            // AddElement_Author_Dynamic
+            // AddElement_Author_TextBox
             // 
-            this.AddElement_Author_Dynamic.Location = new System.Drawing.Point(286, 83);
-            this.AddElement_Author_Dynamic.Name = "AddElement_Author_Dynamic";
-            this.AddElement_Author_Dynamic.Size = new System.Drawing.Size(115, 20);
-            this.AddElement_Author_Dynamic.TabIndex = 5;
-            // 
-            // AddElement_Category_Static
-            // 
-            this.AddElement_Category_Static.AutoSize = true;
-            this.AddElement_Category_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Category_Static.Location = new System.Drawing.Point(16, 119);
-            this.AddElement_Category_Static.Name = "AddElement_Category_Static";
-            this.AddElement_Category_Static.Size = new System.Drawing.Size(97, 22);
-            this.AddElement_Category_Static.TabIndex = 6;
-            this.AddElement_Category_Static.Text = "Kategoria:";
-            // 
-            // AddElement_Category_Dynamic
-            // 
-            this.AddElement_Category_Dynamic.FormattingEnabled = true;
-            this.AddElement_Category_Dynamic.Items.AddRange(new object[] {
-            "Action",
-            "Fantasy"});
-            this.AddElement_Category_Dynamic.Location = new System.Drawing.Point(286, 119);
-            this.AddElement_Category_Dynamic.Name = "AddElement_Category_Dynamic";
-            this.AddElement_Category_Dynamic.Size = new System.Drawing.Size(115, 21);
-            this.AddElement_Category_Dynamic.TabIndex = 7;
+            this.AddElement_Author_TextBox.Location = new System.Drawing.Point(286, 83);
+            this.AddElement_Author_TextBox.Name = "AddElement_Author_TextBox";
+            this.AddElement_Author_TextBox.Size = new System.Drawing.Size(115, 20);
+            this.AddElement_Author_TextBox.TabIndex = 5;
             // 
             // AddElement_Description_Static
             // 
             this.AddElement_Description_Static.AutoSize = true;
             this.AddElement_Description_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Description_Static.Location = new System.Drawing.Point(12, 161);
+            this.AddElement_Description_Static.Location = new System.Drawing.Point(12, 122);
             this.AddElement_Description_Static.Name = "AddElement_Description_Static";
             this.AddElement_Description_Static.Size = new System.Drawing.Size(53, 22);
             this.AddElement_Description_Static.TabIndex = 8;
@@ -142,39 +120,17 @@ namespace PO_Project
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(286, 161);
+            this.textBox1.Location = new System.Drawing.Point(286, 122);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(115, 20);
             this.textBox1.TabIndex = 9;
             // 
-            // AddElement_Length_Static
-            // 
-            this.AddElement_Length_Static.AutoSize = true;
-            this.AddElement_Length_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Length_Static.Location = new System.Drawing.Point(12, 210);
-            this.AddElement_Length_Static.Name = "AddElement_Length_Static";
-            this.AddElement_Length_Static.Size = new System.Drawing.Size(123, 22);
-            this.AddElement_Length_Static.TabIndex = 10;
-            this.AddElement_Length_Static.Text = "Czas trwania:";
-            // 
-            // AddElement_Length_Dynamic
-            // 
-            this.AddElement_Length_Dynamic.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.AddElement_Length_Dynamic.Location = new System.Drawing.Point(286, 212);
-            this.AddElement_Length_Dynamic.MaxDate = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
-            this.AddElement_Length_Dynamic.MinDate = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
-            this.AddElement_Length_Dynamic.Name = "AddElement_Length_Dynamic";
-            this.AddElement_Length_Dynamic.ShowUpDown = true;
-            this.AddElement_Length_Dynamic.Size = new System.Drawing.Size(115, 20);
-            this.AddElement_Length_Dynamic.TabIndex = 11;
-            this.AddElement_Length_Dynamic.Value = new System.DateTime(2000, 12, 31, 0, 0, 0, 0);
-            // 
             // Add_Element_ReleaseDate
             // 
             this.Add_Element_ReleaseDate.AutoSize = true;
             this.Add_Element_ReleaseDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Add_Element_ReleaseDate.Location = new System.Drawing.Point(12, 262);
+            this.Add_Element_ReleaseDate.Location = new System.Drawing.Point(12, 165);
             this.Add_Element_ReleaseDate.Name = "Add_Element_ReleaseDate";
             this.Add_Element_ReleaseDate.Size = new System.Drawing.Size(128, 22);
             this.Add_Element_ReleaseDate.TabIndex = 12;
@@ -183,7 +139,7 @@ namespace PO_Project
             // AddElement_ReleaseDate_Dynamic
             // 
             this.AddElement_ReleaseDate_Dynamic.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AddElement_ReleaseDate_Dynamic.Location = new System.Drawing.Point(286, 264);
+            this.AddElement_ReleaseDate_Dynamic.Location = new System.Drawing.Point(286, 167);
             this.AddElement_ReleaseDate_Dynamic.Name = "AddElement_ReleaseDate_Dynamic";
             this.AddElement_ReleaseDate_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_ReleaseDate_Dynamic.TabIndex = 13;
@@ -193,7 +149,7 @@ namespace PO_Project
             // 
             this.AddElement_FileLocation_Static.AutoSize = true;
             this.AddElement_FileLocation_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_FileLocation_Static.Location = new System.Drawing.Point(12, 312);
+            this.AddElement_FileLocation_Static.Location = new System.Drawing.Point(12, 204);
             this.AddElement_FileLocation_Static.Name = "AddElement_FileLocation_Static";
             this.AddElement_FileLocation_Static.Size = new System.Drawing.Size(157, 22);
             this.AddElement_FileLocation_Static.TabIndex = 14;
@@ -201,14 +157,14 @@ namespace PO_Project
             // 
             // AddElement_FileLocation_Dynamic
             // 
-            this.AddElement_FileLocation_Dynamic.Location = new System.Drawing.Point(286, 312);
+            this.AddElement_FileLocation_Dynamic.Location = new System.Drawing.Point(286, 207);
             this.AddElement_FileLocation_Dynamic.Name = "AddElement_FileLocation_Dynamic";
             this.AddElement_FileLocation_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_FileLocation_Dynamic.TabIndex = 15;
             // 
             // AddElement_FileLocation_Button
             // 
-            this.AddElement_FileLocation_Button.Location = new System.Drawing.Point(407, 312);
+            this.AddElement_FileLocation_Button.Location = new System.Drawing.Point(407, 207);
             this.AddElement_FileLocation_Button.Name = "AddElement_FileLocation_Button";
             this.AddElement_FileLocation_Button.Size = new System.Drawing.Size(26, 20);
             this.AddElement_FileLocation_Button.TabIndex = 16;
@@ -220,7 +176,7 @@ namespace PO_Project
             // 
             this.AddElement_PhotoLocation_Static.AutoSize = true;
             this.AddElement_PhotoLocation_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_PhotoLocation_Static.Location = new System.Drawing.Point(12, 364);
+            this.AddElement_PhotoLocation_Static.Location = new System.Drawing.Point(12, 246);
             this.AddElement_PhotoLocation_Static.Name = "AddElement_PhotoLocation_Static";
             this.AddElement_PhotoLocation_Static.Size = new System.Drawing.Size(240, 22);
             this.AddElement_PhotoLocation_Static.TabIndex = 17;
@@ -228,14 +184,14 @@ namespace PO_Project
             // 
             // AddElement_PhotoLocation_Dynamic
             // 
-            this.AddElement_PhotoLocation_Dynamic.Location = new System.Drawing.Point(286, 364);
+            this.AddElement_PhotoLocation_Dynamic.Location = new System.Drawing.Point(286, 249);
             this.AddElement_PhotoLocation_Dynamic.Name = "AddElement_PhotoLocation_Dynamic";
             this.AddElement_PhotoLocation_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_PhotoLocation_Dynamic.TabIndex = 18;
             // 
             // AddElement_PhotoLocation_Button
             // 
-            this.AddElement_PhotoLocation_Button.Location = new System.Drawing.Point(407, 364);
+            this.AddElement_PhotoLocation_Button.Location = new System.Drawing.Point(407, 249);
             this.AddElement_PhotoLocation_Button.Name = "AddElement_PhotoLocation_Button";
             this.AddElement_PhotoLocation_Button.Size = new System.Drawing.Size(26, 20);
             this.AddElement_PhotoLocation_Button.TabIndex = 19;
@@ -246,29 +202,104 @@ namespace PO_Project
             // AddElement_Add_Button
             // 
             this.AddElement_Add_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Add_Button.Location = new System.Drawing.Point(12, 400);
+            this.AddElement_Add_Button.Location = new System.Drawing.Point(12, 476);
             this.AddElement_Add_Button.Name = "AddElement_Add_Button";
-            this.AddElement_Add_Button.Size = new System.Drawing.Size(105, 38);
+            this.AddElement_Add_Button.Size = new System.Drawing.Size(157, 38);
             this.AddElement_Add_Button.TabIndex = 20;
-            this.AddElement_Add_Button.Text = "Dodaj";
+            this.AddElement_Add_Button.Text = "Dodaj element";
             this.AddElement_Add_Button.UseVisualStyleBackColor = true;
             // 
             // AdamElement_Exit_Button
             // 
             this.AdamElement_Exit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AdamElement_Exit_Button.Location = new System.Drawing.Point(437, 400);
+            this.AdamElement_Exit_Button.Location = new System.Drawing.Point(437, 476);
             this.AdamElement_Exit_Button.Name = "AdamElement_Exit_Button";
             this.AdamElement_Exit_Button.Size = new System.Drawing.Size(105, 38);
             this.AdamElement_Exit_Button.TabIndex = 21;
             this.AdamElement_Exit_Button.Text = "Anuluj";
             this.AdamElement_Exit_Button.UseVisualStyleBackColor = true;
             // 
+            // AddElement_ExtraAttributes_Label
+            // 
+            this.AddElement_ExtraAttributes_Label.AutoSize = true;
+            this.AddElement_ExtraAttributes_Label.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddElement_ExtraAttributes_Label.Location = new System.Drawing.Point(16, 291);
+            this.AddElement_ExtraAttributes_Label.Name = "AddElement_ExtraAttributes_Label";
+            this.AddElement_ExtraAttributes_Label.Size = new System.Drawing.Size(509, 22);
+            this.AddElement_ExtraAttributes_Label.TabIndex = 23;
+            this.AddElement_ExtraAttributes_Label.Text = "Dodatkowe atrybuty ktorymi można opisać wybrany element:";
+            // 
+            // AddElement_ExtraAttributes_ListView
+            // 
+            this.AddElement_ExtraAttributes_ListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.AddElement_ExtraAttributes_ListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.ExtraAttributeName,
+            this.ExtraAttributeValue});
+            this.AddElement_ExtraAttributes_ListView.GridLines = true;
+            this.AddElement_ExtraAttributes_ListView.HideSelection = false;
+            this.AddElement_ExtraAttributes_ListView.ImeMode = System.Windows.Forms.ImeMode.On;
+            this.AddElement_ExtraAttributes_ListView.LabelWrap = false;
+            this.AddElement_ExtraAttributes_ListView.Location = new System.Drawing.Point(12, 317);
+            this.AddElement_ExtraAttributes_ListView.MultiSelect = false;
+            this.AddElement_ExtraAttributes_ListView.Name = "AddElement_ExtraAttributes_ListView";
+            this.AddElement_ExtraAttributes_ListView.Size = new System.Drawing.Size(530, 108);
+            this.AddElement_ExtraAttributes_ListView.TabIndex = 24;
+            this.AddElement_ExtraAttributes_ListView.UseCompatibleStateImageBehavior = false;
+            this.AddElement_ExtraAttributes_ListView.View = System.Windows.Forms.View.Details;
+            this.AddElement_ExtraAttributes_ListView.SelectedIndexChanged += new System.EventHandler(this.AddElement_ExtraAttributes_ListView_SelectedIndexChanged);
+            this.AddElement_ExtraAttributes_ListView.DoubleClick += new System.EventHandler(this.AddElement_ExtraAttributes_ListView_DoubleClick);
+            // 
+            // ExtraAttributeName
+            // 
+            this.ExtraAttributeName.Text = "Nazwa dodatkowych atrybutów";
+            this.ExtraAttributeName.Width = 167;
+            // 
+            // ExtraAttributeValue
+            // 
+            this.ExtraAttributeValue.Text = "Wartość";
+            this.ExtraAttributeValue.Width = 363;
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button1.Location = new System.Drawing.Point(12, 431);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 38);
+            this.button1.TabIndex = 25;
+            this.button1.Text = "Dodaj atrybut";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button2.Location = new System.Drawing.Point(397, 431);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(145, 38);
+            this.button2.TabIndex = 26;
+            this.button2.Text = "Usuń atrybut";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.button3.Location = new System.Drawing.Point(193, 431);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(145, 38);
+            this.button3.TabIndex = 27;
+            this.button3.Text = "Edytuj atrybut";
+            this.button3.UseVisualStyleBackColor = true;
+            // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(554, 450);
+            this.ClientSize = new System.Drawing.Size(554, 526);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddElement_ExtraAttributes_ListView);
+            this.Controls.Add(this.AddElement_ExtraAttributes_Label);
             this.Controls.Add(this.AdamElement_Exit_Button);
             this.Controls.Add(this.AddElement_Add_Button);
             this.Controls.Add(this.AddElement_PhotoLocation_Button);
@@ -279,40 +310,34 @@ namespace PO_Project
             this.Controls.Add(this.AddElement_FileLocation_Static);
             this.Controls.Add(this.AddElement_ReleaseDate_Dynamic);
             this.Controls.Add(this.Add_Element_ReleaseDate);
-            this.Controls.Add(this.AddElement_Length_Dynamic);
-            this.Controls.Add(this.AddElement_Length_Static);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.AddElement_Description_Static);
-            this.Controls.Add(this.AddElement_Category_Dynamic);
-            this.Controls.Add(this.AddElement_Category_Static);
-            this.Controls.Add(this.AddElement_Author_Dynamic);
-            this.Controls.Add(this.AddElement_Name_Dynamic);
+            this.Controls.Add(this.AddElement_Author_TextBox);
+            this.Controls.Add(this.AddElement_Name_TextBox);
             this.Controls.Add(this.AddElement_Author_Static);
             this.Controls.Add(this.AddElement_Name_Static);
             this.Controls.Add(this.AddElement_Type_Static);
-            this.Controls.Add(this.AddElement_Type_Dynamic);
+            this.Controls.Add(this.AddElement_Type_ComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddElementForm";
             this.ShowIcon = false;
+            this.Text = "Dodawanie elementu";
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
+
         #endregion
 
-        private System.Windows.Forms.ComboBox AddElement_Type_Dynamic;
+        private System.Windows.Forms.ComboBox AddElement_Type_ComboBox;
         private System.Windows.Forms.Label AddElement_Type_Static;
         private System.Windows.Forms.Label AddElement_Name_Static;
         private System.Windows.Forms.Label AddElement_Author_Static;
-        private System.Windows.Forms.TextBox AddElement_Name_Dynamic;
-        private System.Windows.Forms.TextBox AddElement_Author_Dynamic;
-        private System.Windows.Forms.Label AddElement_Category_Static;
-        private System.Windows.Forms.ComboBox AddElement_Category_Dynamic;
+        private System.Windows.Forms.TextBox AddElement_Name_TextBox;
+        private System.Windows.Forms.TextBox AddElement_Author_TextBox;
         private System.Windows.Forms.Label AddElement_Description_Static;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label AddElement_Length_Static;
-        private System.Windows.Forms.DateTimePicker AddElement_Length_Dynamic;
         private System.Windows.Forms.Label Add_Element_ReleaseDate;
         private System.Windows.Forms.DateTimePicker AddElement_ReleaseDate_Dynamic;
         private System.Windows.Forms.Label AddElement_FileLocation_Static;
@@ -323,5 +348,12 @@ namespace PO_Project
         private System.Windows.Forms.Button AddElement_PhotoLocation_Button;
         private System.Windows.Forms.Button AddElement_Add_Button;
         private System.Windows.Forms.Button AdamElement_Exit_Button;
+        private System.Windows.Forms.Label AddElement_ExtraAttributes_Label;
+        private System.Windows.Forms.ListView AddElement_ExtraAttributes_ListView;
+        private System.Windows.Forms.ColumnHeader ExtraAttributeName;
+        private System.Windows.Forms.ColumnHeader ExtraAttributeValue;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

@@ -15,10 +15,10 @@ namespace PO_Project
         /// <summary>
         /// Loads changes into file
         /// </summary>
-        bool Update(List<IElement> element);
+        bool Update(List<Element> element);
         /// <summary>
         /// Add new element at the end of the file
         /// </summary>
-        IElement AddElement(IElement element);
+        Element AddElement(Element element);
     }
 }

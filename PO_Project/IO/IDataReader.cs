@@ -15,7 +15,7 @@ namespace PO_Project
         /// <summary>
         /// Read file
         /// </summary>
-        List<IElement> ReadElements();
+        List<Element> ReadElements();
 
     }
 }
