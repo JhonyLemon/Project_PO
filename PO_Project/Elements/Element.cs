@@ -9,17 +9,19 @@ namespace PO_Project
 {
     public class Element : IElement
     {
-        public Element(string elementType, string name, string fileLocation, string photoLocation, int ID, string author, string description, Dictionary<string, string> extraAttributes)
+        public Element(string elementType, int ID, Dictionary<string, string> extraAttributes)
         {
             this.ElementType = elementType;
-            Name = name;
-            FileLocation = fileLocation;
-            PhotoLocation = photoLocation;
             this.ID = ID;
-            Author = author;
-            Description = description;
             ExtraAttributes = extraAttributes;
-            if (photoLocation == "")
+            //ExtraAttributes.Add("Nazwa", name);
+            //ExtraAttributes.Add("Autor", author);
+            //ExtraAttributes.Add("Opis", description);
+            //ExtraAttributes.Add("Lokacja pliku", fileLocation);
+            //ExtraAttributes.Add("Lokacja zdjecia", photoLocation);
+            //foreach (KeyValuePair<string, string> pair in extraAttributes)
+            //    ExtraAttributes.Add(pair.Key, pair.Value);
+            if (ExtraAttributes["Lokacja zdjecia"] == "")
             {
                 if (this.ElementType == TypeOfElement.Film.ToString())
                     Image = Properties.Resources.FilmImage;
@@ -31,16 +33,11 @@ namespace PO_Project
                     Image = Properties.Resources.PhotoNotFound;
             }
             else
-                Image = Image.FromFile(PhotoLocation);
+                Image = Image.FromFile(ExtraAttributes["Lokacja zdjecia"]);
         }
         public string ElementType { get; set; }
-        public string Name { get; set; }
-        public string FileLocation { get; set; }
-        public string PhotoLocation { get; set; }
         public int ID { get; set; }
         public Image Image { get; set; }
-        public string Author { get; set; }
-        public string Description { get; set; }
         public Dictionary<string,string> ExtraAttributes { get; set; }
     }
 }

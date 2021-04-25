@@ -39,7 +39,7 @@ namespace PO_Project
             }
             foreach (Element element in elements)
             {
-                var ListViewItem = PhotoList.Items.Add(element.Name, element.ID.ToString());
+                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
             }
 
         }
@@ -56,7 +56,17 @@ namespace PO_Project
             EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             editElementForm.Dispose();//zwolnienie pamieci
-            Receiver receiver = new Receiver(this,elements);
+            //Receiver receiver = new Receiver(this,elements);
+            fileOperations.Update(elements);
+            PhotoList.Items.Clear();
+            foreach (Element element in elements)
+            {
+                ImageList.Images.Add(element.ID.ToString(), element.Image);
+            }
+            foreach (Element element in elements)
+            {
+                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
+            }
         }
 
         private void Delete_Button_Click(object sender, EventArgs e)
@@ -65,12 +75,23 @@ namespace PO_Project
             DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             deleteElement.Dispose();//zwolnienie pamieci
-            //elements.RemoveAt(0);
-            //fileOperations.Update(elements);
-            //foreach (ListViewItem listView in PhotoList.SelectedItems)
-            //{
-            //    elements.Remove(search.FindByID(listView.ImageKey));
-            //}
+                                    //elements.RemoveAt(0);
+                                    //fileOperations.Update(elements);
+                                    //foreach (ListViewItem listView in PhotoList.SelectedItems)
+                                    //{
+                                    //    elements.Remove(search.FindByID(listView.ImageKey));
+                                    //}
+            fileOperations.Update(elements);
+            PhotoList.Items.Clear();
+            foreach (Element element in elements)
+            {
+                ImageList.Images.Add(element.ID.ToString(), element.Image);
+            }
+            foreach (Element element in elements)
+            {
+                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
+            }
+
         }
 
         private void Search_Button_Click(object sender, EventArgs e)
@@ -98,20 +119,42 @@ namespace PO_Project
             foreach (ListViewItem listView in PhotoList.SelectedItems)
             {
                 element = search.FindByID(listView.ImageKey);
-                Details_ListView.Items.Add(new ListViewItem(new string[] { "Name", element.Name }));
-                Details_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
-                Details_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
-                Details_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
+               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Name", element.Name }));
+               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
+               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
+               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
                 foreach (KeyValuePair<string,string>pairs in element.ExtraAttributes)
                 {
                     Details_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key,pairs.Value }));
                 }
-
-
             }
 
 
             
+        }
+
+        private void PhotoList_DoubleClick(object sender, EventArgs e)
+        {
+            Element element;
+            PhotoList.Select();
+            foreach (ListViewItem listViewitems in Details_ListView.Items)
+                Details_ListView.Items.Remove(listViewitems);
+
+            foreach (ListViewItem listView in PhotoList.SelectedItems)
+            {
+                element = search.FindByID(listView.ImageKey);
+                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Name", element.Name }));
+                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
+                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
+                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
+                foreach (KeyValuePair<string, string> pairs in element.ExtraAttributes)
+                {
+                    Details_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key, pairs.Value }));
+                }
+                if (element != null && !element.ExtraAttributes["Lokacja pliku"].Equals(""))
+                    fileOperations.Open(element.ExtraAttributes["Lokacja pliku"]);
+            }
+
         }
     }
 }

@@ -19,6 +19,7 @@ namespace PO_Project
         /// List of type IElement
         /// </summary>
         protected List<Element> elements;
+        private Element foundElements;
 
         /// <summary>
         /// SearchBy constructor
@@ -53,14 +54,14 @@ namespace PO_Project
         /// Returns a List of IElement type
         /// </returns>
         /// <param name="name">string</param>
-        public List<IElement> FindByName(string name)
+        public Element FindByName(string name)
         {
-            List<IElement> foundElements = new List<IElement>();
-            foreach (IElement element in elements)
+
+            foreach (Element element in elements)
             {
-                if (element.Name == name)
+                if (element.ExtraAttributes["Nazwa"]==name)
                 {
-                    foundElements.Add(element);
+                    foundElements=element;
                 }
             }
             return foundElements;

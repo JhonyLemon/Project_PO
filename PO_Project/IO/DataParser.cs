@@ -34,7 +34,12 @@ namespace PO_Project
         /// <param name="element">IElement</param>
         public string FromElementToString(Element element)
         {
-                stringBuilder = new StringBuilder(element.ElementType + ";" + element.Name + ";" + element.FileLocation + ";" + element.PhotoLocation + ";" + element.ID.ToString() + ";"+ element.Author + ";" + element.Description + ";" + element.ExtraAttributes.ToString());
+
+            stringBuilder = new StringBuilder(element.ElementType +";"+ element.ID.ToString());
+            foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
+            {
+                stringBuilder.Append(";" + pair.Key + ";" + pair.Value);
+            }
             return stringBuilder.ToString();
 
         }
@@ -56,15 +61,15 @@ namespace PO_Project
             // Category category;
             // Enum.TryParse(vs[2], out category);
             int id;
-            Int32.TryParse(vs[4], out id);
-            for(int i=7; i<vs.Length; i++)
+            Int32.TryParse(vs[1], out id);
+            for(int i=2; i<vs.Length; i=i+2)
             {
                 if ((i + 1) < vs.Length)
                 {
                     pairs.Add(vs[i], vs[i + 1]);
                 }
             }
-                        element = new Element(vs[0],vs[1],vs[2],vs[3],id,vs[5],vs[6],pairs);
+                        element = new Element(vs[0],id,pairs);
             return element;
         }
 

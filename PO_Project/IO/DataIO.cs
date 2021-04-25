@@ -117,6 +117,10 @@ namespace PO_Project
             }
             return element;
         }
+        public void Open(string path)
+        {
+            System.Diagnostics.Process.Start(path);
+        }
 
     }
 }
