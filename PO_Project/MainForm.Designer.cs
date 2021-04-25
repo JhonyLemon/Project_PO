@@ -136,7 +136,7 @@ namespace PO_Project
             // 
             // PhotoList
             // 
-            this.PhotoList.BackColor = System.Drawing.Color.DarkRed;
+            this.PhotoList.BackColor = System.Drawing.Color.Crimson;
             this.PhotoList.BackgroundImageTiled = true;
             this.PhotoList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PhotoList.GridLines = true;
@@ -149,6 +149,7 @@ namespace PO_Project
             this.PhotoList.TabIndex = 0;
             this.PhotoList.UseCompatibleStateImageBehavior = false;
             this.PhotoList.SelectedIndexChanged += new System.EventHandler(this.PhotoList_SelectedIndexChanged);
+            this.PhotoList.DoubleClick += new System.EventHandler(this.PhotoList_DoubleClick);
             // 
             // ImageList
             // 

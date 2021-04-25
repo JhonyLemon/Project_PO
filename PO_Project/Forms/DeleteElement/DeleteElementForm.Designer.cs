@@ -29,7 +29,6 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.DeleteElement_ComboBox = new System.Windows.Forms.ComboBox();
             this.AddElement_Type_Static = new System.Windows.Forms.Label();
             this.DeleteElement_Delete_Button = new System.Windows.Forms.Button();
@@ -38,11 +37,7 @@ namespace PO_Project
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.DeleteElement_ImageBox = new System.Windows.Forms.PictureBox();
-            this.mainFormBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.mainFormBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DeleteElement_ImageBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // DeleteElement_ComboBox
@@ -52,6 +47,7 @@ namespace PO_Project
             this.DeleteElement_ComboBox.Name = "DeleteElement_ComboBox";
             this.DeleteElement_ComboBox.Size = new System.Drawing.Size(387, 21);
             this.DeleteElement_ComboBox.TabIndex = 0;
+            this.DeleteElement_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.DeleteElement_ComboBox_SelectionChangeCommitted);
             // 
             // AddElement_Type_Static
             // 
@@ -65,8 +61,9 @@ namespace PO_Project
             // 
             // DeleteElement_Delete_Button
             // 
+            this.DeleteElement_Delete_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.DeleteElement_Delete_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteElement_Delete_Button.Location = new System.Drawing.Point(12, 400);
+            this.DeleteElement_Delete_Button.Location = new System.Drawing.Point(12, 397);
             this.DeleteElement_Delete_Button.Name = "DeleteElement_Delete_Button";
             this.DeleteElement_Delete_Button.Size = new System.Drawing.Size(157, 38);
             this.DeleteElement_Delete_Button.TabIndex = 21;
@@ -76,8 +73,9 @@ namespace PO_Project
             // 
             // DeleteElement_Cancel_Button
             // 
+            this.DeleteElement_Cancel_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteElement_Cancel_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DeleteElement_Cancel_Button.Location = new System.Drawing.Point(631, 400);
+            this.DeleteElement_Cancel_Button.Location = new System.Drawing.Point(645, 397);
             this.DeleteElement_Cancel_Button.Name = "DeleteElement_Cancel_Button";
             this.DeleteElement_Cancel_Button.Size = new System.Drawing.Size(157, 38);
             this.DeleteElement_Cancel_Button.TabIndex = 22;
@@ -87,13 +85,16 @@ namespace PO_Project
             // 
             // DeleteElement_ListView
             // 
+            this.DeleteElement_ListView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.DeleteElement_ListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2});
+            this.DeleteElement_ListView.GridLines = true;
             this.DeleteElement_ListView.HideSelection = false;
             this.DeleteElement_ListView.Location = new System.Drawing.Point(12, 104);
             this.DeleteElement_ListView.Name = "DeleteElement_ListView";
-            this.DeleteElement_ListView.Size = new System.Drawing.Size(387, 274);
+            this.DeleteElement_ListView.Size = new System.Drawing.Size(387, 271);
             this.DeleteElement_ListView.TabIndex = 24;
             this.DeleteElement_ListView.UseCompatibleStateImageBehavior = false;
             this.DeleteElement_ListView.View = System.Windows.Forms.View.Details;
@@ -111,38 +112,33 @@ namespace PO_Project
             // 
             // DeleteElement_ImageBox
             // 
+            this.DeleteElement_ImageBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.DeleteElement_ImageBox.Location = new System.Drawing.Point(416, 12);
             this.DeleteElement_ImageBox.Name = "DeleteElement_ImageBox";
-            this.DeleteElement_ImageBox.Size = new System.Drawing.Size(372, 366);
+            this.DeleteElement_ImageBox.Size = new System.Drawing.Size(372, 363);
             this.DeleteElement_ImageBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.DeleteElement_ImageBox.TabIndex = 23;
             this.DeleteElement_ImageBox.TabStop = false;
-            // 
-            // mainFormBindingSource
-            // 
-            this.mainFormBindingSource.DataSource = typeof(PO_Project.MainForm);
-            // 
-            // mainFormBindingSource1
-            // 
-            this.mainFormBindingSource1.DataSource = typeof(PO_Project.MainForm);
             // 
             // DeleteElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkRed;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BackColor = System.Drawing.Color.Crimson;
+            this.ClientSize = new System.Drawing.Size(814, 447);
             this.Controls.Add(this.DeleteElement_ListView);
             this.Controls.Add(this.DeleteElement_ImageBox);
             this.Controls.Add(this.DeleteElement_Cancel_Button);
             this.Controls.Add(this.DeleteElement_Delete_Button);
             this.Controls.Add(this.AddElement_Type_Static);
             this.Controls.Add(this.DeleteElement_ComboBox);
+            this.MinimumSize = new System.Drawing.Size(830, 486);
             this.Name = "DeleteElementForm";
             this.Text = "Usuń wybrany element";
             ((System.ComponentModel.ISupportInitialize)(this.DeleteElement_ImageBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.mainFormBindingSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -156,8 +152,6 @@ namespace PO_Project
         private System.Windows.Forms.Button DeleteElement_Cancel_Button;
         private System.Windows.Forms.PictureBox DeleteElement_ImageBox;
         private System.Windows.Forms.ListView DeleteElement_ListView;
-        private System.Windows.Forms.BindingSource mainFormBindingSource;
-        private System.Windows.Forms.BindingSource mainFormBindingSource1;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
     }

@@ -62,13 +62,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\AddAttributeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddAttributeDialog.Designer.cs">
+      <DependentUpon>AddAttributeDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="CommandOperations\Commands\AddElementCommand.cs" />
     <Compile Include="CommandOperations\Commands\ICommand.cs" />
     <Compile Include="CommandOperations\Invoker.cs" />
-    <Compile Include="Forms\DeleteElementForm.cs">
+    <Compile Include="Forms\EditElement\EditElementDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\DeleteElementForm.Designer.cs">
+    <Compile Include="Forms\EditElement\EditElementDialogForm.Designer.cs">
+      <DependentUpon>EditElementDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteElement\DeleteElementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteElement\DeleteElementForm.Designer.cs">
       <DependentUpon>DeleteElementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditElement\EditElementForm.cs">
@@ -101,10 +113,16 @@
     <Compile Include="IO\IDataWriter.cs" />
     <Compile Include="Catalogue\SearchBy.cs" />
     <Compile Include="CommandOperations\Receiver.cs" />
+    <EmbeddedResource Include="Forms\AddAttributeDialog.resx">
+      <DependentUpon>AddAttributeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditElement\EditElementDialogForm.resx">
+      <DependentUpon>EditElementDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddElement\AddElementForm.resx">
       <DependentUpon>AddElementForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\DeleteElementForm.resx">
+    <EmbeddedResource Include="Forms\DeleteElement\DeleteElementForm.resx">
       <DependentUpon>DeleteElementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditElement\EditElementForm.resx">
@@ -118,7 +136,6 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Properties\DataSources\MainForm.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

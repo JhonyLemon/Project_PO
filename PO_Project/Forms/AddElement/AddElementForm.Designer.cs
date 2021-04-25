@@ -46,18 +46,21 @@ namespace PO_Project
             this.AddElement_PhotoLocation_Dynamic = new System.Windows.Forms.TextBox();
             this.AddElement_PhotoLocation_Button = new System.Windows.Forms.Button();
             this.AddElement_Add_Button = new System.Windows.Forms.Button();
-            this.AdamElement_Exit_Button = new System.Windows.Forms.Button();
+            this.AddElement_Exit_Button = new System.Windows.Forms.Button();
             this.AddElement_ExtraAttributes_Label = new System.Windows.Forms.Label();
             this.AddElement_ExtraAttributes_ListView = new System.Windows.Forms.ListView();
             this.ExtraAttributeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.ExtraAttributeValue = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.AddElement_AddAttribute_Button = new System.Windows.Forms.Button();
+            this.AddElement_Delete_Button = new System.Windows.Forms.Button();
+            this.AddElement_Edit_Button = new System.Windows.Forms.Button();
+            this.AddElement_FileDialog = new System.Windows.Forms.OpenFileDialog();
             this.SuspendLayout();
             // 
             // AddElement_Type_ComboBox
             // 
+            this.AddElement_Type_ComboBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Type_ComboBox.FormattingEnabled = true;
             this.AddElement_Type_ComboBox.Location = new System.Drawing.Point(286, 9);
             this.AddElement_Type_ComboBox.Name = "AddElement_Type_ComboBox";
@@ -96,6 +99,8 @@ namespace PO_Project
             // 
             // AddElement_Name_TextBox
             // 
+            this.AddElement_Name_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Name_TextBox.Location = new System.Drawing.Point(286, 46);
             this.AddElement_Name_TextBox.Name = "AddElement_Name_TextBox";
             this.AddElement_Name_TextBox.Size = new System.Drawing.Size(115, 20);
@@ -103,6 +108,8 @@ namespace PO_Project
             // 
             // AddElement_Author_TextBox
             // 
+            this.AddElement_Author_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Author_TextBox.Location = new System.Drawing.Point(286, 83);
             this.AddElement_Author_TextBox.Name = "AddElement_Author_TextBox";
             this.AddElement_Author_TextBox.Size = new System.Drawing.Size(115, 20);
@@ -120,6 +127,8 @@ namespace PO_Project
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(286, 122);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -138,6 +147,8 @@ namespace PO_Project
             // 
             // AddElement_ReleaseDate_Dynamic
             // 
+            this.AddElement_ReleaseDate_Dynamic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_ReleaseDate_Dynamic.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.AddElement_ReleaseDate_Dynamic.Location = new System.Drawing.Point(286, 167);
             this.AddElement_ReleaseDate_Dynamic.Name = "AddElement_ReleaseDate_Dynamic";
@@ -157,6 +168,8 @@ namespace PO_Project
             // 
             // AddElement_FileLocation_Dynamic
             // 
+            this.AddElement_FileLocation_Dynamic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_FileLocation_Dynamic.Location = new System.Drawing.Point(286, 207);
             this.AddElement_FileLocation_Dynamic.Name = "AddElement_FileLocation_Dynamic";
             this.AddElement_FileLocation_Dynamic.Size = new System.Drawing.Size(115, 20);
@@ -164,6 +177,7 @@ namespace PO_Project
             // 
             // AddElement_FileLocation_Button
             // 
+            this.AddElement_FileLocation_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_FileLocation_Button.Location = new System.Drawing.Point(407, 207);
             this.AddElement_FileLocation_Button.Name = "AddElement_FileLocation_Button";
             this.AddElement_FileLocation_Button.Size = new System.Drawing.Size(26, 20);
@@ -184,6 +198,8 @@ namespace PO_Project
             // 
             // AddElement_PhotoLocation_Dynamic
             // 
+            this.AddElement_PhotoLocation_Dynamic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_PhotoLocation_Dynamic.Location = new System.Drawing.Point(286, 249);
             this.AddElement_PhotoLocation_Dynamic.Name = "AddElement_PhotoLocation_Dynamic";
             this.AddElement_PhotoLocation_Dynamic.Size = new System.Drawing.Size(115, 20);
@@ -191,6 +207,7 @@ namespace PO_Project
             // 
             // AddElement_PhotoLocation_Button
             // 
+            this.AddElement_PhotoLocation_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_PhotoLocation_Button.Location = new System.Drawing.Point(407, 249);
             this.AddElement_PhotoLocation_Button.Name = "AddElement_PhotoLocation_Button";
             this.AddElement_PhotoLocation_Button.Size = new System.Drawing.Size(26, 20);
@@ -201,6 +218,7 @@ namespace PO_Project
             // 
             // AddElement_Add_Button
             // 
+            this.AddElement_Add_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddElement_Add_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AddElement_Add_Button.Location = new System.Drawing.Point(12, 476);
             this.AddElement_Add_Button.Name = "AddElement_Add_Button";
@@ -208,22 +226,27 @@ namespace PO_Project
             this.AddElement_Add_Button.TabIndex = 20;
             this.AddElement_Add_Button.Text = "Dodaj element";
             this.AddElement_Add_Button.UseVisualStyleBackColor = true;
+            this.AddElement_Add_Button.Click += new System.EventHandler(this.AddElement_Add_Button_Click);
             // 
-            // AdamElement_Exit_Button
+            // AddElement_Exit_Button
             // 
-            this.AdamElement_Exit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AdamElement_Exit_Button.Location = new System.Drawing.Point(437, 476);
-            this.AdamElement_Exit_Button.Name = "AdamElement_Exit_Button";
-            this.AdamElement_Exit_Button.Size = new System.Drawing.Size(105, 38);
-            this.AdamElement_Exit_Button.TabIndex = 21;
-            this.AdamElement_Exit_Button.Text = "Anuluj";
-            this.AdamElement_Exit_Button.UseVisualStyleBackColor = true;
+            this.AddElement_Exit_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddElement_Exit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddElement_Exit_Button.Location = new System.Drawing.Point(437, 476);
+            this.AddElement_Exit_Button.Name = "AddElement_Exit_Button";
+            this.AddElement_Exit_Button.Size = new System.Drawing.Size(105, 38);
+            this.AddElement_Exit_Button.TabIndex = 21;
+            this.AddElement_Exit_Button.Text = "Anuluj";
+            this.AddElement_Exit_Button.UseVisualStyleBackColor = true;
+            this.AddElement_Exit_Button.Click += new System.EventHandler(this.AddmElement_Exit_Button_Click);
             // 
             // AddElement_ExtraAttributes_Label
             // 
+            this.AddElement_ExtraAttributes_Label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_ExtraAttributes_Label.AutoSize = true;
             this.AddElement_ExtraAttributes_Label.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_ExtraAttributes_Label.Location = new System.Drawing.Point(16, 291);
+            this.AddElement_ExtraAttributes_Label.Location = new System.Drawing.Point(12, 292);
             this.AddElement_ExtraAttributes_Label.Name = "AddElement_ExtraAttributes_Label";
             this.AddElement_ExtraAttributes_Label.Size = new System.Drawing.Size(509, 22);
             this.AddElement_ExtraAttributes_Label.TabIndex = 23;
@@ -231,6 +254,9 @@ namespace PO_Project
             // 
             // AddElement_ExtraAttributes_ListView
             // 
+            this.AddElement_ExtraAttributes_ListView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_ExtraAttributes_ListView.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AddElement_ExtraAttributes_ListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ExtraAttributeName,
@@ -247,7 +273,6 @@ namespace PO_Project
             this.AddElement_ExtraAttributes_ListView.UseCompatibleStateImageBehavior = false;
             this.AddElement_ExtraAttributes_ListView.View = System.Windows.Forms.View.Details;
             this.AddElement_ExtraAttributes_ListView.SelectedIndexChanged += new System.EventHandler(this.AddElement_ExtraAttributes_ListView_SelectedIndexChanged);
-            this.AddElement_ExtraAttributes_ListView.DoubleClick += new System.EventHandler(this.AddElement_ExtraAttributes_ListView_DoubleClick);
             // 
             // ExtraAttributeName
             // 
@@ -259,48 +284,59 @@ namespace PO_Project
             this.ExtraAttributeValue.Text = "Wartość";
             this.ExtraAttributeValue.Width = 363;
             // 
-            // button1
+            // AddElement_AddAttribute_Button
             // 
-            this.button1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button1.Location = new System.Drawing.Point(12, 431);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 38);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Dodaj atrybut";
-            this.button1.UseVisualStyleBackColor = true;
+            this.AddElement_AddAttribute_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddElement_AddAttribute_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddElement_AddAttribute_Button.Location = new System.Drawing.Point(12, 431);
+            this.AddElement_AddAttribute_Button.Name = "AddElement_AddAttribute_Button";
+            this.AddElement_AddAttribute_Button.Size = new System.Drawing.Size(145, 38);
+            this.AddElement_AddAttribute_Button.TabIndex = 25;
+            this.AddElement_AddAttribute_Button.Text = "Dodaj atrybut";
+            this.AddElement_AddAttribute_Button.UseVisualStyleBackColor = true;
+            this.AddElement_AddAttribute_Button.Click += new System.EventHandler(this.AddElement_AddAttribute_Button_Click);
             // 
-            // button2
+            // AddElement_Delete_Button
             // 
-            this.button2.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button2.Location = new System.Drawing.Point(397, 431);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(145, 38);
-            this.button2.TabIndex = 26;
-            this.button2.Text = "Usuń atrybut";
-            this.button2.UseVisualStyleBackColor = true;
+            this.AddElement_Delete_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddElement_Delete_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddElement_Delete_Button.Location = new System.Drawing.Point(397, 431);
+            this.AddElement_Delete_Button.Name = "AddElement_Delete_Button";
+            this.AddElement_Delete_Button.Size = new System.Drawing.Size(145, 38);
+            this.AddElement_Delete_Button.TabIndex = 26;
+            this.AddElement_Delete_Button.Text = "Usuń atrybut";
+            this.AddElement_Delete_Button.UseVisualStyleBackColor = true;
+            this.AddElement_Delete_Button.Click += new System.EventHandler(this.AddElement_Delete_Button_Click);
             // 
-            // button3
+            // AddElement_Edit_Button
             // 
-            this.button3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.button3.Location = new System.Drawing.Point(193, 431);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(145, 38);
-            this.button3.TabIndex = 27;
-            this.button3.Text = "Edytuj atrybut";
-            this.button3.UseVisualStyleBackColor = true;
+            this.AddElement_Edit_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddElement_Edit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.AddElement_Edit_Button.Location = new System.Drawing.Point(200, 431);
+            this.AddElement_Edit_Button.Name = "AddElement_Edit_Button";
+            this.AddElement_Edit_Button.Size = new System.Drawing.Size(145, 38);
+            this.AddElement_Edit_Button.TabIndex = 27;
+            this.AddElement_Edit_Button.Text = "Edytuj atrybut";
+            this.AddElement_Edit_Button.UseVisualStyleBackColor = true;
+            this.AddElement_Edit_Button.Click += new System.EventHandler(this.AddElement_Edit_Button_Click);
+            // 
+            // AddElement_FileDialog
+            // 
+            this.AddElement_FileDialog.FileName = "openFileDialog1";
             // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.DarkRed;
+            this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(554, 526);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.AddElement_Edit_Button);
+            this.Controls.Add(this.AddElement_Delete_Button);
+            this.Controls.Add(this.AddElement_AddAttribute_Button);
             this.Controls.Add(this.AddElement_ExtraAttributes_ListView);
             this.Controls.Add(this.AddElement_ExtraAttributes_Label);
-            this.Controls.Add(this.AdamElement_Exit_Button);
+            this.Controls.Add(this.AddElement_Exit_Button);
             this.Controls.Add(this.AddElement_Add_Button);
             this.Controls.Add(this.AddElement_PhotoLocation_Button);
             this.Controls.Add(this.AddElement_PhotoLocation_Dynamic);
@@ -319,6 +355,7 @@ namespace PO_Project
             this.Controls.Add(this.AddElement_Type_Static);
             this.Controls.Add(this.AddElement_Type_ComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MinimumSize = new System.Drawing.Size(570, 565);
             this.Name = "AddElementForm";
             this.ShowIcon = false;
             this.Text = "Dodawanie elementu";
@@ -347,13 +384,14 @@ namespace PO_Project
         private System.Windows.Forms.TextBox AddElement_PhotoLocation_Dynamic;
         private System.Windows.Forms.Button AddElement_PhotoLocation_Button;
         private System.Windows.Forms.Button AddElement_Add_Button;
-        private System.Windows.Forms.Button AdamElement_Exit_Button;
+        private System.Windows.Forms.Button AddElement_Exit_Button;
         private System.Windows.Forms.Label AddElement_ExtraAttributes_Label;
         private System.Windows.Forms.ListView AddElement_ExtraAttributes_ListView;
         private System.Windows.Forms.ColumnHeader ExtraAttributeName;
         private System.Windows.Forms.ColumnHeader ExtraAttributeValue;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button AddElement_AddAttribute_Button;
+        private System.Windows.Forms.Button AddElement_Delete_Button;
+        private System.Windows.Forms.Button AddElement_Edit_Button;
+        private System.Windows.Forms.OpenFileDialog AddElement_FileDialog;
     }
 }
