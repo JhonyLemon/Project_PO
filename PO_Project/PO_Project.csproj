@@ -62,36 +62,71 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddElementForm.cs">
+    <Compile Include="Forms\AddAttributeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddElementForm.Designer.cs">
+    <Compile Include="Forms\AddAttributeDialog.Designer.cs">
+      <DependentUpon>AddAttributeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CommandOperations\Commands\AddElementCommand.cs" />
+    <Compile Include="CommandOperations\Commands\ICommand.cs" />
+    <Compile Include="CommandOperations\Invoker.cs" />
+    <Compile Include="Forms\EditElement\EditElementDialogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditElement\EditElementDialogForm.Designer.cs">
+      <DependentUpon>EditElementDialogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DeleteElement\DeleteElementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DeleteElement\DeleteElementForm.Designer.cs">
+      <DependentUpon>DeleteElementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditElement\EditElementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditElement\EditElementForm.Designer.cs">
+      <DependentUpon>EditElementForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IO\DataIO.cs" />
+    <Compile Include="Elements\Element.cs" />
+    <Compile Include="Forms\AddElement\AddElementForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AddElement\AddElementForm.Designer.cs">
       <DependentUpon>AddElementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Elements\Book.cs" />
-    <Compile Include="Catalogue\FilmsSearchBy.cs" />
-    <Compile Include="IOoperations\DataParser.cs" />
+    <Compile Include="IO\DataParser.cs" />
     <Compile Include="enums\Category.cs" />
-    <Compile Include="enums\ElementType.cs" />
-    <Compile Include="IOoperations\DataReader\DataReader.cs" />
-    <Compile Include="Elements\Film.cs" />
+    <Compile Include="enums\TypeOfElement.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IOoperations\DataReader\IDataReader.cs" />
+    <Compile Include="IO\IDataReader.cs" />
     <Compile Include="Elements\IElement.cs" />
-    <Compile Include="Elements\PhotoData.cs" />
-    <Compile Include="Elements\Music.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="IOoperations\DataWriter\IDataWriter.cs" />
-    <Compile Include="IOoperations\DataWriter\DataWriter.cs" />
+    <Compile Include="IO\IDataWriter.cs" />
     <Compile Include="Catalogue\SearchBy.cs" />
-    <EmbeddedResource Include="Forms\AddElementForm.resx">
+    <Compile Include="CommandOperations\Receiver.cs" />
+    <EmbeddedResource Include="Forms\AddAttributeDialog.resx">
+      <DependentUpon>AddAttributeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditElement\EditElementDialogForm.resx">
+      <DependentUpon>EditElementDialogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AddElement\AddElementForm.resx">
       <DependentUpon>AddElementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DeleteElement\DeleteElementForm.resx">
+      <DependentUpon>DeleteElementForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditElement\EditElementForm.resx">
+      <DependentUpon>EditElementForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
@@ -140,5 +175,12 @@
   <ItemGroup>
     <None Include="Resources\MusicImage.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FileNotFound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PhotoNotFound.png" />
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

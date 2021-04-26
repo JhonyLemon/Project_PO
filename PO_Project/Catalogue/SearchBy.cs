@@ -18,12 +18,13 @@ namespace PO_Project
         /// <summary>
         /// List of type IElement
         /// </summary>
-        protected List<IElement> elements;
+        protected List<Element> elements;
+        private Element foundElements;
 
         /// <summary>
         /// SearchBy constructor
         /// </summary>
-        public SearchBy(List<IElement> elements)
+        public SearchBy(List<Element> elements)
         {
             this.elements = elements;
         }
@@ -35,32 +36,13 @@ namespace PO_Project
         /// Returns a List of IElement type
         /// </returns>
         /// <param name="elementType">enum</param>
-        public List<IElement> FindByElementType(ElementType elementType)
+        public List<Element> FindByElementType(TypeOfElement elementType)
         {
-            List<IElement> foundElements = new List<IElement>();
-            foreach (IElement element in elements)
+            List<Element> foundElements = new List<Element>();
+            foreach (Element element in elements)
             {
-                switch (elementType)
-                {
-                    case ElementType.Film:
-                        {
-                            if (element is Film)
-                                foundElements.Add(element);
-                            break;
-                        }
-                    case ElementType.Music:
-                        {
-                            if (element is Music)
-                                foundElements.Add(element);
-                            break;
-                        }
-                    case ElementType.Book:
-                        {
-                            if (element is Book)
-                                foundElements.Add(element);
-                            break;
-                        }
-                }
+                            if (element.ElementType==elementType.ToString())
+                                foundElements.Add(element); 
             }
             return foundElements;
         }
@@ -72,14 +54,14 @@ namespace PO_Project
         /// Returns a List of IElement type
         /// </returns>
         /// <param name="name">string</param>
-        public List<IElement> FindByName(string name)
+        public Element FindByName(string name)
         {
-            List<IElement> foundElements = new List<IElement>();
-            foreach (IElement element in elements)
+
+            foreach (Element element in elements)
             {
-                if (element.Name == name)
+                if (element.ExtraAttributes["Nazwa"]==name)
                 {
-                    foundElements.Add(element);
+                    foundElements=element;
                 }
             }
             return foundElements;
@@ -92,20 +74,24 @@ namespace PO_Project
         /// Returns a List of IElement type
         /// </returns>
         /// <param name="ID">string</param>
-        public IElement FindByID(string ID)
+        public Element FindByID(string ID)
         {
-            foreach (IElement element in elements)
+            foreach (Element element in elements)
             {
-                if(element is Film)
-                {
-                    if (element.PhotoID == ID)
-                    {
+                        if(element.ID==Int32.Parse(ID))
                         return element;
-                    }
-                }
-
             }
             return null;
+        }
+
+        public List<Element> FindByCategory(Category category)
+        {
+            List<Element> foundElements = new List<Element>();
+            foreach (Element element in elements)
+            {
+
+            }
+            return foundElements;
         }
     }
 }

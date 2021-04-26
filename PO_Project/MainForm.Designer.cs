@@ -45,21 +45,9 @@ namespace PO_Project
             this.Podwojny_Kontener = new System.Windows.Forms.SplitContainer();
             this.PhotoList = new System.Windows.Forms.ListView();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.FileLocation_Dynamic = new System.Windows.Forms.TextBox();
-            this.ReleaseDate_Dynamic = new System.Windows.Forms.Label();
-            this.Length_Dynamic = new System.Windows.Forms.Label();
-            this.Category_Dynamic = new System.Windows.Forms.Label();
-            this.Description_Dynamic = new System.Windows.Forms.Label();
-            this.Author_Dynamic = new System.Windows.Forms.Label();
-            this.Name_Dynamic = new System.Windows.Forms.Label();
-            this.FileLocation_Static = new System.Windows.Forms.Label();
-            this.ReleaseDate_Static = new System.Windows.Forms.Label();
-            this.Length_Static = new System.Windows.Forms.Label();
-            this.Category_Static = new System.Windows.Forms.Label();
-            this.Description_Static = new System.Windows.Forms.Label();
-            this.Author_Static = new System.Windows.Forms.Label();
-            this.Name_Static = new System.Windows.Forms.Label();
+            this.Details_ListView = new System.Windows.Forms.ListView();
+            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             ((System.ComponentModel.ISupportInitialize)(this.Podwojny_Kontener)).BeginInit();
             this.Podwojny_Kontener.Panel1.SuspendLayout();
             this.Podwojny_Kontener.Panel2.SuspendLayout();
@@ -138,21 +126,7 @@ namespace PO_Project
             // 
             this.Podwojny_Kontener.Panel2.AccessibleRole = System.Windows.Forms.AccessibleRole.Text;
             this.Podwojny_Kontener.Panel2.BackColor = System.Drawing.Color.Gainsboro;
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.dateTimePicker1);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.FileLocation_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.ReleaseDate_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Length_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Category_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Description_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Author_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Name_Dynamic);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.FileLocation_Static);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.ReleaseDate_Static);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Length_Static);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Category_Static);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Description_Static);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Author_Static);
-            this.Podwojny_Kontener.Panel2.Controls.Add(this.Name_Static);
+            this.Podwojny_Kontener.Panel2.Controls.Add(this.Details_ListView);
             this.Podwojny_Kontener.Panel2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Podwojny_Kontener.Panel2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.Podwojny_Kontener.Panel2MinSize = 50;
@@ -162,7 +136,7 @@ namespace PO_Project
             // 
             // PhotoList
             // 
-            this.PhotoList.BackColor = System.Drawing.Color.DarkRed;
+            this.PhotoList.BackColor = System.Drawing.Color.Crimson;
             this.PhotoList.BackgroundImageTiled = true;
             this.PhotoList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PhotoList.GridLines = true;
@@ -175,6 +149,7 @@ namespace PO_Project
             this.PhotoList.TabIndex = 0;
             this.PhotoList.UseCompatibleStateImageBehavior = false;
             this.PhotoList.SelectedIndexChanged += new System.EventHandler(this.PhotoList_SelectedIndexChanged);
+            this.PhotoList.DoubleClick += new System.EventHandler(this.PhotoList_DoubleClick);
             // 
             // ImageList
             // 
@@ -182,153 +157,31 @@ namespace PO_Project
             this.ImageList.ImageSize = new System.Drawing.Size(150, 200);
             this.ImageList.TransparentColor = System.Drawing.Color.Transparent;
             // 
-            // dateTimePicker1
+            // Details_ListView
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(343, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(115, 20);
-            this.dateTimePicker1.TabIndex = 16;
+            this.Details_ListView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader1,
+            this.columnHeader2});
+            this.Details_ListView.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Details_ListView.GridLines = true;
+            this.Details_ListView.HideSelection = false;
+            this.Details_ListView.Location = new System.Drawing.Point(0, 0);
+            this.Details_ListView.MultiSelect = false;
+            this.Details_ListView.Name = "Details_ListView";
+            this.Details_ListView.Size = new System.Drawing.Size(800, 196);
+            this.Details_ListView.TabIndex = 0;
+            this.Details_ListView.UseCompatibleStateImageBehavior = false;
+            this.Details_ListView.View = System.Windows.Forms.View.Details;
             // 
-            // FileLocation_Dynamic
+            // columnHeader1
             // 
-            this.FileLocation_Dynamic.Location = new System.Drawing.Point(197, 142);
-            this.FileLocation_Dynamic.Name = "FileLocation_Dynamic";
-            this.FileLocation_Dynamic.ReadOnly = true;
-            this.FileLocation_Dynamic.Size = new System.Drawing.Size(100, 20);
-            this.FileLocation_Dynamic.TabIndex = 15;
-            this.FileLocation_Dynamic.TabStop = false;
+            this.columnHeader1.Text = "Nazwa atrybutu";
+            this.columnHeader1.Width = 120;
             // 
-            // ReleaseDate_Dynamic
+            // columnHeader2
             // 
-            this.ReleaseDate_Dynamic.AutoSize = true;
-            this.ReleaseDate_Dynamic.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ReleaseDate_Dynamic.Location = new System.Drawing.Point(193, 118);
-            this.ReleaseDate_Dynamic.Name = "ReleaseDate_Dynamic";
-            this.ReleaseDate_Dynamic.Size = new System.Drawing.Size(15, 22);
-            this.ReleaseDate_Dynamic.TabIndex = 13;
-            this.ReleaseDate_Dynamic.Text = ".";
-            // 
-            // Length_Dynamic
-            // 
-            this.Length_Dynamic.AutoSize = true;
-            this.Length_Dynamic.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Length_Dynamic.Location = new System.Drawing.Point(193, 96);
-            this.Length_Dynamic.Name = "Length_Dynamic";
-            this.Length_Dynamic.Size = new System.Drawing.Size(15, 22);
-            this.Length_Dynamic.TabIndex = 12;
-            this.Length_Dynamic.Text = ".";
-            // 
-            // Category_Dynamic
-            // 
-            this.Category_Dynamic.AutoSize = true;
-            this.Category_Dynamic.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Category_Dynamic.Location = new System.Drawing.Point(193, 74);
-            this.Category_Dynamic.Name = "Category_Dynamic";
-            this.Category_Dynamic.Size = new System.Drawing.Size(15, 22);
-            this.Category_Dynamic.TabIndex = 11;
-            this.Category_Dynamic.Text = ".";
-            // 
-            // Description_Dynamic
-            // 
-            this.Description_Dynamic.AutoSize = true;
-            this.Description_Dynamic.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Description_Dynamic.Location = new System.Drawing.Point(193, 52);
-            this.Description_Dynamic.Name = "Description_Dynamic";
-            this.Description_Dynamic.Size = new System.Drawing.Size(15, 22);
-            this.Description_Dynamic.TabIndex = 10;
-            this.Description_Dynamic.Text = ".";
-            // 
-            // Author_Dynamic
-            // 
-            this.Author_Dynamic.AutoSize = true;
-            this.Author_Dynamic.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Author_Dynamic.Location = new System.Drawing.Point(193, 30);
-            this.Author_Dynamic.Name = "Author_Dynamic";
-            this.Author_Dynamic.Size = new System.Drawing.Size(15, 22);
-            this.Author_Dynamic.TabIndex = 9;
-            this.Author_Dynamic.Text = ".";
-            // 
-            // Name_Dynamic
-            // 
-            this.Name_Dynamic.AutoSize = true;
-            this.Name_Dynamic.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Name_Dynamic.Location = new System.Drawing.Point(193, 8);
-            this.Name_Dynamic.Name = "Name_Dynamic";
-            this.Name_Dynamic.Size = new System.Drawing.Size(15, 22);
-            this.Name_Dynamic.TabIndex = 8;
-            this.Name_Dynamic.Text = ".";
-            // 
-            // FileLocation_Static
-            // 
-            this.FileLocation_Static.AutoSize = true;
-            this.FileLocation_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FileLocation_Static.Location = new System.Drawing.Point(7, 140);
-            this.FileLocation_Static.Name = "FileLocation_Static";
-            this.FileLocation_Static.Size = new System.Drawing.Size(157, 22);
-            this.FileLocation_Static.TabIndex = 6;
-            this.FileLocation_Static.Text = "Lokalizacja pliku:";
-            // 
-            // ReleaseDate_Static
-            // 
-            this.ReleaseDate_Static.AutoSize = true;
-            this.ReleaseDate_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.ReleaseDate_Static.Location = new System.Drawing.Point(7, 118);
-            this.ReleaseDate_Static.Name = "ReleaseDate_Static";
-            this.ReleaseDate_Static.Size = new System.Drawing.Size(128, 22);
-            this.ReleaseDate_Static.TabIndex = 5;
-            this.ReleaseDate_Static.Text = "Data wydania:";
-            // 
-            // Length_Static
-            // 
-            this.Length_Static.AutoSize = true;
-            this.Length_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Length_Static.Location = new System.Drawing.Point(7, 96);
-            this.Length_Static.Name = "Length_Static";
-            this.Length_Static.Size = new System.Drawing.Size(123, 22);
-            this.Length_Static.TabIndex = 4;
-            this.Length_Static.Text = "Czas trwania:";
-            // 
-            // Category_Static
-            // 
-            this.Category_Static.AutoSize = true;
-            this.Category_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Category_Static.Location = new System.Drawing.Point(7, 74);
-            this.Category_Static.Name = "Category_Static";
-            this.Category_Static.Size = new System.Drawing.Size(97, 22);
-            this.Category_Static.TabIndex = 3;
-            this.Category_Static.Text = "Kategoria:";
-            // 
-            // Description_Static
-            // 
-            this.Description_Static.AutoSize = true;
-            this.Description_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Description_Static.Location = new System.Drawing.Point(7, 52);
-            this.Description_Static.Name = "Description_Static";
-            this.Description_Static.Size = new System.Drawing.Size(53, 22);
-            this.Description_Static.TabIndex = 2;
-            this.Description_Static.Text = "Opis:";
-            // 
-            // Author_Static
-            // 
-            this.Author_Static.AutoSize = true;
-            this.Author_Static.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Author_Static.Location = new System.Drawing.Point(7, 30);
-            this.Author_Static.Name = "Author_Static";
-            this.Author_Static.Size = new System.Drawing.Size(62, 22);
-            this.Author_Static.TabIndex = 1;
-            this.Author_Static.Text = "Autor:";
-            // 
-            // Name_Static
-            // 
-            this.Name_Static.AutoSize = true;
-            this.Name_Static.Font = new System.Drawing.Font("Times New Roman", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Name_Static.Location = new System.Drawing.Point(7, 8);
-            this.Name_Static.Name = "Name_Static";
-            this.Name_Static.Size = new System.Drawing.Size(57, 22);
-            this.Name_Static.TabIndex = 0;
-            this.Name_Static.Text = "Tytuł:";
+            this.columnHeader2.Text = "Wartość";
+            this.columnHeader2.Width = 676;
             // 
             // MainForm
             // 
@@ -343,7 +196,6 @@ namespace PO_Project
             this.Text = "Domowa Biblioteczka";
             this.Podwojny_Kontener.Panel1.ResumeLayout(false);
             this.Podwojny_Kontener.Panel2.ResumeLayout(false);
-            this.Podwojny_Kontener.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Podwojny_Kontener)).EndInit();
             this.Podwojny_Kontener.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -362,21 +214,9 @@ namespace PO_Project
         private System.Windows.Forms.MenuItem Filter_Button;
         private System.Windows.Forms.ListView PhotoList;
         private System.Windows.Forms.ImageList ImageList;
-        private System.Windows.Forms.Label Name_Static;
-        private System.Windows.Forms.Label Author_Static;
-        private System.Windows.Forms.Label Description_Static;
-        private System.Windows.Forms.Label Category_Static;
-        private System.Windows.Forms.Label Length_Static;
-        private System.Windows.Forms.Label ReleaseDate_Static;
-        private System.Windows.Forms.Label ReleaseDate_Dynamic;
-        private System.Windows.Forms.Label Length_Dynamic;
-        private System.Windows.Forms.Label Category_Dynamic;
-        private System.Windows.Forms.Label Description_Dynamic;
-        private System.Windows.Forms.Label Author_Dynamic;
-        private System.Windows.Forms.Label Name_Dynamic;
-        private System.Windows.Forms.Label FileLocation_Static;
-        private System.Windows.Forms.TextBox FileLocation_Dynamic;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.ListView Details_ListView;
+        private System.Windows.Forms.ColumnHeader columnHeader1;
+        private System.Windows.Forms.ColumnHeader columnHeader2;
     }
 }
 
