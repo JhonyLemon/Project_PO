@@ -321,10 +321,6 @@ namespace PO_Project
             this.AddElement_Edit_Button.UseVisualStyleBackColor = true;
             this.AddElement_Edit_Button.Click += new System.EventHandler(this.AddElement_Edit_Button_Click);
             // 
-            // AddElement_FileDialog
-            // 
-            this.AddElement_FileDialog.FileName = "openFileDialog1";
-            // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

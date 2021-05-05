@@ -30,7 +30,7 @@ namespace PO_Project
             else
             {
                 DialogResult result;
-                result = MessageBox.Show("Wprowadzono zabroniony znak \";\"", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+                result = MessageBox.Show("Wprowadzono zabroniony znak ", "Blad wprowadzanych danych", MessageBoxButtons.OK);
                 if (result == System.Windows.Forms.DialogResult.OK)
                 {
                     this.Close();

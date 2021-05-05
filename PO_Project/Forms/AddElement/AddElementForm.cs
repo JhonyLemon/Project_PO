@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
-    public partial class AddElementForm : Form
+    public partial class AddElementForm : Form,IObserver
     {
         List<Element> elements;
         int ID;
@@ -65,7 +65,11 @@ namespace PO_Project
 
         private void AddElement_Edit_Button_Click(object sender, EventArgs e)
         {
-
+            AddAttributeDialog addAttribute = new AddAttributeDialog();//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            Attributes.Add(addAttribute.key, addAttribute.value);
+            Update(elements);
+            addAttribute.Dispose();//zwolnienie pamieci
         }
 
         private void AddElement_AddAttribute_Button_Click(object sender, EventArgs e)
@@ -73,6 +77,7 @@ namespace PO_Project
             AddAttributeDialog addAttribute = new AddAttributeDialog();//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             Attributes.Add(addAttribute.key, addAttribute.value);
+            Update(elements);
             addAttribute.Dispose();//zwolnienie pamieci
         }
 
@@ -80,6 +85,15 @@ namespace PO_Project
         {
             elements.Add(new Element((string)AddElement_Type_ComboBox.SelectedItem, ID, Attributes));
             Close();
+        }
+        public void Update(List<Element> elements)
+        {
+            AddElement_ExtraAttributes_ListView.Items.Clear();
+            foreach (KeyValuePair<string, string> pair in Attributes)
+            {
+                AddElement_ExtraAttributes_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
+            }
+            
         }
     }
 }

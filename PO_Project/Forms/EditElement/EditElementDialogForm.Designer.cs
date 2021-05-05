@@ -30,12 +30,12 @@ namespace PO_Project
         private void InitializeComponent()
         {
             this.EditElementDialog_ComboBox = new System.Windows.Forms.ComboBox();
-            this.EditElementDialog_Label = new System.Windows.Forms.Label();
             this.EditElementDialog_TextBox = new System.Windows.Forms.TextBox();
             this.EditElementDialog_ConfirmButton = new System.Windows.Forms.Button();
             this.EditElementDialog_FinishButton = new System.Windows.Forms.Button();
             this.EditElementDialog_FileSelectButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.EditElementDialog_Name_TextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // EditElementDialog_ComboBox
@@ -46,16 +46,6 @@ namespace PO_Project
             this.EditElementDialog_ComboBox.Size = new System.Drawing.Size(449, 21);
             this.EditElementDialog_ComboBox.TabIndex = 0;
             this.EditElementDialog_ComboBox.SelectionChangeCommitted += new System.EventHandler(this.EditElementDialog_ComboBox_SelectionChangeCommitted);
-            // 
-            // EditElementDialog_Label
-            // 
-            this.EditElementDialog_Label.AutoSize = true;
-            this.EditElementDialog_Label.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.EditElementDialog_Label.Location = new System.Drawing.Point(8, 45);
-            this.EditElementDialog_Label.Name = "EditElementDialog_Label";
-            this.EditElementDialog_Label.Size = new System.Drawing.Size(145, 22);
-            this.EditElementDialog_Label.TabIndex = 1;
-            this.EditElementDialog_Label.Text = "Nazwa atrybutu:";
             // 
             // EditElementDialog_TextBox
             // 
@@ -98,9 +88,15 @@ namespace PO_Project
             this.EditElementDialog_FileSelectButton.Visible = false;
             this.EditElementDialog_FileSelectButton.Click += new System.EventHandler(this.EditElementDialog_FileSelectButton_Click);
             // 
-            // openFileDialog1
+            // EditElementDialog_Name_TextBox
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
+            this.EditElementDialog_Name_TextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditElementDialog_Name_TextBox.Location = new System.Drawing.Point(12, 39);
+            this.EditElementDialog_Name_TextBox.Multiline = true;
+            this.EditElementDialog_Name_TextBox.Name = "EditElementDialog_Name_TextBox";
+            this.EditElementDialog_Name_TextBox.Size = new System.Drawing.Size(418, 28);
+            this.EditElementDialog_Name_TextBox.TabIndex = 6;
+            this.EditElementDialog_Name_TextBox.Text = "Nazwa atrubutu:";
             // 
             // EditElementDialogForm
             // 
@@ -108,11 +104,11 @@ namespace PO_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(473, 192);
+            this.Controls.Add(this.EditElementDialog_Name_TextBox);
             this.Controls.Add(this.EditElementDialog_FileSelectButton);
             this.Controls.Add(this.EditElementDialog_FinishButton);
             this.Controls.Add(this.EditElementDialog_ConfirmButton);
             this.Controls.Add(this.EditElementDialog_TextBox);
-            this.Controls.Add(this.EditElementDialog_Label);
             this.Controls.Add(this.EditElementDialog_ComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -126,11 +122,11 @@ namespace PO_Project
         #endregion
 
         private System.Windows.Forms.ComboBox EditElementDialog_ComboBox;
-        private System.Windows.Forms.Label EditElementDialog_Label;
         private System.Windows.Forms.TextBox EditElementDialog_TextBox;
         private System.Windows.Forms.Button EditElementDialog_ConfirmButton;
         private System.Windows.Forms.Button EditElementDialog_FinishButton;
         private System.Windows.Forms.Button EditElementDialog_FileSelectButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.TextBox EditElementDialog_Name_TextBox;
     }
 }

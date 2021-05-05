@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
-    public partial class EditElementForm : Form
+    public partial class EditElementForm : Form, IObserver
     {
         List<Element> elements;
         SearchBy search;
@@ -59,20 +59,22 @@ namespace PO_Project
                 EditElementDialogForm editElementForm = new EditElementDialogForm(search.FindByName((string)EditElement_ComboBox.SelectedItem));//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
-                foreach (ListViewItem listViewitems in EditElement_ListView.Items)
-                    EditElement_ListView.Items.Remove(listViewitems);
-
-                Element element = search.FindByName((string)EditElement_ComboBox.SelectedItem);
-
-                foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
-                    EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
-                EditElement_ImageBox.Image = element.Image;
+                Update(elements);
             }
         }
 
         private void EditElement_Cancel_Button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void Update(List<Element> elements)
+        {
+            EditElement_ListView.Items.Clear();
+            Element element = search.FindByName((string)EditElement_ComboBox.SelectedItem);
+            foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
+                EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
+            EditElement_ImageBox.Image = element.Image;
         }
     }
 }

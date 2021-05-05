@@ -39,5 +39,7 @@ namespace PO_Project
         public int ID { get; set; }
         public Image Image { get; set; }
         public Dictionary<string,string> ExtraAttributes { get; set; }
+
+
     }
 }

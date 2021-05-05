@@ -62,15 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\EditElementFormDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditElementFormDialog.Designer.cs">
+      <DependentUpon>EditElementFormDialog.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AddAttributeDialog.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AddAttributeDialog.Designer.cs">
       <DependentUpon>AddAttributeDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommandOperations\Commands\AddElementCommand.cs" />
-    <Compile Include="CommandOperations\Commands\ICommand.cs" />
-    <Compile Include="CommandOperations\Invoker.cs" />
     <Compile Include="Forms\EditElement\EditElementDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +92,8 @@
     <Compile Include="Forms\EditElement\EditElementForm.Designer.cs">
       <DependentUpon>EditElementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IObservable.cs" />
+    <Compile Include="IObserver.cs" />
     <Compile Include="IO\DataIO.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Forms\AddElement\AddElementForm.cs">
@@ -112,7 +117,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IO\IDataWriter.cs" />
     <Compile Include="Catalogue\SearchBy.cs" />
-    <Compile Include="CommandOperations\Receiver.cs" />
+    <EmbeddedResource Include="Forms\EditElementFormDialog.resx">
+      <DependentUpon>EditElementFormDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddAttributeDialog.resx">
       <DependentUpon>AddAttributeDialog.cs</DependentUpon>
     </EmbeddedResource>
