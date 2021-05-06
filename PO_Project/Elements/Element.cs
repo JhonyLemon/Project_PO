@@ -21,19 +21,23 @@ namespace PO_Project
             //ExtraAttributes.Add("Lokacja zdjecia", photoLocation);
             //foreach (KeyValuePair<string, string> pair in extraAttributes)
             //    ExtraAttributes.Add(pair.Key, pair.Value);
-            if (ExtraAttributes["Lokacja zdjecia"] == "")
-            {
-                if (this.ElementType == TypeOfElement.Film.ToString())
-                    Image = Properties.Resources.FilmImage;
-                else if (this.ElementType == TypeOfElement.Book.ToString())
-                    Image = Properties.Resources.BookImage;
-                else if (this.ElementType == TypeOfElement.Music.ToString())
-                    Image = Properties.Resources.MusicImage;
+            if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
+                {
+                if (ExtraAttributes["Lokacja zdjecia"] == "")
+                {
+
+                    if (this.ElementType == TypeOfElement.Film.ToString())
+                        Image = Properties.Resources.FilmImage;
+                    else if (this.ElementType == TypeOfElement.Book.ToString())
+                        Image = Properties.Resources.BookImage;
+                    else if (this.ElementType == TypeOfElement.Music.ToString())
+                        Image = Properties.Resources.MusicImage;
+                    else
+                        Image = Properties.Resources.PhotoNotFound;
+                }
                 else
-                    Image = Properties.Resources.PhotoNotFound;
+                    Image = Image.FromFile(ExtraAttributes["Lokacja zdjecia"]);
             }
-            else
-                Image = Image.FromFile(ExtraAttributes["Lokacja zdjecia"]);
         }
         public string ElementType { get; set; }
         public int ID { get; set; }

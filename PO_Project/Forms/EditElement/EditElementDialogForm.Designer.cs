@@ -35,7 +35,7 @@ namespace PO_Project
             this.EditElementDialog_FinishButton = new System.Windows.Forms.Button();
             this.EditElementDialog_FileSelectButton = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.EditElementDialog_Name_TextBox = new System.Windows.Forms.TextBox();
+            this.EditElementDialog_Name_TextBox = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // EditElementDialog_ComboBox
@@ -90,13 +90,13 @@ namespace PO_Project
             // 
             // EditElementDialog_Name_TextBox
             // 
-            this.EditElementDialog_Name_TextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.EditElementDialog_Name_TextBox.Location = new System.Drawing.Point(12, 39);
-            this.EditElementDialog_Name_TextBox.Multiline = true;
+            this.EditElementDialog_Name_TextBox.AutoSize = true;
+            this.EditElementDialog_Name_TextBox.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditElementDialog_Name_TextBox.Location = new System.Drawing.Point(13, 44);
             this.EditElementDialog_Name_TextBox.Name = "EditElementDialog_Name_TextBox";
-            this.EditElementDialog_Name_TextBox.Size = new System.Drawing.Size(418, 28);
+            this.EditElementDialog_Name_TextBox.Size = new System.Drawing.Size(140, 22);
             this.EditElementDialog_Name_TextBox.TabIndex = 6;
-            this.EditElementDialog_Name_TextBox.Text = "Nazwa atrubutu:";
+            this.EditElementDialog_Name_TextBox.Text = "Nazwa atrybutu";
             // 
             // EditElementDialogForm
             // 
@@ -114,6 +114,7 @@ namespace PO_Project
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditElementDialogForm";
+            this.ShowInTaskbar = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -127,6 +128,6 @@ namespace PO_Project
         private System.Windows.Forms.Button EditElementDialog_FinishButton;
         private System.Windows.Forms.Button EditElementDialog_FileSelectButton;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TextBox EditElementDialog_Name_TextBox;
+        private System.Windows.Forms.Label EditElementDialog_Name_TextBox;
     }
 }

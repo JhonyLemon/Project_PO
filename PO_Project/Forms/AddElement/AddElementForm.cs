@@ -13,6 +13,7 @@ namespace PO_Project
     public partial class AddElementForm : Form,IObserver
     {
         List<Element> elements;
+        Element element;
         int ID;
         Dictionary<string, string> Attributes = new Dictionary<string, string>();
         public AddElementForm()
@@ -26,7 +27,8 @@ namespace PO_Project
             InitializeComponent();
             this.elements = elements;
             AddElement_Type_ComboBox.DataSource = Enum.GetValues(typeof(TypeOfElement));
-
+            ID = elements.Count+1;
+            element = new Element("", ID, Attributes);
         }
 
         private void AddElement_FileLocation_Button_Click(object sender, EventArgs e)
@@ -57,33 +59,40 @@ namespace PO_Project
         private void AddElement_Delete_Button_Click(object sender, EventArgs e)
         {
 
-            foreach(ListViewItem item in AddElement_ExtraAttributes_ListView.SelectedItems)
-            {
-                AddElement_ExtraAttributes_ListView.Items.Remove(item);
-            }
+            DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            deleteElementDialog.Dispose();//zwolnienie pamieci
+            Update(elements);
         }
 
         private void AddElement_Edit_Button_Click(object sender, EventArgs e)
         {
-            AddAttributeDialog addAttribute = new AddAttributeDialog();//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            EditElementDialogForm addAttribute = new EditElementDialogForm(element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            Attributes.Add(addAttribute.key, addAttribute.value);
-            Update(elements);
             addAttribute.Dispose();//zwolnienie pamieci
+            Update(elements);
         }
 
         private void AddElement_AddAttribute_Button_Click(object sender, EventArgs e)
         {
-            AddAttributeDialog addAttribute = new AddAttributeDialog();//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            AddAttributeDialog addAttribute = new AddAttributeDialog(Attributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            Attributes.Add(addAttribute.key, addAttribute.value);
-            Update(elements);
             addAttribute.Dispose();//zwolnienie pamieci
+            Update(elements);
         }
 
         private void AddElement_Add_Button_Click(object sender, EventArgs e)
         {
-            elements.Add(new Element((string)AddElement_Type_ComboBox.SelectedItem, ID, Attributes));
+            Dictionary<string, string> keys = new Dictionary<string, string>();
+            keys.Add("Nazwa",AddElement_Name_TextBox.Text);
+            keys.Add("Autor", AddElement_Author_TextBox.Text);
+            keys.Add("Opis", AddElement_Description_TextBox.Text);
+            keys.Add("Lokacja pliku", AddElement_FileLocation_Dynamic.Text);
+            keys.Add("Lokacja zdjecia", AddElement_PhotoLocation_Dynamic.Text);
+            keys.Add("Data Wydania", AddElement_ReleaseDate_Dynamic.Text);
+            foreach (KeyValuePair<string, string> pair in Attributes)
+                keys.Add(pair.Key, pair.Value);
+            elements.Add(new Element(AddElement_Type_ComboBox.SelectedItem.ToString(), ID, keys));
             Close();
         }
         public void Update(List<Element> elements)

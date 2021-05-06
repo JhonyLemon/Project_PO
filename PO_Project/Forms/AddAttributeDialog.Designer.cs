@@ -109,6 +109,7 @@ namespace PO_Project
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "AddAttributeDialog";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.ResumeLayout(false);
             this.PerformLayout();
 

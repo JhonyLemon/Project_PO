@@ -98,7 +98,6 @@ namespace PO_Project
             this.DeleteElement_ListView.TabIndex = 24;
             this.DeleteElement_ListView.UseCompatibleStateImageBehavior = false;
             this.DeleteElement_ListView.View = System.Windows.Forms.View.Details;
-            this.DeleteElement_ListView.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeader1
             // 

@@ -12,19 +12,22 @@ namespace PO_Project
 {
     public partial class AddAttributeDialog : Form
     {
-        public string key { get; set; }
-        public string value { get; set; }
+        Dictionary<string, string> Attributes;
         public AddAttributeDialog()
         {
             InitializeComponent();
+        }
+        public AddAttributeDialog(Dictionary<string, string> Attributes)
+        {
+            InitializeComponent();
+            this.Attributes = Attributes;
         }
 
         private void AddAttribute_AddButton_Click(object sender, EventArgs e)
         {
             if ((!AddAttribute_NameTextBox.Text.Contains(";") && !AddAttribute_ValueTextBox.Text.Contains(";")) || (!AddAttribute_NameTextBox.Text.Equals("") && !AddAttribute_ValueTextBox.Text.Equals("")))
             {
-                key = AddAttribute_NameTextBox.Text;
-                value = AddAttribute_ValueTextBox.Text;
+                Attributes.Add(AddAttribute_NameTextBox.Text, AddAttribute_ValueTextBox.Text);
                 Close();
             }
             else

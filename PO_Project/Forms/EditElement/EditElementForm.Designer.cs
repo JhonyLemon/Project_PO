@@ -37,6 +37,8 @@ namespace PO_Project
             this.EditElement_ImageBox = new System.Windows.Forms.PictureBox();
             this.EditElement_Edit_Button = new System.Windows.Forms.Button();
             this.EditElement_Cancel_Button = new System.Windows.Forms.Button();
+            this.EditElement_Add_Button = new System.Windows.Forms.Button();
+            this.EditElement_Delete_Button = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.EditElement_ImageBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -120,12 +122,38 @@ namespace PO_Project
             this.EditElement_Cancel_Button.UseVisualStyleBackColor = true;
             this.EditElement_Cancel_Button.Click += new System.EventHandler(this.EditElement_Cancel_Button_Click);
             // 
+            // EditElement_Add_Button
+            // 
+            this.EditElement_Add_Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EditElement_Add_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditElement_Add_Button.Location = new System.Drawing.Point(168, 381);
+            this.EditElement_Add_Button.Name = "EditElement_Add_Button";
+            this.EditElement_Add_Button.Size = new System.Drawing.Size(150, 42);
+            this.EditElement_Add_Button.TabIndex = 7;
+            this.EditElement_Add_Button.Text = "Dodaj Atrybut";
+            this.EditElement_Add_Button.UseVisualStyleBackColor = true;
+            this.EditElement_Add_Button.Click += new System.EventHandler(this.EditElement_Add_Button_Click);
+            // 
+            // EditElement_Delete_Button
+            // 
+            this.EditElement_Delete_Button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.EditElement_Delete_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.EditElement_Delete_Button.Location = new System.Drawing.Point(324, 381);
+            this.EditElement_Delete_Button.Name = "EditElement_Delete_Button";
+            this.EditElement_Delete_Button.Size = new System.Drawing.Size(150, 42);
+            this.EditElement_Delete_Button.TabIndex = 8;
+            this.EditElement_Delete_Button.Text = "Usuń Atrybut";
+            this.EditElement_Delete_Button.UseVisualStyleBackColor = true;
+            this.EditElement_Delete_Button.Click += new System.EventHandler(this.EditElement_Delete_Button_Click);
+            // 
             // EditElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(800, 435);
+            this.Controls.Add(this.EditElement_Delete_Button);
+            this.Controls.Add(this.EditElement_Add_Button);
             this.Controls.Add(this.EditElement_Cancel_Button);
             this.Controls.Add(this.EditElement_Edit_Button);
             this.Controls.Add(this.EditElement_ImageBox);
@@ -134,6 +162,7 @@ namespace PO_Project
             this.Controls.Add(this.EditElement_ComboBox);
             this.MinimumSize = new System.Drawing.Size(816, 474);
             this.Name = "EditElementForm";
+            this.ShowInTaskbar = false;
             this.Text = "Edutuj Element";
             ((System.ComponentModel.ISupportInitialize)(this.EditElement_ImageBox)).EndInit();
             this.ResumeLayout(false);
@@ -151,5 +180,7 @@ namespace PO_Project
         private System.Windows.Forms.Button EditElement_Cancel_Button;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.Button EditElement_Add_Button;
+        private System.Windows.Forms.Button EditElement_Delete_Button;
     }
 }

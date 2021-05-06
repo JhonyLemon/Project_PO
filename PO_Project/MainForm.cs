@@ -35,9 +35,11 @@ namespace PO_Project
 
         private void Add_Button_Click(object sender, EventArgs e)
         {
-            AddElementForm AddElement = new AddElementForm();
+            AddElementForm AddElement = new AddElementForm(elements);
             AddElement.ShowDialog(this);
             AddElement.Dispose();
+            fileOperations.Update(elements);
+            Update(elements);
         }
 
         private void Edit_Button_Click(object sender, EventArgs e)
@@ -47,16 +49,8 @@ namespace PO_Project
             editElementForm.Dispose();//zwolnienie pamieci
             fileOperations.Update(elements);
             PhotoList.Items.Clear();
-            foreach (Element element in elements)
-            {
-                ImageList.Images.Add(element.ID.ToString(), element.Image);
-            }
-            foreach (Element element in elements)
-            {
-                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
-            }
+            Update(elements);
         }
-
         private void Delete_Button_Click(object sender, EventArgs e)
         {
 
