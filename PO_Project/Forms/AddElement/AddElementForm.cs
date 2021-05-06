@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -26,7 +27,10 @@ namespace PO_Project
         {
             InitializeComponent();
             this.elements = elements;
-            AddElement_Type_ComboBox.DataSource = Enum.GetValues(typeof(TypeOfElement));
+            AddElement_Type_ComboBox.Items.Add("Film");
+            AddElement_Type_ComboBox.Items.Add("Muzyka");
+            AddElement_Type_ComboBox.Items.Add("Ksiazka");
+            AddElement_Type_ComboBox.Items.Add("Nowy element");
             ID = elements.Count+1;
             element = new Element("", ID, Attributes);
         }
@@ -83,17 +87,48 @@ namespace PO_Project
 
         private void AddElement_Add_Button_Click(object sender, EventArgs e)
         {
-            Dictionary<string, string> keys = new Dictionary<string, string>();
-            keys.Add("Nazwa",AddElement_Name_TextBox.Text);
-            keys.Add("Autor", AddElement_Author_TextBox.Text);
-            keys.Add("Opis", AddElement_Description_TextBox.Text);
-            keys.Add("Lokacja pliku", AddElement_FileLocation_Dynamic.Text);
-            keys.Add("Lokacja zdjecia", AddElement_PhotoLocation_Dynamic.Text);
-            keys.Add("Data Wydania", AddElement_ReleaseDate_Dynamic.Text);
-            foreach (KeyValuePair<string, string> pair in Attributes)
-                keys.Add(pair.Key, pair.Value);
-            elements.Add(new Element(AddElement_Type_ComboBox.SelectedItem.ToString(), ID, keys));
-            Close();
+            bool flag = false;
+            if (AddElement_Name_TextBox.Text == "" || AddElement_Name_TextBox.Text.Contains(";"))
+                flag = true;
+            if (AddElement_Author_TextBox.Text == "" || AddElement_Author_TextBox.Text.Contains(";"))
+                flag = true;
+            if (AddElement_Description_TextBox.Text == "" || AddElement_Description_TextBox.Text.Contains(";"))
+                flag = true;
+            if (AddElement_FileLocation_Dynamic.Text == "" || AddElement_FileLocation_Dynamic.Text.Contains(";") || !File.Exists(AddElement_FileLocation_Dynamic.Text))
+                flag = true;
+            if (AddElement_PhotoLocation_Dynamic.Text == "" || AddElement_PhotoLocation_Dynamic.Text.Contains(";") || !File.Exists(AddElement_PhotoLocation_Dynamic.Text))
+                flag = true;
+            if (AddElement_ReleaseDate_Dynamic.Text == "" || AddElement_ReleaseDate_Dynamic.Text.Contains(";"))
+                flag = true;
+
+
+
+
+            if (flag == false)
+            {
+                    Dictionary<string, string> keys = new Dictionary<string, string>();
+                    keys.Add("Nazwa", AddElement_Name_TextBox.Text);
+                    keys.Add("Autor", AddElement_Author_TextBox.Text);
+                    keys.Add("Opis", AddElement_Description_TextBox.Text);
+                    keys.Add("Lokacja pliku", AddElement_FileLocation_Dynamic.Text);
+                    keys.Add("Lokacja zdjecia", AddElement_PhotoLocation_Dynamic.Text);
+                    keys.Add("Data Wydania", AddElement_ReleaseDate_Dynamic.Text);
+                    foreach (KeyValuePair<string, string> pair in Attributes)
+                        keys.Add(pair.Key, pair.Value);
+                    if (AddElement_Type_ComboBox.SelectedItem.ToString() != "Nowy element")
+                    {
+                        elements.Add(new Element(AddElement_Type_ComboBox.SelectedItem.ToString(), ID, keys));
+                    }
+                    else
+                    {
+                        elements.Add(new Element(AddElement_Type_TextBox.ToString(), ID, keys));
+                    }
+                    Close();
+            }
+            else
+            {
+                MessageBox.Show("Podane dane sa bledne", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+            }
         }
         public void Update(List<Element> elements)
         {
@@ -103,6 +138,15 @@ namespace PO_Project
                 AddElement_ExtraAttributes_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
             }
             
+        }
+
+        private void AddElement_Type_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            AddElement_Type_TextBox.Visible = false;
+            if (AddElement_Type_ComboBox.SelectedItem.ToString()=="Nowy element")
+            {
+                AddElement_Type_TextBox.Visible = true;
+            }
         }
     }
 }

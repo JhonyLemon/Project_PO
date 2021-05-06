@@ -55,6 +55,7 @@ namespace PO_Project
             this.AddElement_Delete_Button = new System.Windows.Forms.Button();
             this.AddElement_Edit_Button = new System.Windows.Forms.Button();
             this.AddElement_FileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.AddElement_Type_TextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // AddElement_Type_ComboBox
@@ -66,6 +67,7 @@ namespace PO_Project
             this.AddElement_Type_ComboBox.Name = "AddElement_Type_ComboBox";
             this.AddElement_Type_ComboBox.Size = new System.Drawing.Size(115, 21);
             this.AddElement_Type_ComboBox.TabIndex = 0;
+            this.AddElement_Type_ComboBox.SelectedIndexChanged += new System.EventHandler(this.AddElement_Type_ComboBox_SelectedIndexChanged);
             // 
             // AddElement_Type_Static
             // 
@@ -321,12 +323,22 @@ namespace PO_Project
             this.AddElement_Edit_Button.UseVisualStyleBackColor = true;
             this.AddElement_Edit_Button.Click += new System.EventHandler(this.AddElement_Edit_Button_Click);
             // 
+            // AddElement_Type_TextBox
+            // 
+            this.AddElement_Type_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddElement_Type_TextBox.Location = new System.Drawing.Point(408, 9);
+            this.AddElement_Type_TextBox.Name = "AddElement_Type_TextBox";
+            this.AddElement_Type_TextBox.Size = new System.Drawing.Size(134, 20);
+            this.AddElement_Type_TextBox.TabIndex = 28;
+            this.AddElement_Type_TextBox.Visible = false;
+            // 
             // AddElementForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(554, 526);
+            this.Controls.Add(this.AddElement_Type_TextBox);
             this.Controls.Add(this.AddElement_Edit_Button);
             this.Controls.Add(this.AddElement_Delete_Button);
             this.Controls.Add(this.AddElement_AddAttribute_Button);
@@ -390,5 +402,6 @@ namespace PO_Project
         private System.Windows.Forms.Button AddElement_Delete_Button;
         private System.Windows.Forms.Button AddElement_Edit_Button;
         private System.Windows.Forms.OpenFileDialog AddElement_FileDialog;
+        private System.Windows.Forms.TextBox AddElement_Type_TextBox;
     }
 }

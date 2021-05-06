@@ -14,13 +14,6 @@ namespace PO_Project
             this.ElementType = elementType;
             this.ID = ID;
             ExtraAttributes = extraAttributes;
-            //ExtraAttributes.Add("Nazwa", name);
-            //ExtraAttributes.Add("Autor", author);
-            //ExtraAttributes.Add("Opis", description);
-            //ExtraAttributes.Add("Lokacja pliku", fileLocation);
-            //ExtraAttributes.Add("Lokacja zdjecia", photoLocation);
-            //foreach (KeyValuePair<string, string> pair in extraAttributes)
-            //    ExtraAttributes.Add(pair.Key, pair.Value);
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
                 {
                 if (ExtraAttributes["Lokacja zdjecia"] == "")
@@ -28,9 +21,9 @@ namespace PO_Project
 
                     if (this.ElementType == TypeOfElement.Film.ToString())
                         Image = Properties.Resources.FilmImage;
-                    else if (this.ElementType == TypeOfElement.Book.ToString())
+                    else if (this.ElementType == TypeOfElement.Ksiazka.ToString())
                         Image = Properties.Resources.BookImage;
-                    else if (this.ElementType == TypeOfElement.Music.ToString())
+                    else if (this.ElementType == TypeOfElement.Muzyka.ToString())
                         Image = Properties.Resources.MusicImage;
                     else
                         Image = Properties.Resources.PhotoNotFound;

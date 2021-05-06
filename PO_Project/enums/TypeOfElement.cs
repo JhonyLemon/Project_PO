@@ -13,11 +13,11 @@
         /// <summary>
         /// Type for an element is Music
         /// </summary>
-        Music,
+        Muzyka,
         /// <summary>
         /// Type for an element is Book
         /// </summary>
-        Book
+        Ksiazka
 
     }
 }
