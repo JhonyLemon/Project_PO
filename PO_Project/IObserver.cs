@@ -8,6 +8,6 @@ namespace PO_Project
 {
     public interface IObserver
     {
-        void Update(List<Element> elements);
+        void Update();
     }
 }

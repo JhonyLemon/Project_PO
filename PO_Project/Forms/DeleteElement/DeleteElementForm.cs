@@ -14,6 +14,7 @@ namespace PO_Project
     {
         Dictionary<int, string> Names = new Dictionary<int, string>();
         List<Element> elements;
+        public Element element1;
         SearchBy search;
         public DeleteElementForm()
         {
@@ -56,7 +57,8 @@ namespace PO_Project
         private void DeleteElement_Delete_Button_Click(object sender, EventArgs e)
         {
             int i = 1;
-            elements.Remove(search.FindByID(DeleteElement_ComboBox.SelectedValue.ToString()));
+            element1 = search.FindByID(DeleteElement_ComboBox.SelectedValue.ToString());
+            elements.Remove(element1);
             foreach(Element element in elements)
             {
                 element.ID = i++;

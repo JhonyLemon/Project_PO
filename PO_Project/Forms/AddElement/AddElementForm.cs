@@ -14,7 +14,7 @@ namespace PO_Project
     public partial class AddElementForm : Form,IObserver
     {
         List<Element> elements;
-        Element element;
+        public Element element;
         int ID;
         Dictionary<string, string> Attributes = new Dictionary<string, string>();
         public AddElementForm()
@@ -117,12 +117,20 @@ namespace PO_Project
                         keys.Add(pair.Key, pair.Value);
                     if (AddElement_Type_ComboBox.SelectedItem.ToString() != "Nowy element")
                     {
-                        elements.Add(new Element(AddElement_Type_ComboBox.SelectedItem.ToString(), ID, keys));
+                    //elements.Add(new Element(AddElement_Type_ComboBox.SelectedItem.ToString(), ID, keys));
+                    element.ID = ID;
+                    element.ElementType = AddElement_Type_ComboBox.SelectedItem.ToString();
+                    element.ExtraAttributes = keys;
+                    elements.Add(element);
                     }
                     else
                     {
-                        elements.Add(new Element(AddElement_Type_TextBox.ToString(), ID, keys));
-                    }
+                    //elements.Add(new Element(AddElement_Type_TextBox.Text, ID, keys));
+                    element.ID = ID;
+                    element.ElementType = AddElement_Type_TextBox.Text;
+                    element.ExtraAttributes = keys;
+                    elements.Add(element);
+                }
                     Close();
             }
             else

@@ -41,7 +41,7 @@ namespace PO_Project
             this.Delete_Button = new System.Windows.Forms.MenuItem();
             this.Search_Button = new System.Windows.Forms.MenuItem();
             this.Sort_Button = new System.Windows.Forms.MenuItem();
-            this.Filter_Button = new System.Windows.Forms.MenuItem();
+            this.ShowAllButton = new System.Windows.Forms.MenuItem();
             this.Podwojny_Kontener = new System.Windows.Forms.SplitContainer();
             this.PhotoList = new System.Windows.Forms.ListView();
             this.ImageList = new System.Windows.Forms.ImageList(this.components);
@@ -60,7 +60,7 @@ namespace PO_Project
             this.menuItem1,
             this.Search_Button,
             this.Sort_Button,
-            this.Filter_Button});
+            this.ShowAllButton});
             // 
             // menuItem1
             // 
@@ -101,11 +101,11 @@ namespace PO_Project
             this.Sort_Button.Text = "Sortuj";
             this.Sort_Button.Click += new System.EventHandler(this.Sort_Button_Click);
             // 
-            // Filter_Button
+            // ShowAllButton
             // 
-            this.Filter_Button.Index = 3;
-            this.Filter_Button.Text = "Filtruj";
-            this.Filter_Button.Click += new System.EventHandler(this.Filter_Button_Click);
+            this.ShowAllButton.Index = 3;
+            this.ShowAllButton.Text = "Pokaż wszystko";
+            this.ShowAllButton.Click += new System.EventHandler(this.Show_All_Click);
             // 
             // Podwojny_Kontener
             // 
@@ -190,6 +190,7 @@ namespace PO_Project
             this.BackColor = System.Drawing.SystemColors.ControlLight;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Podwojny_Kontener);
+            this.DoubleBuffered = true;
             this.Menu = this.mainMenu1;
             this.Name = "MainForm";
             this.ShowIcon = false;
@@ -211,12 +212,12 @@ namespace PO_Project
         private System.Windows.Forms.MenuItem Edit_Button;
         private System.Windows.Forms.MenuItem Delete_Button;
         private System.Windows.Forms.MenuItem Sort_Button;
-        private System.Windows.Forms.MenuItem Filter_Button;
         private System.Windows.Forms.ListView PhotoList;
         private System.Windows.Forms.ImageList ImageList;
         private System.Windows.Forms.ListView Details_ListView;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
+        private System.Windows.Forms.MenuItem ShowAllButton;
     }
 }
 
