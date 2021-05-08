@@ -27,12 +27,25 @@ namespace PO_Project
         {
             if(EditElementDialog_ComboBox.SelectedItem!=null)
             {
-                    element.ExtraAttributes[EditElementDialog_Name_TextBox.Text] = EditElementDialog_TextBox.Text;
-                    EditElementDialog_Name_TextBox.Text = "Nazwa atrybutu";
-                    if (EditElementDialog_ComboBox.SelectedItem.Equals("Lokacja zdjecia"))
-                        element.Image = Image.FromFile(element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem]);
-                    EditElementDialog_TextBox.ResetText();
-                    
+                if (!EditElementDialog_TextBox.Text.Contains(";"))
+                {
+                    if (!EditElementDialog_TextBox.Text.Equals(""))
+                    {
+                        element.ExtraAttributes[EditElementDialog_Name_TextBox.Text] = EditElementDialog_TextBox.Text;
+                        EditElementDialog_Name_TextBox.Text = "Nazwa atrybutu";
+                        if (EditElementDialog_ComboBox.SelectedItem.Equals("Lokacja zdjecia"))
+                            element.Image = Image.FromFile(element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem]);
+                        EditElementDialog_TextBox.ResetText();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wartosc nie moze byc pusta", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadzono zabroniony znak", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+                }
             }
             else
             {

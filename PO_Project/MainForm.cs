@@ -44,34 +44,58 @@ namespace PO_Project
             AddElement.ShowDialog(this);
             fileOperations.Update(elements);
             listViewItem.Add(new MyListViewItem(AddElement.element));
-            Update();
             AddElement.Dispose();
         }
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
-            EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
-            editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            editElementForm.Dispose();//zwolnienie pamieci
-            fileOperations.Update(elements);
-            Update();
+            if (PhotoList.SelectedItems.Count!=0)
+            {
+                EditElementForm editElementForm = new EditElementForm(elements,element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                editElementForm.Dispose();//zwolnienie pamieci
+                fileOperations.Update(elements);
+            }
+            else
+            {
+                EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                editElementForm.Dispose();//zwolnienie pamieci
+                fileOperations.Update(elements);
+            }
         }
         private void Delete_Button_Click(object sender, EventArgs e)
         {
-
-            DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
-            deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            deleteElement.Dispose();//zwolnienie pamieci
-            foreach(MyListViewItem viewItem in listViewItem)
+            if (PhotoList.SelectedItems.Count == 0)
             {
-                if (viewItem.element == deleteElement.element1)
+                DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                foreach (MyListViewItem viewItem in listViewItem)
                 {
-                    listViewItem.Remove(viewItem);
-                    break;
+                    if (viewItem.element == deleteElement.element1)
+                    {
+                        listViewItem.Remove(viewItem);
+                        break;
+                    }
                 }
+                fileOperations.Update(elements);
+                deleteElement.Dispose();//zwolnienie pamieci
             }
-            fileOperations.Update(elements);
-            Update();
+            else
+            {
+                DeleteElementForm deleteElement = new DeleteElementForm(elements,element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                foreach (MyListViewItem viewItem in listViewItem)
+                {
+                    if (viewItem.element == deleteElement.element1)
+                    {
+                        listViewItem.Remove(viewItem);
+                        break;
+                    }
+                }
+                fileOperations.Update(elements);
+                deleteElement.Dispose();//zwolnienie pamieci
+            }
         }
 
         private void Search_Button_Click(object sender, EventArgs e)
@@ -107,6 +131,8 @@ namespace PO_Project
         }
         public new void Update()
         {
+            foreach (ListViewItem listViewitems in Details_ListView.Items)
+                Details_ListView.Items.Remove(listViewitems);
             PhotoList.BeginUpdate();
             PhotoList.Items.Clear();
             ImageList.Images.Clear();
@@ -139,6 +165,7 @@ namespace PO_Project
             {
                 listViewItem.Add(new MyListViewItem(element));
             }
+            Update();
         }
     }
 }

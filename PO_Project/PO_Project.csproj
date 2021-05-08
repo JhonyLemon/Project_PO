@@ -93,8 +93,8 @@
     <Compile Include="Forms\EditElement\EditElementForm.Designer.cs">
       <DependentUpon>EditElementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="IObservable.cs" />
-    <Compile Include="IObserver.cs" />
+    <Compile Include="Observer\IObservable.cs" />
+    <Compile Include="Observer\IObserver.cs" />
     <Compile Include="IO\DataIO.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Forms\AddElement\AddElementForm.cs">
@@ -104,7 +104,6 @@
       <DependentUpon>AddElementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IO\DataParser.cs" />
-    <Compile Include="enums\Category.cs" />
     <Compile Include="enums\TypeOfElement.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

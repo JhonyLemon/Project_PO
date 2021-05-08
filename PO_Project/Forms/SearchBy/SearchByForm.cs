@@ -17,7 +17,7 @@ namespace PO_Project
         public SearchByForm()
         {
             InitializeComponent();
-            bindDic.Add(0, "Szukaj przez Nazwe");
+            bindDic.Add(0, "Szukaj przez nazwie");
             SearchByComboBox.DataSource = new BindingSource(bindDic, null);
             SearchByComboBox.DisplayMember = "Value";
             SearchByComboBox.ValueMember = "Key";
@@ -25,8 +25,15 @@ namespace PO_Project
         public SearchByForm(List<Element> elements)
         {
             InitializeComponent();
+            SearchByTextBoxName.Visible = false;
+            SearchByLabelName.Visible = false;
             this.elements = elements;
-            bindDic.Add(0, "Szukaj przez Nazwe");
+            bindDic.Add(0, "Szukaj po nazwie");
+            bindDic.Add(1, "Szukaj po autorze");
+            bindDic.Add(2, "Szukaj po opisie");
+            bindDic.Add(3, "Szukaj po dacie");
+            bindDic.Add(4, "Szukaj po typie");
+            bindDic.Add(5, "Szukaj po dodatkowym atrybucie");
             SearchByComboBox.DataSource = new BindingSource(bindDic, null);
             SearchByComboBox.DisplayMember = "Value";
             SearchByComboBox.ValueMember = "Key";
@@ -34,7 +41,16 @@ namespace PO_Project
 
         private void SearchByComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if(SearchByComboBox.SelectedValue.ToString()=="5")
+            {
+                SearchByTextBoxName.Visible = true;
+                SearchByLabelName.Visible = true;
+            }
+            else
+            {
+                SearchByTextBoxName.Visible = false;
+                SearchByLabelName.Visible = false;
+            }
         }
 
         private void SearchBySearchButton_Click(object sender, EventArgs e)
@@ -48,8 +64,56 @@ namespace PO_Project
                         {
                             foreach(Element element in elements)
                             {
-                                if ((Owner as MainForm).search.FindByName(SearchByTextBox.Text,element))
+                                if ((Owner as MainForm).search.FindByAttribute("Nazwa",SearchByTextBox.Text,element))
                                     (Owner as MainForm).listViewItem.Add(new MyListViewItem(element));
+                            }
+                            break;
+                        }
+                    case 1:
+                        {
+                            foreach (Element element in elements)
+                            {
+                                if ((Owner as MainForm).search.FindByAttribute("Autor",SearchByTextBox.Text, element))
+                                    (Owner as MainForm).listViewItem.Add(new MyListViewItem(element));
+                            }
+                            break;
+                        }
+                    case 2:
+                        {
+                            foreach (Element element in elements)
+                            {
+                                if ((Owner as MainForm).search.FindByAttribute("Opis",SearchByTextBox.Text, element))
+                                    (Owner as MainForm).listViewItem.Add(new MyListViewItem(element));
+                            }
+                            break;
+                        }
+                    case 3:
+                        {
+                            foreach (Element element in elements)
+                            {
+                                if ((Owner as MainForm).search.FindByAttribute("Data",SearchByTextBox.Text, element))
+                                    (Owner as MainForm).listViewItem.Add(new MyListViewItem(element));
+                            }
+                            break;
+                        }
+                    case 4:
+                        {
+                            foreach (Element element in elements)
+                            {
+                                if ((Owner as MainForm).search.FindByType(SearchByTextBox.Text, element))
+                                    (Owner as MainForm).listViewItem.Add(new MyListViewItem(element));
+                            }
+                            break;
+                        }
+                    case 5:
+                        {
+                            if (SearchByTextBoxName.Text != "")
+                            {
+                                foreach (Element element in elements)
+                                {
+                                    if ((Owner as MainForm).search.FindByAttribute(SearchByTextBoxName.Text, SearchByTextBox.Text, element))
+                                        (Owner as MainForm).listViewItem.Add(new MyListViewItem(element));
+                                }
                             }
                             break;
                         }

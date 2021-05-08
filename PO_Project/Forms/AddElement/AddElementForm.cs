@@ -88,19 +88,20 @@ namespace PO_Project
         private void AddElement_Add_Button_Click(object sender, EventArgs e)
         {
             bool flag = false;
-            if (AddElement_Name_TextBox.Text == "" || AddElement_Name_TextBox.Text.Contains(";"))
+            if (AddElement_Name_TextBox.Text.Contains(";"))
                 flag = true;
-            if (AddElement_Author_TextBox.Text == "" || AddElement_Author_TextBox.Text.Contains(";"))
+            if (AddElement_Author_TextBox.Text.Contains(";"))
                 flag = true;
-            if (AddElement_Description_TextBox.Text == "" || AddElement_Description_TextBox.Text.Contains(";"))
+            if (AddElement_Description_TextBox.Text.Contains(";"))
                 flag = true;
-            if (AddElement_FileLocation_Dynamic.Text == "" || AddElement_FileLocation_Dynamic.Text.Contains(";") || !File.Exists(AddElement_FileLocation_Dynamic.Text))
+            if (AddElement_FileLocation_Dynamic.Text.Contains(";"))
                 flag = true;
-            if (AddElement_PhotoLocation_Dynamic.Text == "" || AddElement_PhotoLocation_Dynamic.Text.Contains(";") || !File.Exists(AddElement_PhotoLocation_Dynamic.Text))
+            if (AddElement_PhotoLocation_Dynamic.Text.Contains(";"))
                 flag = true;
             if (AddElement_ReleaseDate_Dynamic.Text == "" || AddElement_ReleaseDate_Dynamic.Text.Contains(";"))
                 flag = true;
-
+            if (AddElement_Type_ComboBox.SelectedItem == null)
+                flag = true;
 
 
 
@@ -121,6 +122,7 @@ namespace PO_Project
                     element.ID = ID;
                     element.ElementType = AddElement_Type_ComboBox.SelectedItem.ToString();
                     element.ExtraAttributes = keys;
+                    element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);
                     elements.Add(element);
                     }
                     else
@@ -129,8 +131,10 @@ namespace PO_Project
                     element.ID = ID;
                     element.ElementType = AddElement_Type_TextBox.Text;
                     element.ExtraAttributes = keys;
+                    element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);
                     elements.Add(element);
-                }
+                    }
+                    (Owner as MainForm).Update();
                     Close();
             }
             else

@@ -36,9 +36,10 @@ namespace PO_Project
         /// Returns a List of IElement type
         /// </returns>
         /// <param name="name">string</param>
-        public bool FindByName(string name ,Element element)
+        public bool FindByAttribute(string name,string value ,Element element)
         {
-            if(element.ExtraAttributes["Nazwa"].Equals(name))
+            string s="";
+            if(element.ExtraAttributes.TryGetValue(name,out s) && s.Equals(value))
             {
                 return true;
             }
@@ -62,14 +63,11 @@ namespace PO_Project
             return null;
         }
 
-        public List<Element> FindByCategory(Category category)
+        public bool FindByType(string Type, Element element)
         {
-            List<Element> foundElements = new List<Element>();
-            foreach (Element element in elements)
-            {
-
-            }
-            return foundElements;
+            if (element.ElementType == Type)
+                return true;
+            return false;
         }
     }
 }

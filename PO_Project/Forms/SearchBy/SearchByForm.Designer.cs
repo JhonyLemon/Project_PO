@@ -34,6 +34,9 @@ namespace PO_Project
             this.SearchBySearchButton = new System.Windows.Forms.Button();
             this.SearchByCancelButton = new System.Windows.Forms.Button();
             this.SearchByTextBox = new System.Windows.Forms.TextBox();
+            this.SearchByLabelValue = new System.Windows.Forms.Label();
+            this.SearchByTextBoxName = new System.Windows.Forms.TextBox();
+            this.SearchByLabelName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // SearchByComboBox
@@ -69,7 +72,7 @@ namespace PO_Project
             // SearchByCancelButton
             // 
             this.SearchByCancelButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SearchByCancelButton.Location = new System.Drawing.Point(264, 61);
+            this.SearchByCancelButton.Location = new System.Drawing.Point(477, 63);
             this.SearchByCancelButton.Name = "SearchByCancelButton";
             this.SearchByCancelButton.Size = new System.Drawing.Size(203, 44);
             this.SearchByCancelButton.TabIndex = 3;
@@ -79,23 +82,54 @@ namespace PO_Project
             // 
             // SearchByTextBox
             // 
-            this.SearchByTextBox.Location = new System.Drawing.Point(5, 35);
+            this.SearchByTextBox.Location = new System.Drawing.Point(467, 34);
             this.SearchByTextBox.Name = "SearchByTextBox";
-            this.SearchByTextBox.Size = new System.Drawing.Size(462, 20);
+            this.SearchByTextBox.Size = new System.Drawing.Size(203, 20);
             this.SearchByTextBox.TabIndex = 4;
+            // 
+            // SearchByLabelValue
+            // 
+            this.SearchByLabelValue.AutoSize = true;
+            this.SearchByLabelValue.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SearchByLabelValue.Location = new System.Drawing.Point(311, 34);
+            this.SearchByLabelValue.Name = "SearchByLabelValue";
+            this.SearchByLabelValue.Size = new System.Drawing.Size(150, 22);
+            this.SearchByLabelValue.TabIndex = 5;
+            this.SearchByLabelValue.Text = "Szukana wartosc";
+            // 
+            // SearchByTextBoxName
+            // 
+            this.SearchByTextBoxName.Location = new System.Drawing.Point(158, 37);
+            this.SearchByTextBoxName.Name = "SearchByTextBoxName";
+            this.SearchByTextBoxName.Size = new System.Drawing.Size(144, 20);
+            this.SearchByTextBoxName.TabIndex = 6;
+            // 
+            // SearchByLabelName
+            // 
+            this.SearchByLabelName.AutoSize = true;
+            this.SearchByLabelName.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SearchByLabelName.Location = new System.Drawing.Point(12, 34);
+            this.SearchByLabelName.Name = "SearchByLabelName";
+            this.SearchByLabelName.Size = new System.Drawing.Size(140, 22);
+            this.SearchByLabelName.TabIndex = 7;
+            this.SearchByLabelName.Text = "Nazwa atrybutu";
             // 
             // SearchByForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
-            this.ClientSize = new System.Drawing.Size(479, 119);
+            this.ClientSize = new System.Drawing.Size(692, 119);
+            this.Controls.Add(this.SearchByLabelName);
+            this.Controls.Add(this.SearchByTextBoxName);
+            this.Controls.Add(this.SearchByLabelValue);
             this.Controls.Add(this.SearchByTextBox);
             this.Controls.Add(this.SearchByCancelButton);
             this.Controls.Add(this.SearchBySearchButton);
             this.Controls.Add(this.SearchByLabel);
             this.Controls.Add(this.SearchByComboBox);
             this.Name = "SearchByForm";
+            this.ShowInTaskbar = false;
             this.Text = "SearchBy";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -109,5 +143,8 @@ namespace PO_Project
         private System.Windows.Forms.Button SearchBySearchButton;
         private System.Windows.Forms.Button SearchByCancelButton;
         private System.Windows.Forms.TextBox SearchByTextBox;
+        private System.Windows.Forms.Label SearchByLabelValue;
+        private System.Windows.Forms.TextBox SearchByTextBoxName;
+        private System.Windows.Forms.Label SearchByLabelName;
     }
 }

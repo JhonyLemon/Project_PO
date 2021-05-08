@@ -15,7 +15,7 @@ namespace PO_Project
             this.ID = ID;
             ExtraAttributes = extraAttributes;
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
-                {
+            {
                 if (ExtraAttributes["Lokacja zdjecia"] == "")
                 {
 
@@ -36,6 +36,28 @@ namespace PO_Project
         public int ID { get; set; }
         public Image Image { get; set; }
         public Dictionary<string,string> ExtraAttributes { get; set; }
+
+        public void AddImage(string path)
+        {
+            if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
+            {
+                if (path=="")
+                {
+
+                    if (this.ElementType == TypeOfElement.Film.ToString())
+                        Image = Properties.Resources.FilmImage;
+                    else if (this.ElementType == TypeOfElement.Ksiazka.ToString())
+                        Image = Properties.Resources.BookImage;
+                    else if (this.ElementType == TypeOfElement.Muzyka.ToString())
+                        Image = Properties.Resources.MusicImage;
+                    else
+                        Image = Properties.Resources.PhotoNotFound;
+                }
+                else
+                    Image = Image.FromFile(path);
+            }
+        }
+
 
     }
 }

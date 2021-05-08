@@ -25,19 +25,21 @@ namespace PO_Project
 
         private void AddAttribute_AddButton_Click(object sender, EventArgs e)
         {
-            if ((!AddAttribute_NameTextBox.Text.Contains(";") && !AddAttribute_ValueTextBox.Text.Contains(";")) || (!AddAttribute_NameTextBox.Text.Equals("") && !AddAttribute_ValueTextBox.Text.Equals("")))
+            if ((!AddAttribute_NameTextBox.Text.Equals("") && !AddAttribute_ValueTextBox.Text.Equals("")))
             {
-                Attributes.Add(AddAttribute_NameTextBox.Text, AddAttribute_ValueTextBox.Text);
-                Close();
+                if ((!AddAttribute_NameTextBox.Text.Contains(";") && !AddAttribute_ValueTextBox.Text.Contains(";")))
+                {
+                    Attributes.Add(AddAttribute_NameTextBox.Text, AddAttribute_ValueTextBox.Text);
+                    Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadzono zabroniony znak ", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+                }
             }
             else
             {
-                DialogResult result;
-                result = MessageBox.Show("Wprowadzono zabroniony znak ", "Blad wprowadzanych danych", MessageBoxButtons.OK);
-                if (result == System.Windows.Forms.DialogResult.OK)
-                {
-                    this.Close();
-                }
+                MessageBox.Show("Wprowadz wartosc ", "Blad wprowadzanych danych", MessageBoxButtons.OK);
             }
         }
 

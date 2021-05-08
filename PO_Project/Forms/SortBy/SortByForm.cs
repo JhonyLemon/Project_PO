@@ -27,7 +27,7 @@ namespace PO_Project
             bindDic.Add(2, "Sortuj po typie");
             bindDic.Add(3, "Sortuj rosnaco po autorze");
             bindDic.Add(4, "Sortuj malejaco po autorze");
-            bindDic.Add(10, "Domyslnie");
+            bindDic.Add(10, "Sortuj po id");
             SortByComboBox.DataSource = new BindingSource(bindDic, null);
             SortByComboBox.DisplayMember = "Value";
             SortByComboBox.ValueMember = "Key";

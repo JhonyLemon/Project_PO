@@ -88,6 +88,7 @@ namespace PO_Project
             this.Controls.Add(this.SortByComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "SortByForm";
+            this.ShowInTaskbar = false;
             this.Text = "SortByForm";
             this.ResumeLayout(false);
             this.PerformLayout();

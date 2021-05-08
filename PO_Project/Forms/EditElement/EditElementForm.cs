@@ -34,6 +34,23 @@ namespace PO_Project
             EditElement_ComboBox.DisplayMember = "Value";
             EditElement_ComboBox.ValueMember = "Key";
         }
+        public EditElementForm(List<Element> elements,Element eleme)
+        {
+            InitializeComponent();
+            this.element = eleme;
+            foreach (Element element in elements)
+            {
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+            }
+            this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;
+            this.elements = elements;
+            search = new SearchBy(elements);
+            EditElement_ComboBox.DataSource = new BindingSource(Names, null);
+            EditElement_ComboBox.DisplayMember = "Value";
+            EditElement_ComboBox.ValueMember = "Key";
+            EditElement_ComboBox.SelectedValue = element.ID;
+            EditElement_ComboBox_SelectionChangeCommitted(this, null);
+        }
 
         private void EditElement_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -58,6 +75,7 @@ namespace PO_Project
                 editElementForm.Dispose();//zwolnienie pamieci
                 Update(elements);
             }
+            (Owner as MainForm).Update();
         }
 
         private void EditElement_Cancel_Button_Click(object sender, EventArgs e)
@@ -79,6 +97,7 @@ namespace PO_Project
             addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             addAttributeDialog.Dispose();//zwolnienie pamieci
             Update(elements);
+            (Owner as MainForm).Update();
         }
 
         private void EditElement_Delete_Button_Click(object sender, EventArgs e)
@@ -87,6 +106,7 @@ namespace PO_Project
             deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             deleteElementDialog.Dispose();//zwolnienie pamieci
             Update(elements);
+            (Owner as MainForm).Update();
         }
     }
 }

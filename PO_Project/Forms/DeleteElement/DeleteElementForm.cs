@@ -36,6 +36,22 @@ namespace PO_Project
             DeleteElement_ComboBox.ValueMember = "Key";
 
         }
+        public DeleteElementForm(List<Element> elements,Element eleme)
+        {
+            InitializeComponent();
+            search = new SearchBy(elements);
+            foreach (Element element in elements)
+            {
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+            }
+            this.elements = elements;
+            search = new SearchBy(elements);
+            DeleteElement_ComboBox.DataSource = new BindingSource(Names, null);
+            DeleteElement_ComboBox.DisplayMember = "Value";
+            DeleteElement_ComboBox.ValueMember = "Key";
+            DeleteElement_ComboBox.SelectedValue = eleme.ID;
+            DeleteElement_ComboBox_SelectionChangeCommitted(this, null);
+        }
 
         private void DeleteElement_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -63,6 +79,7 @@ namespace PO_Project
             {
                 element.ID = i++;
             }
+            (Owner as MainForm).Update();
             Close();
         }
     }

@@ -156,7 +156,7 @@ namespace PO_Project
             this.AddElement_ReleaseDate_Dynamic.Name = "AddElement_ReleaseDate_Dynamic";
             this.AddElement_ReleaseDate_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_ReleaseDate_Dynamic.TabIndex = 13;
-            this.AddElement_ReleaseDate_Dynamic.Value = new System.DateTime(2021, 5, 6, 0, 0, 0, 0);
+            this.AddElement_ReleaseDate_Dynamic.Value = new System.DateTime(2021, 5, 8, 0, 0, 0, 0);
             // 
             // AddElement_FileLocation_Static
             // 
