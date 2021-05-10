@@ -73,7 +73,7 @@ namespace PO_Project
                 EditElementDialogForm editElementForm = new EditElementDialogForm(element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
-                Update(elements);
+                Update();
             }
             (Owner as MainForm).Update();
         }
@@ -83,7 +83,7 @@ namespace PO_Project
             Close();
         }
 
-        public void Update(List<Element> elements)
+        public void Update()
         {
             EditElement_ListView.Items.Clear();
             foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
@@ -96,7 +96,7 @@ namespace PO_Project
             AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             addAttributeDialog.Dispose();//zwolnienie pamieci
-            Update(elements);
+            Update();
             (Owner as MainForm).Update();
         }
 
@@ -105,7 +105,7 @@ namespace PO_Project
             DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             deleteElementDialog.Dispose();//zwolnienie pamieci
-            Update(elements);
+            Update();
             (Owner as MainForm).Update();
         }
     }

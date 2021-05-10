@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,7 +17,7 @@ namespace PO_Project
             ExtraAttributes = extraAttributes;
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
             {
-                if (ExtraAttributes["Lokacja zdjecia"] == "")
+                if (ExtraAttributes["Lokacja zdjecia"] == "" || !File.Exists(ExtraAttributes["Lokacja zdjecia"]))
                 {
 
                     if (this.ElementType == TypeOfElement.Film.ToString())
@@ -41,7 +42,7 @@ namespace PO_Project
         {
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
             {
-                if (path=="")
+                if (path=="" || !File.Exists(path))
                 {
 
                     if (this.ElementType == TypeOfElement.Film.ToString())

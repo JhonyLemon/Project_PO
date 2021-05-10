@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,8 +34,7 @@ namespace PO_Project
                     {
                         element.ExtraAttributes[EditElementDialog_Name_TextBox.Text] = EditElementDialog_TextBox.Text;
                         EditElementDialog_Name_TextBox.Text = "Nazwa atrybutu";
-                        if (EditElementDialog_ComboBox.SelectedItem.Equals("Lokacja zdjecia"))
-                            element.Image = Image.FromFile(element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem]);
+                        element.AddImage(EditElementDialog_TextBox.Text);
                         EditElementDialog_TextBox.ResetText();
                     }
                     else
@@ -50,7 +50,11 @@ namespace PO_Project
             else
             {
                 MessageBox.Show("Najpierw wybierz atrybut ktory chcesz edytowac", "Blad wprowadzanych danych", MessageBoxButtons.OK);
-            }    
+            }
+            if (Owner is EditElementForm)
+                (Owner as EditElementForm).Update();
+            else if(Owner is AddElementForm)
+                (Owner as AddElementForm).Update();
         }
 
         private void EditElementDialog_FinishButton_Click(object sender, EventArgs e)
