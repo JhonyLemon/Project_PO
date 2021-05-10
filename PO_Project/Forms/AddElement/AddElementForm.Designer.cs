@@ -121,7 +121,7 @@ namespace PO_Project
             // 
             this.AddElement_Description_Static.AutoSize = true;
             this.AddElement_Description_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Description_Static.Location = new System.Drawing.Point(12, 122);
+            this.AddElement_Description_Static.Location = new System.Drawing.Point(12, 239);
             this.AddElement_Description_Static.Name = "AddElement_Description_Static";
             this.AddElement_Description_Static.Size = new System.Drawing.Size(53, 22);
             this.AddElement_Description_Static.TabIndex = 8;
@@ -131,17 +131,17 @@ namespace PO_Project
             // 
             this.AddElement_Description_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddElement_Description_TextBox.Location = new System.Drawing.Point(286, 122);
+            this.AddElement_Description_TextBox.Location = new System.Drawing.Point(286, 239);
             this.AddElement_Description_TextBox.Multiline = true;
             this.AddElement_Description_TextBox.Name = "AddElement_Description_TextBox";
-            this.AddElement_Description_TextBox.Size = new System.Drawing.Size(115, 20);
+            this.AddElement_Description_TextBox.Size = new System.Drawing.Size(256, 39);
             this.AddElement_Description_TextBox.TabIndex = 9;
             // 
             // Add_Element_ReleaseDate
             // 
             this.Add_Element_ReleaseDate.AutoSize = true;
             this.Add_Element_ReleaseDate.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Add_Element_ReleaseDate.Location = new System.Drawing.Point(12, 165);
+            this.Add_Element_ReleaseDate.Location = new System.Drawing.Point(12, 121);
             this.Add_Element_ReleaseDate.Name = "Add_Element_ReleaseDate";
             this.Add_Element_ReleaseDate.Size = new System.Drawing.Size(128, 22);
             this.Add_Element_ReleaseDate.TabIndex = 12;
@@ -152,7 +152,7 @@ namespace PO_Project
             this.AddElement_ReleaseDate_Dynamic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_ReleaseDate_Dynamic.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.AddElement_ReleaseDate_Dynamic.Location = new System.Drawing.Point(286, 167);
+            this.AddElement_ReleaseDate_Dynamic.Location = new System.Drawing.Point(286, 123);
             this.AddElement_ReleaseDate_Dynamic.Name = "AddElement_ReleaseDate_Dynamic";
             this.AddElement_ReleaseDate_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_ReleaseDate_Dynamic.TabIndex = 13;
@@ -162,7 +162,7 @@ namespace PO_Project
             // 
             this.AddElement_FileLocation_Static.AutoSize = true;
             this.AddElement_FileLocation_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_FileLocation_Static.Location = new System.Drawing.Point(12, 204);
+            this.AddElement_FileLocation_Static.Location = new System.Drawing.Point(12, 160);
             this.AddElement_FileLocation_Static.Name = "AddElement_FileLocation_Static";
             this.AddElement_FileLocation_Static.Size = new System.Drawing.Size(157, 22);
             this.AddElement_FileLocation_Static.TabIndex = 14;
@@ -172,7 +172,7 @@ namespace PO_Project
             // 
             this.AddElement_FileLocation_Dynamic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddElement_FileLocation_Dynamic.Location = new System.Drawing.Point(286, 207);
+            this.AddElement_FileLocation_Dynamic.Location = new System.Drawing.Point(286, 163);
             this.AddElement_FileLocation_Dynamic.Name = "AddElement_FileLocation_Dynamic";
             this.AddElement_FileLocation_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_FileLocation_Dynamic.TabIndex = 15;
@@ -180,7 +180,7 @@ namespace PO_Project
             // AddElement_FileLocation_Button
             // 
             this.AddElement_FileLocation_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddElement_FileLocation_Button.Location = new System.Drawing.Point(407, 207);
+            this.AddElement_FileLocation_Button.Location = new System.Drawing.Point(407, 163);
             this.AddElement_FileLocation_Button.Name = "AddElement_FileLocation_Button";
             this.AddElement_FileLocation_Button.Size = new System.Drawing.Size(26, 20);
             this.AddElement_FileLocation_Button.TabIndex = 16;
@@ -192,7 +192,7 @@ namespace PO_Project
             // 
             this.AddElement_PhotoLocation_Static.AutoSize = true;
             this.AddElement_PhotoLocation_Static.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_PhotoLocation_Static.Location = new System.Drawing.Point(12, 246);
+            this.AddElement_PhotoLocation_Static.Location = new System.Drawing.Point(12, 202);
             this.AddElement_PhotoLocation_Static.Name = "AddElement_PhotoLocation_Static";
             this.AddElement_PhotoLocation_Static.Size = new System.Drawing.Size(240, 22);
             this.AddElement_PhotoLocation_Static.TabIndex = 17;
@@ -202,7 +202,7 @@ namespace PO_Project
             // 
             this.AddElement_PhotoLocation_Dynamic.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddElement_PhotoLocation_Dynamic.Location = new System.Drawing.Point(286, 249);
+            this.AddElement_PhotoLocation_Dynamic.Location = new System.Drawing.Point(286, 205);
             this.AddElement_PhotoLocation_Dynamic.Name = "AddElement_PhotoLocation_Dynamic";
             this.AddElement_PhotoLocation_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_PhotoLocation_Dynamic.TabIndex = 18;
@@ -210,7 +210,7 @@ namespace PO_Project
             // AddElement_PhotoLocation_Button
             // 
             this.AddElement_PhotoLocation_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddElement_PhotoLocation_Button.Location = new System.Drawing.Point(407, 249);
+            this.AddElement_PhotoLocation_Button.Location = new System.Drawing.Point(407, 205);
             this.AddElement_PhotoLocation_Button.Name = "AddElement_PhotoLocation_Button";
             this.AddElement_PhotoLocation_Button.Size = new System.Drawing.Size(26, 20);
             this.AddElement_PhotoLocation_Button.TabIndex = 19;
@@ -222,7 +222,7 @@ namespace PO_Project
             // 
             this.AddElement_Add_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddElement_Add_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Add_Button.Location = new System.Drawing.Point(12, 476);
+            this.AddElement_Add_Button.Location = new System.Drawing.Point(12, 561);
             this.AddElement_Add_Button.Name = "AddElement_Add_Button";
             this.AddElement_Add_Button.Size = new System.Drawing.Size(240, 38);
             this.AddElement_Add_Button.TabIndex = 20;
@@ -234,7 +234,7 @@ namespace PO_Project
             // 
             this.AddElement_Exit_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Exit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Exit_Button.Location = new System.Drawing.Point(286, 476);
+            this.AddElement_Exit_Button.Location = new System.Drawing.Point(286, 561);
             this.AddElement_Exit_Button.Name = "AddElement_Exit_Button";
             this.AddElement_Exit_Button.Size = new System.Drawing.Size(256, 38);
             this.AddElement_Exit_Button.TabIndex = 21;
@@ -270,7 +270,7 @@ namespace PO_Project
             this.AddElement_ExtraAttributes_ListView.Location = new System.Drawing.Point(12, 317);
             this.AddElement_ExtraAttributes_ListView.MultiSelect = false;
             this.AddElement_ExtraAttributes_ListView.Name = "AddElement_ExtraAttributes_ListView";
-            this.AddElement_ExtraAttributes_ListView.Size = new System.Drawing.Size(530, 108);
+            this.AddElement_ExtraAttributes_ListView.Size = new System.Drawing.Size(530, 193);
             this.AddElement_ExtraAttributes_ListView.TabIndex = 24;
             this.AddElement_ExtraAttributes_ListView.UseCompatibleStateImageBehavior = false;
             this.AddElement_ExtraAttributes_ListView.View = System.Windows.Forms.View.Details;
@@ -289,7 +289,7 @@ namespace PO_Project
             // 
             this.AddElement_AddAttribute_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.AddElement_AddAttribute_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_AddAttribute_Button.Location = new System.Drawing.Point(12, 431);
+            this.AddElement_AddAttribute_Button.Location = new System.Drawing.Point(12, 516);
             this.AddElement_AddAttribute_Button.Name = "AddElement_AddAttribute_Button";
             this.AddElement_AddAttribute_Button.Size = new System.Drawing.Size(145, 38);
             this.AddElement_AddAttribute_Button.TabIndex = 25;
@@ -301,7 +301,7 @@ namespace PO_Project
             // 
             this.AddElement_Delete_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Delete_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Delete_Button.Location = new System.Drawing.Point(397, 431);
+            this.AddElement_Delete_Button.Location = new System.Drawing.Point(397, 516);
             this.AddElement_Delete_Button.Name = "AddElement_Delete_Button";
             this.AddElement_Delete_Button.Size = new System.Drawing.Size(145, 38);
             this.AddElement_Delete_Button.TabIndex = 26;
@@ -314,7 +314,7 @@ namespace PO_Project
             this.AddElement_Edit_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Edit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Edit_Button.Location = new System.Drawing.Point(207, 432);
+            this.AddElement_Edit_Button.Location = new System.Drawing.Point(207, 517);
             this.AddElement_Edit_Button.Name = "AddElement_Edit_Button";
             this.AddElement_Edit_Button.Size = new System.Drawing.Size(145, 38);
             this.AddElement_Edit_Button.TabIndex = 27;
@@ -336,7 +336,7 @@ namespace PO_Project
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.ClientSize = new System.Drawing.Size(554, 526);
+            this.ClientSize = new System.Drawing.Size(554, 611);
             this.Controls.Add(this.AddElement_Type_TextBox);
             this.Controls.Add(this.AddElement_Edit_Button);
             this.Controls.Add(this.AddElement_Delete_Button);
