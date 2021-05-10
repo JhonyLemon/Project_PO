@@ -36,8 +36,10 @@ namespace PO_Project
         {
             if (obj == null) return false;
             MyListViewItem objAsPart = obj as MyListViewItem;
-            if (objAsPart == null) return false;
-            else return Equals(objAsPart);
+            if (objAsPart == null) 
+                return false;
+            else 
+                return Equals(objAsPart);
         }
         public int SortByNameAscending(string name1, string name2)
         {

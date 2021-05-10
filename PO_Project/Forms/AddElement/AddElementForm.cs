@@ -37,33 +37,33 @@ namespace PO_Project
 
         private void AddElement_FileLocation_Button_Click(object sender, EventArgs e)
         {
-            AddElement_FileDialog.ShowDialog();//otworzenie okna dialogowego 
-            AddElement_FileLocation_Dynamic.Text = AddElement_FileDialog.FileName;
-            AddElement_FileDialog.Dispose();
-            AddElement_FileLocation_Dynamic_LostFocus(this, null);
+            AddElement_FileDialog.ShowDialog();//otworzenie okna dialogowego z wybieraniem pliku
+            AddElement_FileLocation_Dynamic.Text = AddElement_FileDialog.FileName;//przepisanie sciezki do pliku
+            AddElement_FileDialog.Dispose();//zwolnienie pamieci
+            AddElement_FileLocation_Dynamic_LostFocus(this, null);//wywolanie zdarzenia 
         }
 
         private void AddElement_PhotoLocation_Button_Click(object sender, EventArgs e)
         {
-            AddElement_FileDialog.ShowDialog();
-            AddElement_PhotoLocation_Dynamic.Text = AddElement_FileDialog.FileName;
-            AddElement_FileDialog.Dispose();
+            AddElement_FileDialog.ShowDialog();//otworzenie okna dialogowego z wybieraniem pliku
+            AddElement_PhotoLocation_Dynamic.Text = AddElement_FileDialog.FileName;//przepisanie sciezki do pliku
+            AddElement_FileDialog.Dispose();//zwolnienie pamieci
         }
 
         private void AddElement_Exit_Button_Click(object sender, EventArgs e)
         {
-            element = null;
-            Close();
+            element = null;//ustawnienie elementu na null
+            Close();//zamkniecie formularza
         }
 
         private void AddElement_Delete_Button_Click(object sender, EventArgs e)
         {
             if (Attributes.Count != 0)
             {
-                DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu deleteElementDialog
                 deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 deleteElementDialog.Dispose();//zwolnienie pamieci
-                Update();
+                Update();//aktualizacja listview
             }
         }
 
@@ -71,25 +71,25 @@ namespace PO_Project
         {
             if (Attributes.Count !=0)
             {
-                EditElementDialogForm addAttribute = new EditElementDialogForm(element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                EditElementDialogForm addAttribute = new EditElementDialogForm(element);//stworzenie nowego formularza typu addAttribute
                 addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 addAttribute.Dispose();//zwolnienie pamieci
-                Update();
+                Update();//aktualizacja listview
             }
         }
 
         private void AddElement_AddAttribute_Button_Click(object sender, EventArgs e)
         {
-            AddAttributeDialog addAttribute = new AddAttributeDialog(Attributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            AddAttributeDialog addAttribute = new AddAttributeDialog(Attributes);//stworzenie nowego formularza typu addAttribute
             addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             addAttribute.Dispose();//zwolnienie pamieci
-            Update();
+            Update();//aktualizacja listview
         }
 
         private void AddElement_Add_Button_Click(object sender, EventArgs e)
         {
             bool flag = false;
-            if (AddElement_Name_TextBox.Text.Contains(";"))
+            if (AddElement_Name_TextBox.Text.Contains(";"))//sprawdzanie czy podana wartosc nie zawiera znaku ";"
                 flag = true;
             if (AddElement_Author_TextBox.Text.Contains(";"))
                 flag = true;
@@ -108,35 +108,33 @@ namespace PO_Project
 
             if (flag == false)
             {
-                ID = elements.Count + 1;
-                Dictionary<string, string> keys = new Dictionary<string, string>();
-                keys.Add("Nazwa", AddElement_Name_TextBox.Text);
+                ID = elements.Count + 1;//ustawienie ID
+                Dictionary<string, string> keys = new Dictionary<string, string>();//stworzenie nowego slownika
+                keys.Add("Nazwa", AddElement_Name_TextBox.Text);//dodanie atrybutow
                 keys.Add("Autor", AddElement_Author_TextBox.Text);
                 keys.Add("Opis", AddElement_Description_TextBox.Text);
                 keys.Add("Lokacja pliku", AddElement_FileLocation_Dynamic.Text);
                 keys.Add("Lokacja zdjecia", AddElement_PhotoLocation_Dynamic.Text);
                 keys.Add("Data Wydania", AddElement_ReleaseDate_Dynamic.Text);
                 foreach (KeyValuePair<string, string> pair in Attributes)
-                    keys.Add(pair.Key, pair.Value);
-                if (AddElement_Type_ComboBox.SelectedItem.ToString() != "Nowy element")
+                    keys.Add(pair.Key, pair.Value);//dodanie dodatkowych atrybutow
+                if (AddElement_Type_ComboBox.SelectedItem.ToString() != "Nowy element")//jesli dodajemy predefiniowany element
                 {
-                    //elements.Add(new Element(AddElement_Type_ComboBox.SelectedItem.ToString(), ID, keys));
-                    element.ID = ID;
-                    element.ElementType = AddElement_Type_ComboBox.SelectedItem.ToString();
-                    element.ExtraAttributes = keys;
-                    element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);
-                    elements.Add(element);
+                    element.ID = ID;//przypisanie ID
+                    element.ElementType = AddElement_Type_ComboBox.SelectedItem.ToString();//przypisanie typu elementu
+                    element.ExtraAttributes = keys;//wpisanie slownika
+                    element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);//dodanie obrazu
+                    elements.Add(element);//dodawanie elementu do listy
                 }
-                else
+                else//jesli dodajemy nowy typ elementu
                 {
-                    //elements.Add(new Element(AddElement_Type_TextBox.Text, ID, keys));
-                    element.ID = ID;
-                    element.ElementType = AddElement_Type_TextBox.Text;
-                    element.ExtraAttributes = keys;
-                    element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);
-                    elements.Add(element);
+                    element.ID = ID;//przypisanie ID
+                    element.ElementType = AddElement_Type_TextBox.Text;//przypisanie typu elementu
+                    element.ExtraAttributes = keys;//wpisanie slownika
+                    element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);//dodanie obrazu
+                    elements.Add(element);//dodawanie elementu do listy
                 }
-                Close();
+                Close();//zamkniecie formularza
             }
             else
             {
@@ -145,10 +143,10 @@ namespace PO_Project
         }
         public new  void Update()
         {
-            AddElement_ExtraAttributes_ListView.Items.Clear();
+            AddElement_ExtraAttributes_ListView.Items.Clear();//usuniecie elementow z listview
             foreach (KeyValuePair<string, string> pair in Attributes)
             {
-                AddElement_ExtraAttributes_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
+                AddElement_ExtraAttributes_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));//wpisanie elementow do listview
             }
 
         }
@@ -156,20 +154,20 @@ namespace PO_Project
         private void AddElement_Type_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             AddElement_Type_TextBox.Visible = false;
-            if (AddElement_Type_ComboBox.SelectedItem.ToString() == "Nowy element")
+            if (AddElement_Type_ComboBox.SelectedItem.ToString() == "Nowy element")//jesli wybrano "Nowy element"
             {
-                AddElement_Type_TextBox.Visible = true;
+                AddElement_Type_TextBox.Visible = true;//pokaz textbox
             }
         }
         private void AddElement_FileLocation_Dynamic_LostFocus(object sender, EventArgs e)
         {
-            if( File.Exists(AddElement_FileLocation_Dynamic.Text))
+            if( File.Exists(AddElement_FileLocation_Dynamic.Text))//jesli plik istnieje
             {
-                FileInfo fileInfo = new FileInfo(AddElement_FileLocation_Dynamic.Text);
-                if(AddElement_Name_TextBox.Text=="")
-                    AddElement_Name_TextBox.Text = fileInfo.Name;
-                if (AddElement_ReleaseDate_Dynamic.Value == DateTime.Now.Date)
-                    AddElement_ReleaseDate_Dynamic.Value = fileInfo.CreationTime.Date;
+                FileInfo fileInfo = new FileInfo(AddElement_FileLocation_Dynamic.Text);//wczytanie informacji o pliku
+                if(AddElement_Name_TextBox.Text=="")//jesli pole tekstowe jest puste
+                    AddElement_Name_TextBox.Text = fileInfo.Name;//wpisz nazwe pliku
+                if (AddElement_ReleaseDate_Dynamic.Value == DateTime.Now.Date)//jesli data jest ustawiona na dzisiejsza
+                    AddElement_ReleaseDate_Dynamic.Value = fileInfo.CreationTime.Date;//ustaw date utworzenia na ta z pliku
             }
         }
 
