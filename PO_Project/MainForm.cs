@@ -20,7 +20,7 @@ namespace PO_Project
         Element element;
         DataIO fileOperations;
         public SearchBy search;
-        public List<MyListViewItem> listViewItem = new List<MyListViewItem>();
+        List<MyListViewItem> listViewItem = new List<MyListViewItem>();
         /// <summary>
         /// MainForm constructor
         /// Initializes form components and read file with data
@@ -109,7 +109,7 @@ namespace PO_Project
 
         private void Search_Button_Click(object sender, EventArgs e)
         {
-            SearchByForm deleteElement = new SearchByForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            SearchByForm deleteElement = new SearchByForm(elements,listViewItem);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
             deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             deleteElement.Dispose();//zwolnienie pamieci
         }
