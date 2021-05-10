@@ -44,29 +44,34 @@ namespace PO_Project
             AddElement.ShowDialog(this);
             fileOperations.Update(elements);
             listViewItem.Add(new MyListViewItem(AddElement.element));
+            Update();
             AddElement.Dispose();
         }
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
-            if (PhotoList.SelectedItems.Count!=0)
+            if (PhotoList.SelectedItems.Count!=0 && elements.Count>0)
             {
                 EditElementForm editElementForm = new EditElementForm(elements,element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
                 fileOperations.Update(elements);
             }
-            else
+            else if(elements.Count > 0)
             {
                 EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
                 fileOperations.Update(elements);
             }
+            else
+            {
+                MessageBox.Show("Nie ma elementow do edycji", "Brak elementow", MessageBoxButtons.OK);
+            }
         }
         private void Delete_Button_Click(object sender, EventArgs e)
         {
-            if (PhotoList.SelectedItems.Count == 0)
+            if (PhotoList.SelectedItems.Count == 0 && elements.Count>0)
             {
                 DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
@@ -81,7 +86,7 @@ namespace PO_Project
                 fileOperations.Update(elements);
                 deleteElement.Dispose();//zwolnienie pamieci
             }
-            else
+            else if(elements.Count > 0)
             {
                 DeleteElementForm deleteElement = new DeleteElementForm(elements,element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
@@ -95,6 +100,10 @@ namespace PO_Project
                 }
                 fileOperations.Update(elements);
                 deleteElement.Dispose();//zwolnienie pamieci
+            }
+            else
+            {
+                MessageBox.Show("Nie ma elementow do usuwania", "Brak elementow", MessageBoxButtons.OK);
             }
         }
 
@@ -124,10 +133,13 @@ namespace PO_Project
 
         private void PhotoList_DoubleClick(object sender, EventArgs e)
         {
+            foreach (ListViewItem item in PhotoList.SelectedItems)
+            {
+                element = search.FindByID(item.ImageKey);
+            }
             SelectElement(element);
             if (element != null && !element.ExtraAttributes["Lokacja pliku"].Equals(""))
-                fileOperations.Open(element.ExtraAttributes["Lokacja pliku"]);
-            element = null;
+                fileOperations.Open(element.ExtraAttributes["Lokacja pliku"]); 
         }
         public new void Update()
         {

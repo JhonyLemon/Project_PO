@@ -134,7 +134,6 @@ namespace PO_Project
                     element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);
                     elements.Add(element);
                     }
-                    (Owner as MainForm).Update();
                     Close();
             }
             else
