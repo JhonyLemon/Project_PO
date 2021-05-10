@@ -24,10 +24,11 @@ namespace PO_Project
             DeleteElementDIalog_ComboBox.DataSource = new BindingSource(Attributes, null);
             DeleteElementDIalog_ComboBox.DisplayMember = "Key";
             DeleteElementDIalog_ComboBox.ValueMember = "Value";
+            DeleteElementDialog_TextBox.ResetText();
         }
         private void DeleteElementDialog_Delete_Button_Click(object sender, EventArgs e)
         {
-            Attributes.Remove(DeleteElementDIalog_ComboBox.SelectedItem.ToString());
+            Attributes.Remove(((KeyValuePair<string, string>)DeleteElementDIalog_ComboBox.SelectedItem).Key);
             Close();
         }
 
