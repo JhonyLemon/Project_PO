@@ -15,7 +15,7 @@ namespace PO_Project
     {
         List<Element> elements;
         public Element element;
-        int ID;
+        int ID=0;
         Dictionary<string, string> Attributes = new Dictionary<string, string>();
         public AddElementForm()
         {
@@ -31,7 +31,6 @@ namespace PO_Project
             AddElement_Type_ComboBox.Items.Add("Muzyka");
             AddElement_Type_ComboBox.Items.Add("Ksiazka");
             AddElement_Type_ComboBox.Items.Add("Nowy element");
-            ID = elements.Count+1;
             element = new Element("", ID, Attributes);
         }
 
@@ -57,6 +56,7 @@ namespace PO_Project
 
         private void AddmElement_Exit_Button_Click(object sender, EventArgs e)
         {
+            element = null;
             Close();
         }
 
@@ -107,6 +107,7 @@ namespace PO_Project
 
             if (flag == false)
             {
+                    ID = elements.Count + 1;
                     Dictionary<string, string> keys = new Dictionary<string, string>();
                     keys.Add("Nazwa", AddElement_Name_TextBox.Text);
                     keys.Add("Autor", AddElement_Author_TextBox.Text);
@@ -134,7 +135,7 @@ namespace PO_Project
                     element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);
                     elements.Add(element);
                     }
-                    Close();
+                Close();
             }
             else
             {

@@ -43,7 +43,8 @@ namespace PO_Project
             AddElementForm AddElement = new AddElementForm(elements);
             AddElement.ShowDialog(this);
             fileOperations.Update(elements);
-            listViewItem.Add(new MyListViewItem(AddElement.element));
+            if(AddElement.element != null && AddElement.element.ID!=0)
+                listViewItem.Add(new MyListViewItem(AddElement.element));
             Update();
             AddElement.Dispose();
         }
