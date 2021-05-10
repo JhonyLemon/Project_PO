@@ -93,20 +93,26 @@ namespace PO_Project
 
         private void EditElement_Add_Button_Click(object sender, EventArgs e)
         {
-            AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
-            addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            addAttributeDialog.Dispose();//zwolnienie pamieci
-            Update();
-            (Owner as MainForm).Update();
+            if (element.ExtraAttributes.Count != 0)
+            {
+                AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                addAttributeDialog.Dispose();//zwolnienie pamieci
+                Update();
+                (Owner as MainForm).Update();
+            }
         }
 
         private void EditElement_Delete_Button_Click(object sender, EventArgs e)
         {
-            DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
-            deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            deleteElementDialog.Dispose();//zwolnienie pamieci
-            Update();
-            (Owner as MainForm).Update();
+            if (element.ExtraAttributes.Count != 0)
+            {
+                DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                deleteElementDialog.Dispose();//zwolnienie pamieci
+                Update();
+                (Owner as MainForm).Update();
+            }
         }
     }
 }
