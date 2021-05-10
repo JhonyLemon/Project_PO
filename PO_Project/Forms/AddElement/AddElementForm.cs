@@ -54,7 +54,7 @@ namespace PO_Project
         }
 
 
-        private void AddmElement_Exit_Button_Click(object sender, EventArgs e)
+        private void AddElement_Exit_Button_Click(object sender, EventArgs e)
         {
             element = null;
             Close();

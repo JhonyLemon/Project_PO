@@ -240,7 +240,7 @@ namespace PO_Project
             this.AddElement_Exit_Button.TabIndex = 21;
             this.AddElement_Exit_Button.Text = "Anuluj";
             this.AddElement_Exit_Button.UseVisualStyleBackColor = true;
-            this.AddElement_Exit_Button.Click += new System.EventHandler(this.AddmElement_Exit_Button_Click);
+            this.AddElement_Exit_Button.Click += new System.EventHandler(this.AddElement_Exit_Button_Click);
             // 
             // AddElement_ExtraAttributes_Label
             // 
