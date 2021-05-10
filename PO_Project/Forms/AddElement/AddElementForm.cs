@@ -13,10 +13,10 @@ namespace PO_Project
 {
     public partial class AddElementForm : Form, IObserver
     {
-        List<Element> elements;
-        public Element element;
-        int ID = 0;
-        Dictionary<string, string> Attributes = new Dictionary<string, string>();
+        List<Element> elements;//lista elementow
+        public Element element;//nowo tworzony element
+        int ID = 0;//id nowo dodawanego elementu
+        Dictionary<string, string> Attributes = new Dictionary<string, string>();//slownik na atrybuty elementu
         public AddElementForm()
         {
             InitializeComponent();
@@ -25,19 +25,19 @@ namespace PO_Project
         public AddElementForm(List<Element> elements)
         {
             InitializeComponent();
-            this.elements = elements;
-            AddElement_Type_ComboBox.Items.Add("Film");
+            this.elements = elements;//przypisanie podawanego argumentu
+            AddElement_Type_ComboBox.Items.Add("Film");//dodanie elementow do kontrolki combobox
             AddElement_Type_ComboBox.Items.Add("Muzyka");
             AddElement_Type_ComboBox.Items.Add("Ksiazka");
             AddElement_Type_ComboBox.Items.Add("Nowy element");
-            element = new Element("", ID, Attributes);
-            AddElement_FileLocation_Dynamic.LostFocus += AddElement_FileLocation_Dynamic_LostFocus;
-            AddElement_ReleaseDate_Dynamic.Value = DateTime.Now.Date;
+            element = new Element("", ID, Attributes);//inicjalizacja elementu
+            AddElement_FileLocation_Dynamic.LostFocus += AddElement_FileLocation_Dynamic_LostFocus;//stworzenie nowego zdarzenia gdy pole tekstowe traci focus
+            AddElement_ReleaseDate_Dynamic.Value = DateTime.Now.Date;//ustawnienie zawartosci daty na obecna date
         }
 
         private void AddElement_FileLocation_Button_Click(object sender, EventArgs e)
         {
-            AddElement_FileDialog.ShowDialog();
+            AddElement_FileDialog.ShowDialog();//otworzenie okna dialogowego 
             AddElement_FileLocation_Dynamic.Text = AddElement_FileDialog.FileName;
             AddElement_FileDialog.Dispose();
             AddElement_FileLocation_Dynamic_LostFocus(this, null);
