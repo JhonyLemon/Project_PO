@@ -336,7 +336,7 @@ namespace PO_Project
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Crimson;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(554, 526);
             this.Controls.Add(this.AddElement_Type_TextBox);
             this.Controls.Add(this.AddElement_Edit_Button);

@@ -193,7 +193,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FilmImage.png" />
+    <None Include="Resources\FileNotFound.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\BookImage.png" />
@@ -202,11 +202,10 @@
     <None Include="Resources\MusicImage.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\FileNotFound.png" />
+    <None Include="Resources\FilmImage.png" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PhotoNotFound.png" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

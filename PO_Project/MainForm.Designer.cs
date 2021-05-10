@@ -136,7 +136,7 @@ namespace PO_Project
             // 
             // PhotoList
             // 
-            this.PhotoList.BackColor = System.Drawing.Color.Crimson;
+            this.PhotoList.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.PhotoList.BackgroundImageTiled = true;
             this.PhotoList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PhotoList.GridLines = true;

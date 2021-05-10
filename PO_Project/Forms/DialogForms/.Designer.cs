@@ -85,11 +85,11 @@ namespace PO_Project
             this.DeleteElementDialog_TextBox.Size = new System.Drawing.Size(377, 20);
             this.DeleteElementDialog_TextBox.TabIndex = 6;
             // 
-            // EditElementFormDialog
+            // DeleteElementDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Crimson;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(402, 156);
             this.Controls.Add(this.DeleteElementDialog_TextBox);
             this.Controls.Add(this.DeleteElementDIalog_ComboBox);
@@ -99,7 +99,7 @@ namespace PO_Project
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "EditElementFormDialog";
+            this.Name = "DeleteElementDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.ResumeLayout(false);
