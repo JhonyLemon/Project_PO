@@ -84,6 +84,10 @@ namespace PO_Project
                         break;
                     }
                 }
+                foreach (MyListViewItem viewItem in listViewItem)
+                {
+                    viewItem.ImageKey = viewItem.element.ID.ToString();
+                }
                 fileOperations.Update(elements);
                 Update();
                 deleteElement.Dispose();//zwolnienie pamieci
