@@ -224,7 +224,7 @@ namespace PO_Project
             this.AddElement_Add_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.AddElement_Add_Button.Location = new System.Drawing.Point(12, 476);
             this.AddElement_Add_Button.Name = "AddElement_Add_Button";
-            this.AddElement_Add_Button.Size = new System.Drawing.Size(157, 38);
+            this.AddElement_Add_Button.Size = new System.Drawing.Size(240, 38);
             this.AddElement_Add_Button.TabIndex = 20;
             this.AddElement_Add_Button.Text = "Dodaj element";
             this.AddElement_Add_Button.UseVisualStyleBackColor = true;
@@ -234,9 +234,9 @@ namespace PO_Project
             // 
             this.AddElement_Exit_Button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Exit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Exit_Button.Location = new System.Drawing.Point(437, 476);
+            this.AddElement_Exit_Button.Location = new System.Drawing.Point(286, 476);
             this.AddElement_Exit_Button.Name = "AddElement_Exit_Button";
-            this.AddElement_Exit_Button.Size = new System.Drawing.Size(105, 38);
+            this.AddElement_Exit_Button.Size = new System.Drawing.Size(256, 38);
             this.AddElement_Exit_Button.TabIndex = 21;
             this.AddElement_Exit_Button.Text = "Anuluj";
             this.AddElement_Exit_Button.UseVisualStyleBackColor = true;
@@ -314,7 +314,7 @@ namespace PO_Project
             this.AddElement_Edit_Button.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddElement_Edit_Button.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.AddElement_Edit_Button.Location = new System.Drawing.Point(200, 431);
+            this.AddElement_Edit_Button.Location = new System.Drawing.Point(207, 432);
             this.AddElement_Edit_Button.Name = "AddElement_Edit_Button";
             this.AddElement_Edit_Button.Size = new System.Drawing.Size(145, 38);
             this.AddElement_Edit_Button.TabIndex = 27;
