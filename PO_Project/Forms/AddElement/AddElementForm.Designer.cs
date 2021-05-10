@@ -274,7 +274,6 @@ namespace PO_Project
             this.AddElement_ExtraAttributes_ListView.TabIndex = 24;
             this.AddElement_ExtraAttributes_ListView.UseCompatibleStateImageBehavior = false;
             this.AddElement_ExtraAttributes_ListView.View = System.Windows.Forms.View.Details;
-            this.AddElement_ExtraAttributes_ListView.SelectedIndexChanged += new System.EventHandler(this.AddElement_ExtraAttributes_ListView_SelectedIndexChanged);
             // 
             // ExtraAttributeName
             // 

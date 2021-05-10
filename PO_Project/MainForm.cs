@@ -100,6 +100,7 @@ namespace PO_Project
                     }
                 }
                 fileOperations.Update(elements);
+                Update();
                 deleteElement.Dispose();//zwolnienie pamieci
             }
             else

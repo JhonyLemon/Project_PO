@@ -48,12 +48,6 @@ namespace PO_Project
             AddElement_FileDialog.Dispose();
         }
 
-        private void AddElement_ExtraAttributes_ListView_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AddElement_ExtraAttributes_ListView.Select();
-        }
-
-
         private void AddElement_Exit_Button_Click(object sender, EventArgs e)
         {
             element = null;

@@ -79,7 +79,6 @@ namespace PO_Project
             {
                 element.ID = i++;
             }
-            (Owner as MainForm).Update();
             Close();
         }
     }
