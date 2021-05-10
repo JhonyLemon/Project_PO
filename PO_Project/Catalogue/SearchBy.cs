@@ -39,7 +39,7 @@ namespace PO_Project
         public bool FindByAttribute(string name,string value ,Element element)
         {
             string s="";
-            if(element.ExtraAttributes.TryGetValue(name,out s) && s.Equals(value))
+            if(element.ExtraAttributes.TryGetValue(name,out s) && s.Contains(value))
             {
                 return true;
             }
