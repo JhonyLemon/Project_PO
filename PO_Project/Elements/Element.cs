@@ -14,30 +14,50 @@ namespace PO_Project
             this.ElementType = elementType;
             this.ID = ID;
             ExtraAttributes = extraAttributes;
-            //ExtraAttributes.Add("Nazwa", name);
-            //ExtraAttributes.Add("Autor", author);
-            //ExtraAttributes.Add("Opis", description);
-            //ExtraAttributes.Add("Lokacja pliku", fileLocation);
-            //ExtraAttributes.Add("Lokacja zdjecia", photoLocation);
-            //foreach (KeyValuePair<string, string> pair in extraAttributes)
-            //    ExtraAttributes.Add(pair.Key, pair.Value);
-            if (ExtraAttributes["Lokacja zdjecia"] == "")
+            if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
             {
-                if (this.ElementType == TypeOfElement.Film.ToString())
-                    Image = Properties.Resources.FilmImage;
-                else if (this.ElementType == TypeOfElement.Book.ToString())
-                    Image = Properties.Resources.BookImage;
-                else if (this.ElementType == TypeOfElement.Music.ToString())
-                    Image = Properties.Resources.MusicImage;
+                if (ExtraAttributes["Lokacja zdjecia"] == "")
+                {
+
+                    if (this.ElementType == TypeOfElement.Film.ToString())
+                        Image = Properties.Resources.FilmImage;
+                    else if (this.ElementType == TypeOfElement.Ksiazka.ToString())
+                        Image = Properties.Resources.BookImage;
+                    else if (this.ElementType == TypeOfElement.Muzyka.ToString())
+                        Image = Properties.Resources.MusicImage;
+                    else
+                        Image = Properties.Resources.PhotoNotFound;
+                }
                 else
-                    Image = Properties.Resources.PhotoNotFound;
+                    Image = Image.FromFile(ExtraAttributes["Lokacja zdjecia"]);
             }
-            else
-                Image = Image.FromFile(ExtraAttributes["Lokacja zdjecia"]);
         }
         public string ElementType { get; set; }
         public int ID { get; set; }
         public Image Image { get; set; }
         public Dictionary<string,string> ExtraAttributes { get; set; }
+
+        public void AddImage(string path)
+        {
+            if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
+            {
+                if (path=="")
+                {
+
+                    if (this.ElementType == TypeOfElement.Film.ToString())
+                        Image = Properties.Resources.FilmImage;
+                    else if (this.ElementType == TypeOfElement.Ksiazka.ToString())
+                        Image = Properties.Resources.BookImage;
+                    else if (this.ElementType == TypeOfElement.Muzyka.ToString())
+                        Image = Properties.Resources.MusicImage;
+                    else
+                        Image = Properties.Resources.PhotoNotFound;
+                }
+                else
+                    Image = Image.FromFile(path);
+            }
+        }
+
+
     }
 }

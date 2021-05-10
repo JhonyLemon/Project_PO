@@ -17,7 +17,7 @@ namespace PO_Project
     class DataParser
     {
         protected Element element;
-        protected string defaultlocation = @"C:\Users\" + Environment.UserName + @"\Documents\FilmLibrary";
+        protected string defaultlocation = @"C:\Users\" + Environment.UserName + @"\Documents\MultiMedia Explorer";
         protected StringBuilder stringBuilder;
 
         public DataParser()

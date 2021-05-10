@@ -25,12 +25,32 @@ namespace PO_Project
 
         private void EditElementDialog_ConfirmButton_Click(object sender, EventArgs e)
         {
-
-            EditElementDialog_Label.Text = "Nazwa atrybutu:";
-            element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem] = EditElementDialog_TextBox.Text;
-            if(EditElementDialog_ComboBox.SelectedItem.Equals("Lokacja zdjecia"))
-                element.Image = Image.FromFile(element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem]);
-            EditElementDialog_TextBox.ResetText();
+            if(EditElementDialog_ComboBox.SelectedItem!=null)
+            {
+                if (!EditElementDialog_TextBox.Text.Contains(";"))
+                {
+                    if (!EditElementDialog_TextBox.Text.Equals(""))
+                    {
+                        element.ExtraAttributes[EditElementDialog_Name_TextBox.Text] = EditElementDialog_TextBox.Text;
+                        EditElementDialog_Name_TextBox.Text = "Nazwa atrybutu";
+                        if (EditElementDialog_ComboBox.SelectedItem.Equals("Lokacja zdjecia"))
+                            element.Image = Image.FromFile(element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem]);
+                        EditElementDialog_TextBox.ResetText();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Wartosc nie moze byc pusta", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wprowadzono zabroniony znak", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Najpierw wybierz atrybut ktory chcesz edytowac", "Blad wprowadzanych danych", MessageBoxButtons.OK);
+            }    
         }
 
         private void EditElementDialog_FinishButton_Click(object sender, EventArgs e)
@@ -40,7 +60,7 @@ namespace PO_Project
         private void EditElementDialog_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
             EditElementDialog_FileSelectButton.Visible = false;
-            EditElementDialog_Label.Text = (string)EditElementDialog_ComboBox.SelectedItem + ":";
+            EditElementDialog_Name_TextBox.Text = (string)EditElementDialog_ComboBox.SelectedItem;
             EditElementDialog_TextBox.Text = element.ExtraAttributes[(string)EditElementDialog_ComboBox.SelectedItem];
             if (EditElementDialog_ComboBox.SelectedItem.Equals((string)"Lokacja zdjecia") || EditElementDialog_ComboBox.SelectedItem.Equals((string)"Lokacja pliku"))
             {

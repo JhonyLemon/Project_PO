@@ -13,7 +13,7 @@ namespace PO_Project
     /// <remarks>
     /// This class can search by: name, type
     /// </remarks>
-    class SearchBy
+    public class SearchBy
     {
         /// <summary>
         /// List of type IElement
@@ -30,41 +30,20 @@ namespace PO_Project
         }
 
         /// <summary>
-        /// Method that searches for specific element type
-        /// </summary>
-        /// <returns>
-        /// Returns a List of IElement type
-        /// </returns>
-        /// <param name="elementType">enum</param>
-        public List<Element> FindByElementType(TypeOfElement elementType)
-        {
-            List<Element> foundElements = new List<Element>();
-            foreach (Element element in elements)
-            {
-                            if (element.ElementType==elementType.ToString())
-                                foundElements.Add(element); 
-            }
-            return foundElements;
-        }
-
-        /// <summary>
         /// Method that searches for specific name
         /// </summary>
         /// <returns>
         /// Returns a List of IElement type
         /// </returns>
         /// <param name="name">string</param>
-        public Element FindByName(string name)
+        public bool FindByAttribute(string name,string value ,Element element)
         {
-
-            foreach (Element element in elements)
+            string s="";
+            if(element.ExtraAttributes.TryGetValue(name,out s) && s.Equals(value))
             {
-                if (element.ExtraAttributes["Nazwa"]==name)
-                {
-                    foundElements=element;
-                }
+                return true;
             }
-            return foundElements;
+            return false;
         }
 
         /// <summary>
@@ -84,14 +63,11 @@ namespace PO_Project
             return null;
         }
 
-        public List<Element> FindByCategory(Category category)
+        public bool FindByType(string Type, Element element)
         {
-            List<Element> foundElements = new List<Element>();
-            foreach (Element element in elements)
-            {
-
-            }
-            return foundElements;
+            if (element.ElementType == Type)
+                return true;
+            return false;
         }
     }
 }

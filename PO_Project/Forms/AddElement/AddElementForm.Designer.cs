@@ -36,7 +36,7 @@ namespace PO_Project
             this.AddElement_Name_TextBox = new System.Windows.Forms.TextBox();
             this.AddElement_Author_TextBox = new System.Windows.Forms.TextBox();
             this.AddElement_Description_Static = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.AddElement_Description_TextBox = new System.Windows.Forms.TextBox();
             this.Add_Element_ReleaseDate = new System.Windows.Forms.Label();
             this.AddElement_ReleaseDate_Dynamic = new System.Windows.Forms.DateTimePicker();
             this.AddElement_FileLocation_Static = new System.Windows.Forms.Label();
@@ -55,6 +55,7 @@ namespace PO_Project
             this.AddElement_Delete_Button = new System.Windows.Forms.Button();
             this.AddElement_Edit_Button = new System.Windows.Forms.Button();
             this.AddElement_FileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.AddElement_Type_TextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // AddElement_Type_ComboBox
@@ -66,6 +67,7 @@ namespace PO_Project
             this.AddElement_Type_ComboBox.Name = "AddElement_Type_ComboBox";
             this.AddElement_Type_ComboBox.Size = new System.Drawing.Size(115, 21);
             this.AddElement_Type_ComboBox.TabIndex = 0;
+            this.AddElement_Type_ComboBox.SelectedIndexChanged += new System.EventHandler(this.AddElement_Type_ComboBox_SelectedIndexChanged);
             // 
             // AddElement_Type_Static
             // 
@@ -125,15 +127,15 @@ namespace PO_Project
             this.AddElement_Description_Static.TabIndex = 8;
             this.AddElement_Description_Static.Text = "Opis:";
             // 
-            // textBox1
+            // AddElement_Description_TextBox
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AddElement_Description_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBox1.Location = new System.Drawing.Point(286, 122);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(115, 20);
-            this.textBox1.TabIndex = 9;
+            this.AddElement_Description_TextBox.Location = new System.Drawing.Point(286, 122);
+            this.AddElement_Description_TextBox.Multiline = true;
+            this.AddElement_Description_TextBox.Name = "AddElement_Description_TextBox";
+            this.AddElement_Description_TextBox.Size = new System.Drawing.Size(115, 20);
+            this.AddElement_Description_TextBox.TabIndex = 9;
             // 
             // Add_Element_ReleaseDate
             // 
@@ -154,7 +156,7 @@ namespace PO_Project
             this.AddElement_ReleaseDate_Dynamic.Name = "AddElement_ReleaseDate_Dynamic";
             this.AddElement_ReleaseDate_Dynamic.Size = new System.Drawing.Size(115, 20);
             this.AddElement_ReleaseDate_Dynamic.TabIndex = 13;
-            this.AddElement_ReleaseDate_Dynamic.Value = new System.DateTime(2021, 4, 19, 0, 0, 0, 0);
+            this.AddElement_ReleaseDate_Dynamic.Value = new System.DateTime(2021, 5, 8, 0, 0, 0, 0);
             // 
             // AddElement_FileLocation_Static
             // 
@@ -321,9 +323,14 @@ namespace PO_Project
             this.AddElement_Edit_Button.UseVisualStyleBackColor = true;
             this.AddElement_Edit_Button.Click += new System.EventHandler(this.AddElement_Edit_Button_Click);
             // 
-            // AddElement_FileDialog
+            // AddElement_Type_TextBox
             // 
-            this.AddElement_FileDialog.FileName = "openFileDialog1";
+            this.AddElement_Type_TextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddElement_Type_TextBox.Location = new System.Drawing.Point(408, 9);
+            this.AddElement_Type_TextBox.Name = "AddElement_Type_TextBox";
+            this.AddElement_Type_TextBox.Size = new System.Drawing.Size(134, 20);
+            this.AddElement_Type_TextBox.TabIndex = 28;
+            this.AddElement_Type_TextBox.Visible = false;
             // 
             // AddElementForm
             // 
@@ -331,6 +338,7 @@ namespace PO_Project
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Crimson;
             this.ClientSize = new System.Drawing.Size(554, 526);
+            this.Controls.Add(this.AddElement_Type_TextBox);
             this.Controls.Add(this.AddElement_Edit_Button);
             this.Controls.Add(this.AddElement_Delete_Button);
             this.Controls.Add(this.AddElement_AddAttribute_Button);
@@ -346,7 +354,7 @@ namespace PO_Project
             this.Controls.Add(this.AddElement_FileLocation_Static);
             this.Controls.Add(this.AddElement_ReleaseDate_Dynamic);
             this.Controls.Add(this.Add_Element_ReleaseDate);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.AddElement_Description_TextBox);
             this.Controls.Add(this.AddElement_Description_Static);
             this.Controls.Add(this.AddElement_Author_TextBox);
             this.Controls.Add(this.AddElement_Name_TextBox);
@@ -358,6 +366,7 @@ namespace PO_Project
             this.MinimumSize = new System.Drawing.Size(570, 565);
             this.Name = "AddElementForm";
             this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Dodawanie elementu";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -374,7 +383,7 @@ namespace PO_Project
         private System.Windows.Forms.TextBox AddElement_Name_TextBox;
         private System.Windows.Forms.TextBox AddElement_Author_TextBox;
         private System.Windows.Forms.Label AddElement_Description_Static;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox AddElement_Description_TextBox;
         private System.Windows.Forms.Label Add_Element_ReleaseDate;
         private System.Windows.Forms.DateTimePicker AddElement_ReleaseDate_Dynamic;
         private System.Windows.Forms.Label AddElement_FileLocation_Static;
@@ -393,5 +402,6 @@ namespace PO_Project
         private System.Windows.Forms.Button AddElement_Delete_Button;
         private System.Windows.Forms.Button AddElement_Edit_Button;
         private System.Windows.Forms.OpenFileDialog AddElement_FileDialog;
+        private System.Windows.Forms.TextBox AddElement_Type_TextBox;
     }
 }

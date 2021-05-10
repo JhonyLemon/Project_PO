@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
-    public partial class EditElementForm : Form
+    public partial class EditElementForm : Form, IObserver
     {
         List<Element> elements;
+        Dictionary<int, string> Names= new Dictionary<int, string>();
+        Element element;
         SearchBy search;
         public EditElementForm()
         {
@@ -21,14 +23,33 @@ namespace PO_Project
         public EditElementForm(List<Element> elements)
         {
             InitializeComponent();
+            foreach(Element element in elements)
+            {
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+            }
             this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;
             this.elements = elements;
             search = new SearchBy(elements);
-            EditElement_ComboBox.BeginUpdate();
+            EditElement_ComboBox.DataSource = new BindingSource(Names, null);
+            EditElement_ComboBox.DisplayMember = "Value";
+            EditElement_ComboBox.ValueMember = "Key";
+        }
+        public EditElementForm(List<Element> elements,Element eleme)
+        {
+            InitializeComponent();
+            this.element = eleme;
             foreach (Element element in elements)
-                EditElement_ComboBox.Items.Add(element.ExtraAttributes["Nazwa"]);
-            EditElement_ComboBox.EndUpdate();
-
+            {
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+            }
+            this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;
+            this.elements = elements;
+            search = new SearchBy(elements);
+            EditElement_ComboBox.DataSource = new BindingSource(Names, null);
+            EditElement_ComboBox.DisplayMember = "Value";
+            EditElement_ComboBox.ValueMember = "Key";
+            EditElement_ComboBox.SelectedValue = element.ID;
+            EditElement_ComboBox_SelectionChangeCommitted(this, null);
         }
 
         private void EditElement_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -36,17 +57,10 @@ namespace PO_Project
             foreach (ListViewItem listViewitems in EditElement_ListView.Items)
                 EditElement_ListView.Items.Remove(listViewitems);
 
-            Element element = search.FindByName((string)EditElement_ComboBox.SelectedItem);
+            element = search.FindByID(EditElement_ComboBox.SelectedValue.ToString());
 
               foreach (KeyValuePair<string,string> pair in element.ExtraAttributes)
                  EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key,pair.Value }));
-            // EditElement_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
-            // EditElement_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
-            // EditElement_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
-            // foreach (KeyValuePair<string, string> pairs in element.ExtraAttributes)
-            // {
-            //  EditElement_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key, pairs.Value }));
-            // }
                 EditElement_ImageBox.Image = element.Image;
 
         }
@@ -56,23 +70,43 @@ namespace PO_Project
 
             if (EditElement_ComboBox.SelectedItem != null)
             {
-                EditElementDialogForm editElementForm = new EditElementDialogForm(search.FindByName((string)EditElement_ComboBox.SelectedItem));//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                EditElementDialogForm editElementForm = new EditElementDialogForm(element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
-                foreach (ListViewItem listViewitems in EditElement_ListView.Items)
-                    EditElement_ListView.Items.Remove(listViewitems);
-
-                Element element = search.FindByName((string)EditElement_ComboBox.SelectedItem);
-
-                foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
-                    EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
-                EditElement_ImageBox.Image = element.Image;
+                Update(elements);
             }
+            (Owner as MainForm).Update();
         }
 
         private void EditElement_Cancel_Button_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        public void Update(List<Element> elements)
+        {
+            EditElement_ListView.Items.Clear();
+            foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
+                EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
+            EditElement_ImageBox.Image = element.Image;
+        }
+
+        private void EditElement_Add_Button_Click(object sender, EventArgs e)
+        {
+            AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            addAttributeDialog.Dispose();//zwolnienie pamieci
+            Update(elements);
+            (Owner as MainForm).Update();
+        }
+
+        private void EditElement_Delete_Button_Click(object sender, EventArgs e)
+        {
+            DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            deleteElementDialog.Dispose();//zwolnienie pamieci
+            Update(elements);
+            (Owner as MainForm).Update();
         }
     }
 }

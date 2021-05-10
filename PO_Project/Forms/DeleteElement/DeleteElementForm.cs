@@ -12,23 +12,45 @@ namespace PO_Project
 {
     public partial class DeleteElementForm : Form
     {
+        Dictionary<int, string> Names = new Dictionary<int, string>();
         List<Element> elements;
+        public Element element1;
         SearchBy search;
         public DeleteElementForm()
         {
 
         }
 
-        public DeleteElementForm(List<Element> Elements)
+        public DeleteElementForm(List<Element> elements)
         {
             InitializeComponent();
-            this.elements = Elements;
             search = new SearchBy(elements);
-            DeleteElement_ComboBox.BeginUpdate();
             foreach (Element element in elements)
-                DeleteElement_ComboBox.Items.Add(element.ExtraAttributes["Nazwa"]);
-            DeleteElement_ComboBox.EndUpdate();
+            {
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+            }
+            this.elements = elements;
+            search = new SearchBy(elements);
+            DeleteElement_ComboBox.DataSource = new BindingSource(Names, null);
+            DeleteElement_ComboBox.DisplayMember = "Value";
+            DeleteElement_ComboBox.ValueMember = "Key";
 
+        }
+        public DeleteElementForm(List<Element> elements,Element eleme)
+        {
+            InitializeComponent();
+            search = new SearchBy(elements);
+            foreach (Element element in elements)
+            {
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+            }
+            this.elements = elements;
+            search = new SearchBy(elements);
+            DeleteElement_ComboBox.DataSource = new BindingSource(Names, null);
+            DeleteElement_ComboBox.DisplayMember = "Value";
+            DeleteElement_ComboBox.ValueMember = "Key";
+            DeleteElement_ComboBox.SelectedValue = eleme.ID;
+            DeleteElement_ComboBox_SelectionChangeCommitted(this, null);
         }
 
         private void DeleteElement_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
@@ -36,19 +58,12 @@ namespace PO_Project
             foreach (ListViewItem listViewitems in DeleteElement_ListView.Items)
                 DeleteElement_ListView.Items.Remove(listViewitems);
 
-            Element element = search.FindByName((string)DeleteElement_ComboBox.SelectedItem);
+            Element element = search.FindByID(DeleteElement_ComboBox.SelectedValue.ToString());
 
             foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
                 DeleteElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
             DeleteElement_ImageBox.Image = element.Image;
         }
-
-
-        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DeleteElement_ListView.Select();
-        }
-
 
         private void DeleteElement_Cancel_Button_Click(object sender, EventArgs e)
         {
@@ -57,7 +72,14 @@ namespace PO_Project
 
         private void DeleteElement_Delete_Button_Click(object sender, EventArgs e)
         {
-            elements.Remove(search.FindByName((string)DeleteElement_ComboBox.SelectedItem));
+            int i = 1;
+            element1 = search.FindByID(DeleteElement_ComboBox.SelectedValue.ToString());
+            elements.Remove(element1);
+            foreach(Element element in elements)
+            {
+                element.ID = i++;
+            }
+            (Owner as MainForm).Update();
             Close();
         }
     }

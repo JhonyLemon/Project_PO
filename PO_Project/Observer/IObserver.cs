@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace PO_Project
 {
-    interface ICommand
+    public interface IObserver
     {
-        void Execute();
+        void Update();
     }
 }

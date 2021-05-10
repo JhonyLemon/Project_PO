@@ -62,19 +62,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\AddAttributeDialog.cs">
+    <Compile Include="Forms\DialogForms\DeleteElementDialog.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddAttributeDialog.Designer.cs">
+    <Compile Include="Forms\DialogForms\.Designer.cs">
+      <DependentUpon>DeleteElementDialog.cs</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogForms\AddAttributeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\DialogForms\AddAttributeDialog.Designer.cs">
       <DependentUpon>AddAttributeDialog.cs</DependentUpon>
     </Compile>
-    <Compile Include="CommandOperations\Commands\AddElementCommand.cs" />
-    <Compile Include="CommandOperations\Commands\ICommand.cs" />
-    <Compile Include="CommandOperations\Invoker.cs" />
-    <Compile Include="Forms\EditElement\EditElementDialogForm.cs">
+    <Compile Include="Forms\DialogForms\EditElementDialogForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditElement\EditElementDialogForm.Designer.cs">
+    <Compile Include="Forms\DialogForms\EditElementDialogForm.Designer.cs">
       <DependentUpon>EditElementDialogForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\DeleteElement\DeleteElementForm.cs">
@@ -89,6 +93,8 @@
     <Compile Include="Forms\EditElement\EditElementForm.Designer.cs">
       <DependentUpon>EditElementForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Observer\IObservable.cs" />
+    <Compile Include="Observer\IObserver.cs" />
     <Compile Include="IO\DataIO.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Forms\AddElement\AddElementForm.cs">
@@ -98,7 +104,6 @@
       <DependentUpon>AddElementForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IO\DataParser.cs" />
-    <Compile Include="enums\Category.cs" />
     <Compile Include="enums\TypeOfElement.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -108,15 +113,30 @@
     </Compile>
     <Compile Include="IO\IDataReader.cs" />
     <Compile Include="Elements\IElement.cs" />
+    <Compile Include="MyListViewItem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="IO\IDataWriter.cs" />
     <Compile Include="Catalogue\SearchBy.cs" />
-    <Compile Include="CommandOperations\Receiver.cs" />
-    <EmbeddedResource Include="Forms\AddAttributeDialog.resx">
+    <Compile Include="Forms\SortBy\SortByForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SortBy\SortByForm.Designer.cs">
+      <DependentUpon>SortByForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\SearchBy\SearchByForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\SearchBy\SearchByForm.Designer.cs">
+      <DependentUpon>SearchByForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Forms\DialogForms\DeleteElementDialog.resx">
+      <DependentUpon>DeleteElementDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DialogForms\AddAttributeDialog.resx">
       <DependentUpon>AddAttributeDialog.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditElement\EditElementDialogForm.resx">
+    <EmbeddedResource Include="Forms\DialogForms\EditElementDialogForm.resx">
       <DependentUpon>EditElementDialogForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\AddElement\AddElementForm.resx">
@@ -135,6 +155,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SortBy\SortByForm.resx">
+      <DependentUpon>SortByForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\SearchBy\SearchByForm.resx">
+      <DependentUpon>SearchByForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

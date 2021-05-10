@@ -14,11 +14,13 @@ namespace PO_Project
     /// Main form class
     /// Handles controls events
     /// </summary>
-    public partial class MainForm : Form
+    public partial class MainForm : Form, IObserver
     {
         List<Element> elements = new List<Element>();
+        Element element;
         DataIO fileOperations;
-        SearchBy search;
+        public SearchBy search;
+        public List<MyListViewItem> listViewItem = new List<MyListViewItem>();
         /// <summary>
         /// MainForm constructor
         /// Initializes form components and read file with data
@@ -29,132 +31,141 @@ namespace PO_Project
             fileOperations = DataIO.GetInstance();
             elements = fileOperations.ReadElements();
             search = new SearchBy(elements);
-           // elements.Add(new Film("Powrot do przeszlosci",Category.Action,"Film o potworach i wrozkach",TimeSpan.FromHours(2),"","1",DateTime.Today,"Bartek"));
-           // photoDatas.Add(new PhotoData("1", "C:\\Users\\Adam\\Downloads\\powrot.jpg"));
-           // writer.Update(elements);
-           // writer.Update(photoDatas);
-            foreach (Element element in elements)
+            foreach(Element element in elements)
             {
-                ImageList.Images.Add(element.ID.ToString(),element.Image);
+                listViewItem.Add(new MyListViewItem(element));    
             }
-            foreach (Element element in elements)
-            {
-                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
-            }
-
+            Update();
         }
 
         private void Add_Button_Click(object sender, EventArgs e)
         {
-            AddElementForm AddElement = new AddElementForm();
+            AddElementForm AddElement = new AddElementForm(elements);
             AddElement.ShowDialog(this);
+            fileOperations.Update(elements);
+            listViewItem.Add(new MyListViewItem(AddElement.element));
             AddElement.Dispose();
         }
 
         private void Edit_Button_Click(object sender, EventArgs e)
         {
-            EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
-            editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            editElementForm.Dispose();//zwolnienie pamieci
-            //Receiver receiver = new Receiver(this,elements);
-            fileOperations.Update(elements);
-            PhotoList.Items.Clear();
-            foreach (Element element in elements)
+            if (PhotoList.SelectedItems.Count!=0)
             {
-                ImageList.Images.Add(element.ID.ToString(), element.Image);
+                EditElementForm editElementForm = new EditElementForm(elements,element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                editElementForm.Dispose();//zwolnienie pamieci
+                fileOperations.Update(elements);
             }
-            foreach (Element element in elements)
+            else
             {
-                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
+                EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                editElementForm.Dispose();//zwolnienie pamieci
+                fileOperations.Update(elements);
             }
         }
-
         private void Delete_Button_Click(object sender, EventArgs e)
         {
-
-            DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
-            deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
-            deleteElement.Dispose();//zwolnienie pamieci
-                                    //elements.RemoveAt(0);
-                                    //fileOperations.Update(elements);
-                                    //foreach (ListViewItem listView in PhotoList.SelectedItems)
-                                    //{
-                                    //    elements.Remove(search.FindByID(listView.ImageKey));
-                                    //}
-            fileOperations.Update(elements);
-            PhotoList.Items.Clear();
-            foreach (Element element in elements)
+            if (PhotoList.SelectedItems.Count == 0)
             {
-                ImageList.Images.Add(element.ID.ToString(), element.Image);
+                DeleteElementForm deleteElement = new DeleteElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                foreach (MyListViewItem viewItem in listViewItem)
+                {
+                    if (viewItem.element == deleteElement.element1)
+                    {
+                        listViewItem.Remove(viewItem);
+                        break;
+                    }
+                }
+                fileOperations.Update(elements);
+                deleteElement.Dispose();//zwolnienie pamieci
             }
-            foreach (Element element in elements)
+            else
             {
-                var ListViewItem = PhotoList.Items.Add(element.ExtraAttributes["Nazwa"], element.ID.ToString());
+                DeleteElementForm deleteElement = new DeleteElementForm(elements,element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                foreach (MyListViewItem viewItem in listViewItem)
+                {
+                    if (viewItem.element == deleteElement.element1)
+                    {
+                        listViewItem.Remove(viewItem);
+                        break;
+                    }
+                }
+                fileOperations.Update(elements);
+                deleteElement.Dispose();//zwolnienie pamieci
             }
-
         }
 
         private void Search_Button_Click(object sender, EventArgs e)
         {
-            SearchBy searchBy = new SearchBy(elements);
+            SearchByForm deleteElement = new SearchByForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            deleteElement.Dispose();//zwolnienie pamieci
         }
 
         private void Sort_Button_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void Filter_Button_Click(object sender, EventArgs e)
-        {
-
+            SortByForm deleteElement = new SortByForm(listViewItem);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+            deleteElement.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+            deleteElement.Dispose();//zwolnienie pamieci
+           //Update(elements);
         }
 
         private void PhotoList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Element element;
-            PhotoList.Select();
-            foreach (ListViewItem listViewitems in Details_ListView.Items)
-                Details_ListView.Items.Remove(listViewitems);
-
-            foreach (ListViewItem listView in PhotoList.SelectedItems)
+            foreach (ListViewItem item in PhotoList.SelectedItems)
             {
-                element = search.FindByID(listView.ImageKey);
-               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Name", element.Name }));
-               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
-               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
-               // Details_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
-                foreach (KeyValuePair<string,string>pairs in element.ExtraAttributes)
-                {
-                    Details_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key,pairs.Value }));
-                }
+                element = search.FindByID(item.ImageKey);
             }
-
-
-            
+            SelectElement(element);
         }
 
         private void PhotoList_DoubleClick(object sender, EventArgs e)
         {
-            Element element;
-            PhotoList.Select();
+            SelectElement(element);
+            if (element != null && !element.ExtraAttributes["Lokacja pliku"].Equals(""))
+                fileOperations.Open(element.ExtraAttributes["Lokacja pliku"]);
+            element = null;
+        }
+        public new void Update()
+        {
+            foreach (ListViewItem listViewitems in Details_ListView.Items)
+                Details_ListView.Items.Remove(listViewitems);
+            PhotoList.BeginUpdate();
+            PhotoList.Items.Clear();
+            ImageList.Images.Clear();
+            foreach (Element element in elements)
+            {
+                ImageList.Images.Add(element.ID.ToString(), element.Image);
+            }
+            PhotoList.Items.AddRange(listViewItem.ToArray());
+            PhotoList.EndUpdate();
+        }
+        public void SelectElement(Element element)
+        {
             foreach (ListViewItem listViewitems in Details_ListView.Items)
                 Details_ListView.Items.Remove(listViewitems);
 
             foreach (ListViewItem listView in PhotoList.SelectedItems)
             {
-                element = search.FindByID(listView.ImageKey);
-                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Name", element.Name }));
-                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Autor", element.Author }));
-                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Opis", element.Description }));
-                // Details_ListView.Items.Add(new ListViewItem(new string[] { "Lokalizacja pliku", element.FileLocation }));
+                Details_ListView.Items.Add(new ListViewItem(new string[] { "Typ elementu", element.ElementType }));
                 foreach (KeyValuePair<string, string> pairs in element.ExtraAttributes)
                 {
                     Details_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key, pairs.Value }));
                 }
-                if (element != null && !element.ExtraAttributes["Lokacja pliku"].Equals(""))
-                    fileOperations.Open(element.ExtraAttributes["Lokacja pliku"]);
             }
+        }
 
+        private void Show_All_Click(object sender, EventArgs e)
+        {
+            listViewItem.Clear();
+            foreach (Element element in elements)
+            {
+                listViewItem.Add(new MyListViewItem(element));
+            }
+            Update();
         }
     }
 }
