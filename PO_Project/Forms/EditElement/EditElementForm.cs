@@ -83,7 +83,7 @@ namespace PO_Project
             Close();
         }
 
-        public void Update()
+        public new void Update()
         {
             EditElement_ListView.Items.Clear();
             foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)

@@ -108,7 +108,7 @@ namespace PO_Project
                 {
                     viewItem.ImageKey = viewItem.element.ID.ToString();
                 }
-                    fileOperations.Update(elements);
+                fileOperations.Update(elements);
                 Update();
                 deleteElement.Dispose();//zwolnienie pamieci
             }
@@ -154,11 +154,10 @@ namespace PO_Project
         }
         public new void Update()
         {
-            foreach (ListViewItem listViewitems in Details_ListView.Items)
-                Details_ListView.Items.Remove(listViewitems);
+            Details_ListView.Items.Clear();
+            ImageList.Images.Clear();
             PhotoList.BeginUpdate();
             PhotoList.Items.Clear();
-            ImageList.Images.Clear();
             foreach (Element element in elements)
             {
                 ImageList.Images.Add(element.ID.ToString(), element.Image);
@@ -168,17 +167,12 @@ namespace PO_Project
         }
         public void SelectElement(Element element)
         {
-            foreach (ListViewItem listViewitems in Details_ListView.Items)
-                Details_ListView.Items.Remove(listViewitems);
-
-            foreach (ListViewItem listView in PhotoList.SelectedItems)
-            {
+                Details_ListView.Items.Clear();
                 Details_ListView.Items.Add(new ListViewItem(new string[] { "Typ elementu", element.ElementType }));
                 foreach (KeyValuePair<string, string> pairs in element.ExtraAttributes)
                 {
                     Details_ListView.Items.Add(new ListViewItem(new string[] { pairs.Key, pairs.Value }));
                 }
-            }
         }
 
         private void Show_All_Click(object sender, EventArgs e)
