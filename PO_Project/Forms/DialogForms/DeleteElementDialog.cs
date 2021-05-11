@@ -12,19 +12,18 @@ namespace PO_Project
 {
     public partial class DeleteElementDialog : Form
     {
-        Dictionary<string, string> Attributes;
+        Dictionary<string, string> Attributes;//slownika z atrybutami elementu
         public DeleteElementDialog()
         {
             InitializeComponent();
         }
-        public DeleteElementDialog(Dictionary<string,string> Attributes)
+        public DeleteElementDialog(Dictionary<string, string> Attributes)
         {
-            InitializeComponent();
-            this.Attributes = Attributes;
-            //DeleteElementDIalog_ComboBox.DataSource = new BindingSource(Attributes, null);
-            foreach(KeyValuePair<string,string> pair in Attributes)
+            InitializeComponent();//inicjalizacja kontrolek
+            this.Attributes = Attributes;//przypisanie slownika
+            foreach (KeyValuePair<string, string> pair in Attributes)//wpisanie elementow do kontrolki combobox
             {
-                switch(pair.Key)
+                switch (pair.Key)//jesli atrybut jest domyslnym nie dodajemy go
                 {
                     case "Nazwa":
                         {
@@ -52,34 +51,32 @@ namespace PO_Project
                         }
                     default:
                         {
-                            DeleteElementDIalog_ComboBox.Items.Add(pair.Key);
+                            DeleteElementDIalog_ComboBox.Items.Add(pair.Key);//dodanie elementu do kontrolki
                             break;
                         }
                 }
             }
-            //DeleteElementDIalog_ComboBox.DisplayMember = "Key";
-            //DeleteElementDIalog_ComboBox.ValueMember = "Value";
-            DeleteElementDialog_TextBox.ResetText();
-            DeleteElementDIalog_ComboBox.Text = "";
+            DeleteElementDialog_TextBox.ResetText();//wyczyszczenie pola tekstowego
+            DeleteElementDIalog_ComboBox.Text = "";//wyczyszczenie wybranego elementu kontrolki combobox
         }
         private void DeleteElementDialog_Delete_Button_Click(object sender, EventArgs e)
         {
-            if (DeleteElementDIalog_ComboBox.SelectedItem != null)
+            if (DeleteElementDIalog_ComboBox.SelectedItem != null)//jesli jest wybrany atrybut
             {
-                Attributes.Remove((string)DeleteElementDIalog_ComboBox.SelectedItem);
-                Close();
+                Attributes.Remove((string)DeleteElementDIalog_ComboBox.SelectedItem);//usuniecie atrybutu
+                Close();//zamkniecie formularza
             }
         }
 
         private void DeleteElementDialog_Cancel_Button_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//zamkniecie formularza
         }
 
-        private void DeleteElementDIalog_ComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void DeleteElementDIalog_ComboBox_SelectedIndexChanged(object sender, EventArgs e)//zdarzenie, zmiana zaznaczonego indexu w kontrolce combobox
         {
-            DeleteElementDialog_TextBox.ResetText();
-            DeleteElementDialog_TextBox.Text = Attributes[(string)DeleteElementDIalog_ComboBox.SelectedItem];
+            DeleteElementDialog_TextBox.ResetText();//usuniecie tekstu z pola tekstowego
+            DeleteElementDialog_TextBox.Text = Attributes[(string)DeleteElementDIalog_ComboBox.SelectedItem];//wpisanie wartosci atrybutu do pola tekstowego
         }
     }
 }

@@ -12,56 +12,55 @@ namespace PO_Project
 {
     public partial class EditElementForm : Form, IObserver
     {
-        List<Element> elements;
-        Dictionary<int, string> Names= new Dictionary<int, string>();
-        Element element;
-        SearchBy search;
+        List<Element> elements;//lista elementow
+        Dictionary<int, string> Names= new Dictionary<int, string>();//slownik uzywany do bindowania comboboxa
+        Element element;//wybrany element
+        SearchBy search;//zmienna do wyszukiwania
         public EditElementForm()
         {
             InitializeComponent();
         }
         public EditElementForm(List<Element> elements)
         {
-            InitializeComponent();
+            InitializeComponent();//inicjalizacja kontrolek
             foreach(Element element in elements)
             {
-                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);//dodanie elementow do slownika
             }
-            this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;
-            this.elements = elements;
-            search = new SearchBy(elements);
-            EditElement_ComboBox.DataSource = new BindingSource(Names, null);
-            EditElement_ComboBox.DisplayMember = "Value";
-            EditElement_ComboBox.ValueMember = "Key";
+            this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;//stworzenie nowego zdarzenia
+            this.elements = elements;//wpisanie podanego argumentu do zmiennej
+            search = new SearchBy(elements);//inicjalizacja wyszukiwania
+            EditElement_ComboBox.DataSource = new BindingSource(Names, null);//bindowanie slownika do kontrolki combobox
+            EditElement_ComboBox.DisplayMember = "Value";//wartosc wyswietlana jest wartoscia elementu slownika
+            EditElement_ComboBox.ValueMember = "Key";//wartosc wybranego elementu bedzie kluczem slownika
         }
         public EditElementForm(List<Element> elements,Element eleme)
         {
-            InitializeComponent();
-            this.element = eleme;
+            InitializeComponent();//inicjalizacja konrolek
+            this.element = eleme;//wpisanie wybranego elementu
             foreach (Element element in elements)
             {
-                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);
+                Names.Add(element.ID, element.ExtraAttributes["Nazwa"]);//dodanie elementow do slownika
             }
-            this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;
-            this.elements = elements;
-            search = new SearchBy(elements);
-            EditElement_ComboBox.DataSource = new BindingSource(Names, null);
-            EditElement_ComboBox.DisplayMember = "Value";
-            EditElement_ComboBox.ValueMember = "Key";
-            EditElement_ComboBox.SelectedValue = element.ID;
-            EditElement_ComboBox_SelectionChangeCommitted(this, null);
+            this.EditElement_ComboBox.SelectionChangeCommitted += EditElement_ComboBox_SelectionChangeCommitted;//stworzenie nowego zdarzenia
+            this.elements = elements;//wpisanie podanego argumentu do zmiennej
+            search = new SearchBy(elements);//inicjalizacja wyszukiwania
+            EditElement_ComboBox.DataSource = new BindingSource(Names, null);//bindowanie slownika do kontrolki combobox
+            EditElement_ComboBox.DisplayMember = "Value";//wartosc wyswietlana jest wartoscia elementu slownika
+            EditElement_ComboBox.ValueMember = "Key";//wartosc wybranego elementu bedzie kluczem slownika
+            EditElement_ComboBox.SelectedValue = element.ID;//ustawienie wybranego elementu
+            EditElement_ComboBox_SelectionChangeCommitted(this, null);//wywolanie zdarzenia
         }
 
         private void EditElement_ComboBox_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            foreach (ListViewItem listViewitems in EditElement_ListView.Items)
-                EditElement_ListView.Items.Remove(listViewitems);
+            EditElement_ListView.Items.Clear();//usuniecie elementow z listview
 
-            element = search.FindByID(EditElement_ComboBox.SelectedValue.ToString());
+            element = search.FindByID(EditElement_ComboBox.SelectedValue.ToString());//wyszukanie wybranego elementu
 
               foreach (KeyValuePair<string,string> pair in element.ExtraAttributes)
-                 EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key,pair.Value }));
-                EditElement_ImageBox.Image = element.Image;
+                 EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key,pair.Value }));//dodanie elementow do listview
+                EditElement_ImageBox.Image = element.Image;//ustawienie obrazka
 
         }
 
@@ -70,48 +69,48 @@ namespace PO_Project
 
             if (EditElement_ComboBox.SelectedItem != null)
             {
-                EditElementDialogForm editElementForm = new EditElementDialogForm(element);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                EditElementDialogForm editElementForm = new EditElementDialogForm(element);//stworzenie nowego formularza typu  EditElementDialogForm
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
-                Update();
+                Update();//aktualizacja listview
             }
-            (Owner as MainForm).Update();
+            (Owner as MainForm).Update();//aktualizacja listview w formluarzu glownym
         }
 
         private void EditElement_Cancel_Button_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//zamkniecie formularza
         }
 
         public new void Update()
         {
-            EditElement_ListView.Items.Clear();
+            EditElement_ListView.Items.Clear();//wyczyszczenie elementow listview
             foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
-                EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));
-            EditElement_ImageBox.Image = element.Image;
+                EditElement_ListView.Items.Add(new ListViewItem(new string[] { pair.Key, pair.Value }));//dodanie elementow do listview
+            EditElement_ImageBox.Image = element.Image;//ustawienie obrazka
         }
 
         private void EditElement_Add_Button_Click(object sender, EventArgs e)
         {
-            if (element.ExtraAttributes.Count != 0)
+            if (element.ExtraAttributes.Count > 0)//jesli ilosc atrybutow jest wieksza od zera
             {
-                AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddAttributeDialog
                 addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 addAttributeDialog.Dispose();//zwolnienie pamieci
-                Update();
-                (Owner as MainForm).Update();
+                Update();//aktualizacja listview
+                (Owner as MainForm).Update();//aktualizacja listview w formluarzu glownym
             }
         }
 
         private void EditElement_Delete_Button_Click(object sender, EventArgs e)
         {
-            if (element.ExtraAttributes.Count != 0)
+            if (element.ExtraAttributes.Count != 0)//jesli ilosc atrybutow jest wieksza od zera
             {
-                DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu DeleteElementDialog
                 deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 deleteElementDialog.Dispose();//zwolnienie pamieci
-                Update();
-                (Owner as MainForm).Update();
+                Update();//aktualizacja listview
+                (Owner as MainForm).Update();//aktualizacja listview w formluarzu glownym
             }
         }
     }

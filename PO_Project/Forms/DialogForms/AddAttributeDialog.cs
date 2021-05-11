@@ -12,25 +12,25 @@ namespace PO_Project
 {
     public partial class AddAttributeDialog : Form
     {
-        Dictionary<string, string> Attributes;
+        Dictionary<string, string> Attributes;//slownik zwierajacy atrybuty elementu
         public AddAttributeDialog()
         {
             InitializeComponent();
         }
         public AddAttributeDialog(Dictionary<string, string> Attributes)
         {
-            InitializeComponent();
-            this.Attributes = Attributes;
+            InitializeComponent();//inicjalizacja kontrolek
+            this.Attributes = Attributes;//przypisanie slownika
         }
 
         private void AddAttribute_AddButton_Click(object sender, EventArgs e)
         {
-            if ((!AddAttribute_NameTextBox.Text.Equals("") && !AddAttribute_ValueTextBox.Text.Equals("")))
+            if ((!AddAttribute_NameTextBox.Text.Equals("") && !AddAttribute_ValueTextBox.Text.Equals("")))//sprawdzenie czy pola tekstowe nie sa puste
             {
-                if ((!AddAttribute_NameTextBox.Text.Contains(";") && !AddAttribute_ValueTextBox.Text.Contains(";")))
+                if ((!AddAttribute_NameTextBox.Text.Contains(";") && !AddAttribute_ValueTextBox.Text.Contains(";")))//sprawdzenie czy nie wpisano znaku ";"
                 {
-                    Attributes.Add(AddAttribute_NameTextBox.Text, AddAttribute_ValueTextBox.Text);
-                    Close();
+                    Attributes.Add(AddAttribute_NameTextBox.Text, AddAttribute_ValueTextBox.Text);//dodanie nowego atrybutu
+                    Close();//zamkniecie formularza
                 }
                 else
                 {
@@ -45,7 +45,7 @@ namespace PO_Project
 
         private void AddAttribute_CancelButton_Click(object sender, EventArgs e)
         {
-            Close();
+            Close();//zamkniecie formularza
         }
     }
 }
