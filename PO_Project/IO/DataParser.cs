@@ -35,12 +35,12 @@ namespace PO_Project
         public string FromElementToString(Element element)
         {
 
-            stringBuilder = new StringBuilder(element.ElementType +";"+ element.ID.ToString());
+            stringBuilder = new StringBuilder(element.ElementType +";"+ element.ID.ToString());//inicjalizacja stringa, dodanie typu oraz id
             foreach (KeyValuePair<string, string> pair in element.ExtraAttributes)
             {
-                stringBuilder.Append(";" + pair.Key + ";" + pair.Value);
+                stringBuilder.Append(";" + pair.Key + ";" + pair.Value);//dodanie atrybutow na koniec stringa
             }
-            return stringBuilder.ToString();
+            return stringBuilder.ToString();//zwrocenie stringa
 
         }
         /// <summary>
@@ -52,7 +52,7 @@ namespace PO_Project
         /// <param name="s">string</param>
         public Element FromStringToElement(string s)
         {
-            string[] vs = s.Split(';');
+            string[] vs = s.Split(';');//podzial zczytanej wartosci 
             Dictionary<string, string> pairs = new Dictionary<string, string>();
             // DateTime dateTime;
             // DateTime.TryParse(vs[7], out dateTime);
@@ -61,16 +61,16 @@ namespace PO_Project
             // Category category;
             // Enum.TryParse(vs[2], out category);
             int id;
-            Int32.TryParse(vs[1], out id);
+            Int32.TryParse(vs[1], out id);//proba zamiany id
             for(int i=2; i<vs.Length; i=i+2)
             {
                 if ((i + 1) < vs.Length)
                 {
-                    pairs.Add(vs[i], vs[i + 1]);
+                    pairs.Add(vs[i], vs[i + 1]);//dodawanie elementow do slownika
                 }
             }
-                        element = new Element(vs[0],id,pairs);
-            return element;
+                        element = new Element(vs[0],id,pairs);//inicjalizacja elementu
+            return element;//zwrocenie elementu
         }
 
     }

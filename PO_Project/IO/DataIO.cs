@@ -50,30 +50,30 @@ namespace PO_Project
 
         public List<Element> ReadElements()
         {
-            if (!File.Exists(defaultlocation + @"\data.csv"))
+            if (!File.Exists(defaultlocation + @"\data.csv"))//jesli plik nie istnieje
             {
-                Directory.CreateDirectory(defaultlocation);
-                FileStream fs = File.Create(defaultlocation + @"\data.csv");
-                fs.Dispose();
+                Directory.CreateDirectory(defaultlocation);//stworz nowy folder jesli nie istnieje
+                FileStream fs = File.Create(defaultlocation + @"\data.csv");//stworz plik
+                fs.Dispose();//zwolnij pamiec
             }
-            List<Element> elements = new List<Element>();
+            List<Element> elements = new List<Element>();//inicjalizacja listy elementow
                 try
                 {
-                    TextReader textReader = null;
-                    string line = "";
-                    textReader = new StreamReader(defaultlocation + @"\data.csv");
-                    while (!string.IsNullOrEmpty(line = textReader.ReadLine()))
+                    TextReader textReader = null;//stworzenie zmiennej typu TextReader
+                    string line = "";//stworzenie pustego stringa
+                    textReader = new StreamReader(defaultlocation + @"\data.csv");//inicjalizacja textReader
+                    while (!string.IsNullOrEmpty(line = textReader.ReadLine()))//czytanie linijka po linijce dopoki zczytana wartosc nie jest pusta
                     {
-                        elements.Add(FromStringToElement(line));
+                        elements.Add(FromStringToElement(line));//dodanie do listy elementow
                     }
-                    textReader.Dispose();
+                    textReader.Dispose();//zwolnienie pamieci
                 }
                 catch (Exception ex)
                 {
                     throw new Exception("Bd odczytu:" + ex.Message);
                 }
 
-                return elements;
+                return elements;//zwrocenie listy elementow
         }
 
 
@@ -81,15 +81,15 @@ namespace PO_Project
         {
                 try
                 {
-                    FileStream fs = File.Create(defaultlocation + @"\data.csv");
-                    fs.Dispose();
-                    TextWriter textWriter;
-                    textWriter = new StreamWriter(defaultlocation + @"\data.csv");
-                    foreach (Element element in elements)
+                    FileStream fs = File.Create(defaultlocation + @"\data.csv");//usuniecie zawartosci pliku
+                    fs.Dispose();//zwolnienie pamieci
+                    TextWriter textWriter;//zmienna typu TextWritter
+                    textWriter = new StreamWriter(defaultlocation + @"\data.csv");//inicjalizacja textWriter
+                    foreach (Element element in elements)//dla kazdego elementu
                     {
-                        textWriter.WriteLine(FromElementToString(element));
+                        textWriter.WriteLine(FromElementToString(element));//zamien na string i wpisz do pliku
                     }
-                    textWriter.Dispose();
+                    textWriter.Dispose();//zwolnienie pamieci
                 }
                 catch (Exception ex)
                 {
@@ -100,14 +100,14 @@ namespace PO_Project
 
         public Element AddElement(Element element)
         {
-            if (File.Exists(defaultlocation + @"\data.csv"))
+            if (File.Exists(defaultlocation + @"\data.csv"))//jesli plik istnieje
             {
                 try
                 {
-                    TextWriter textWriter;
-                    textWriter = new StreamWriter(defaultlocation + @"\data.csv", true);
-                    textWriter.WriteLine(FromElementToString(element));
-                    textWriter.Dispose();
+                    TextWriter textWriter;//zmienna typu TextWritter
+                    textWriter = new StreamWriter(defaultlocation + @"\data.csv", true);//inicjalizacja textWriter
+                    textWriter.WriteLine(FromElementToString(element));//zamien na string i wpisz do pliku
+                    textWriter.Dispose();//zwolnienie pamieci
                 }
                 catch (Exception ex)
                 {
@@ -119,7 +119,7 @@ namespace PO_Project
         }
         public void Open(string path)
         {
-            System.Diagnostics.Process.Start(path);
+            System.Diagnostics.Process.Start(path);//otwarcie pliku domyslna aplikacja
         }
 
     }
