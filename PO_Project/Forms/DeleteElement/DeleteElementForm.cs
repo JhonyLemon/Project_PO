@@ -67,14 +67,17 @@ namespace PO_Project
 
         private void DeleteElement_Delete_Button_Click(object sender, EventArgs e)
         {
-            int i = 1;
-            element1 = search.FindByID(DeleteElement_ComboBox.SelectedValue.ToString());//znalezienie wybranego elementu
-            elements.Remove(element1);//usuniecie go z listy elementow
-            foreach(Element element in elements)
+            if (DeleteElement_ComboBox.SelectedValue != null)//sprawdzenie czy zaznaczono element
             {
-                element.ID = i++;//zmiana ID
+                int i = 1;
+                element1 = search.FindByID(DeleteElement_ComboBox.SelectedValue.ToString());//znalezienie wybranego elementu
+                elements.Remove(element1);//usuniecie go z listy elementow
+                foreach (Element element in elements)
+                {
+                    element.ID = i++;//zmiana ID
+                }
+                Close();//zamkniecie formularza
             }
-            Close();//zamkniecie formularza
         }
     }
 }
