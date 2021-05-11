@@ -15,14 +15,6 @@ namespace PO_Project
         Dictionary<int, string> bindDic = new Dictionary<int, string>();//slownik uzywany do bindowania kontrolki combobox
         List<Element> elements;//lista elementow
         List<MyListViewItem> listViewItem;//lista elementow listviewitem
-        public SearchByForm()
-        {
-            InitializeComponent();//inicjalizacja kontrolek
-            bindDic.Add(0, "Szukaj przez nazwie");
-            SearchByComboBox.DataSource = new BindingSource(bindDic, null);
-            SearchByComboBox.DisplayMember = "Value";
-            SearchByComboBox.ValueMember = "Key";
-        }
         public SearchByForm(List<Element> elements, List<MyListViewItem> listViewItem)
         {
             InitializeComponent();//inicjalizacja kontrolek
