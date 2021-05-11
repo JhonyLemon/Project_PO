@@ -33,6 +33,7 @@ namespace PO_Project
             EditElement_ComboBox.DataSource = new BindingSource(Names, null);//bindowanie slownika do kontrolki combobox
             EditElement_ComboBox.DisplayMember = "Value";//wartosc wyswietlana jest wartoscia elementu slownika
             EditElement_ComboBox.ValueMember = "Key";//wartosc wybranego elementu bedzie kluczem slownika
+            EditElement_ComboBox_SelectionChangeCommitted(this, null);//wywolanie zdarzenia
         }
         public EditElementForm(List<Element> elements,Element eleme)
         {
