@@ -18,15 +18,15 @@ namespace PO_Project
         /// <summary>
         /// List of type IElement
         /// </summary>
-        protected List<Element> elements;
-        private Element foundElements;
+        protected List<Element> elements;//lista elementow
+        private Element foundElements;//znaleziony element
 
         /// <summary>
         /// SearchBy constructor
         /// </summary>
         public SearchBy(List<Element> elements)
         {
-            this.elements = elements;
+            this.elements = elements;//wpisanie arhumentu do zmiennej
         }
 
         /// <summary>
@@ -38,12 +38,12 @@ namespace PO_Project
         /// <param name="name">string</param>
         public bool FindByAttribute(string name,string value ,Element element)
         {
-            string s="";
-            if(element.ExtraAttributes.TryGetValue(name,out s) && s.Contains(value))
+            string s="";//inicjalizacja pustego stringa
+            if(element.ExtraAttributes.TryGetValue(name,out s) && s.Contains(value))//jesli podany element zawiera arument o podanej wartosci 
             {
-                return true;
+                return true;//zwroc prawda
             }
-            return false;
+            return false;//zwroc falsz
         }
 
         /// <summary>
@@ -55,19 +55,19 @@ namespace PO_Project
         /// <param name="ID">string</param>
         public Element FindByID(string ID)
         {
-            foreach (Element element in elements)
+            foreach (Element element in elements)//iteracja po wszystkich elementach listy
             {
-                        if(element.ID==Int32.Parse(ID))
-                        return element;
+                        if(element.ID==Int32.Parse(ID))//konwersja z string na int
+                        return element;//zwrocenie znalezionego elementu
             }
-            return null;
+            return null;//zwroc null
         }
 
         public bool FindByType(string Type, Element element)
         {
-            if (element.ElementType == Type)
-                return true;
-            return false;
+            if (element.ElementType == Type)//jesli typ elementu rowna sie typowi podanemu
+                return true;//zwroc pradwa
+            return false;//zwroc falsz
         }
     }
 }

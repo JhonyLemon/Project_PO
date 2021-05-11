@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace PO_Project
 {
-    public class MyListViewItem :ListViewItem, IEquatable<MyListViewItem>, IComparable<MyListViewItem>
+    public class MyListViewItem :ListViewItem, IEquatable<MyListViewItem>, IComparable<MyListViewItem>//rozszerzenie klasy o interfejsy uzywane do sortowania
     {
         public Element element;
         public MyListViewItem(Element element)

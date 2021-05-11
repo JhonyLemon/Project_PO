@@ -38,14 +38,14 @@ namespace PO_Project
         public Image Image { get; set; }
         public Dictionary<string,string> ExtraAttributes { get; set; }
 
-        public void AddImage(string path)
+        public void AddImage(string path)//dodanie zdjecia
         {
-            if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
+            if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))//jesli slownik zawiera klucz
             {
-                if (path=="" || !File.Exists(path))
+                if (path=="" || !File.Exists(path))//jesli sciezka do pliku jest pusta lub plik nie istnieje
                 {
 
-                    if (this.ElementType == TypeOfElement.Film.ToString())
+                    if (this.ElementType == TypeOfElement.Film.ToString())//ustawienie zdjecia domyslnego
                         Image = Properties.Resources.FilmImage;
                     else if (this.ElementType == TypeOfElement.Ksiazka.ToString())
                         Image = Properties.Resources.BookImage;
@@ -55,7 +55,7 @@ namespace PO_Project
                         Image = Properties.Resources.PhotoNotFound;
                 }
                 else
-                    Image = Image.FromFile(path);
+                    Image = Image.FromFile(path);//ustawienie zdjecia z pliku
             }
         }
 
