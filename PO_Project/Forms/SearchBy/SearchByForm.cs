@@ -49,16 +49,26 @@ namespace PO_Project
 
         private void SearchBySearchButton_Click(object sender, EventArgs e)
         {
-            if(SearchByComboBox.ValueMember!=null && SearchByTextBox.Text!="")//jesli wybrano element i pole tekstowe nie jest puste
+            Close();
+        }
+
+        private void SearchByCancelButton_Click(object sender, EventArgs e)
+        {
+            Close();//zamkniecie formularza
+        }
+
+        private void SearchByTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (SearchByComboBox.ValueMember != null && SearchByTextBox.Text != "")//jesli wybrano element i pole tekstowe nie jest puste
             {
                 listViewItem.Clear();//wyczyszczenie listy listviewitem
-                switch((int)SearchByComboBox.SelectedValue)//sprawdzenie wybranego klucza
+                switch ((int)SearchByComboBox.SelectedValue)//sprawdzenie wybranego klucza
                 {
                     case 0://szukanie po nazwie
                         {
-                            foreach(Element element in elements)
+                            foreach (Element element in elements)
                             {
-                                if ((Owner as MainForm).search.FindByAttribute("Nazwa",SearchByTextBox.Text,element))//wyszukiwanie elementu po atrybucie
+                                if ((Owner as MainForm).search.FindByAttribute("Nazwa", SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
                                     listViewItem.Add(new MyListViewItem(element));//dodanie elementu do listy listviewitem
                             }
                             break;
@@ -67,7 +77,7 @@ namespace PO_Project
                         {
                             foreach (Element element in elements)
                             {
-                                if ((Owner as MainForm).search.FindByAttribute("Autor",SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
+                                if ((Owner as MainForm).search.FindByAttribute("Autor", SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
                                     listViewItem.Add(new MyListViewItem(element));//dodanie elementu do listy listviewitem
                             }
                             break;
@@ -76,7 +86,7 @@ namespace PO_Project
                         {
                             foreach (Element element in elements)
                             {
-                                if ((Owner as MainForm).search.FindByAttribute("Opis",SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
+                                if ((Owner as MainForm).search.FindByAttribute("Opis", SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
                                     listViewItem.Add(new MyListViewItem(element));//dodanie elementu do listy listviewitem
                             }
                             break;
@@ -85,7 +95,7 @@ namespace PO_Project
                         {
                             foreach (Element element in elements)
                             {
-                                if ((Owner as MainForm).search.FindByAttribute("Data",SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
+                                if ((Owner as MainForm).search.FindByAttribute("Data", SearchByTextBox.Text, element))//wyszukiwanie elementu po atrybucie
                                     listViewItem.Add(new MyListViewItem(element));//dodanie elementu do listy listviewitem
                             }
                             break;
@@ -114,13 +124,8 @@ namespace PO_Project
                 }
                 (Owner as MainForm).Update();//odswiezenie kontrolki listview w formularzu glownym
             }
-            
 
-        }
 
-        private void SearchByCancelButton_Click(object sender, EventArgs e)
-        {
-            Close();//zamkniecie formularza
         }
     }
 }

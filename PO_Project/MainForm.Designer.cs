@@ -148,6 +148,7 @@ namespace PO_Project
             this.PhotoList.Size = new System.Drawing.Size(800, 250);
             this.PhotoList.TabIndex = 0;
             this.PhotoList.UseCompatibleStateImageBehavior = false;
+            this.PhotoList.ItemMouseHover += new System.Windows.Forms.ListViewItemMouseHoverEventHandler(this.PhotoList_ItemMouseHover);
             this.PhotoList.SelectedIndexChanged += new System.EventHandler(this.PhotoList_SelectedIndexChanged);
             this.PhotoList.DoubleClick += new System.EventHandler(this.PhotoList_DoubleClick);
             // 

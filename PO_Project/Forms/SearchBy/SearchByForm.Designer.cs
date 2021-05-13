@@ -31,12 +31,12 @@ namespace PO_Project
         {
             this.SearchByComboBox = new System.Windows.Forms.ComboBox();
             this.SearchByLabel = new System.Windows.Forms.Label();
-            this.SearchBySearchButton = new System.Windows.Forms.Button();
             this.SearchByCancelButton = new System.Windows.Forms.Button();
             this.SearchByTextBox = new System.Windows.Forms.TextBox();
             this.SearchByLabelValue = new System.Windows.Forms.Label();
             this.SearchByTextBoxName = new System.Windows.Forms.TextBox();
             this.SearchByLabelName = new System.Windows.Forms.Label();
+            this.SearchBySearchButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // SearchByComboBox
@@ -58,17 +58,6 @@ namespace PO_Project
             this.SearchByLabel.TabIndex = 1;
             this.SearchByLabel.Text = "Szukaj przez";
             // 
-            // SearchBySearchButton
-            // 
-            this.SearchBySearchButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.SearchBySearchButton.Location = new System.Drawing.Point(5, 61);
-            this.SearchBySearchButton.Name = "SearchBySearchButton";
-            this.SearchBySearchButton.Size = new System.Drawing.Size(253, 44);
-            this.SearchBySearchButton.TabIndex = 2;
-            this.SearchBySearchButton.Text = "Szukaj";
-            this.SearchBySearchButton.UseVisualStyleBackColor = true;
-            this.SearchBySearchButton.Click += new System.EventHandler(this.SearchBySearchButton_Click);
-            // 
             // SearchByCancelButton
             // 
             this.SearchByCancelButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -86,6 +75,7 @@ namespace PO_Project
             this.SearchByTextBox.Name = "SearchByTextBox";
             this.SearchByTextBox.Size = new System.Drawing.Size(203, 20);
             this.SearchByTextBox.TabIndex = 4;
+            this.SearchByTextBox.TextChanged += new System.EventHandler(this.SearchByTextBox_TextChanged);
             // 
             // SearchByLabelValue
             // 
@@ -114,6 +104,17 @@ namespace PO_Project
             this.SearchByLabelName.TabIndex = 7;
             this.SearchByLabelName.Text = "Nazwa atrybutu";
             // 
+            // SearchBySearchButton
+            // 
+            this.SearchBySearchButton.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.SearchBySearchButton.Location = new System.Drawing.Point(5, 61);
+            this.SearchBySearchButton.Name = "SearchBySearchButton";
+            this.SearchBySearchButton.Size = new System.Drawing.Size(253, 44);
+            this.SearchBySearchButton.TabIndex = 2;
+            this.SearchBySearchButton.Text = "Szukaj";
+            this.SearchBySearchButton.UseVisualStyleBackColor = true;
+            this.SearchBySearchButton.Click += new System.EventHandler(this.SearchBySearchButton_Click);
+            // 
             // SearchByForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -140,11 +141,11 @@ namespace PO_Project
 
         private System.Windows.Forms.ComboBox SearchByComboBox;
         private System.Windows.Forms.Label SearchByLabel;
-        private System.Windows.Forms.Button SearchBySearchButton;
         private System.Windows.Forms.Button SearchByCancelButton;
         private System.Windows.Forms.TextBox SearchByTextBox;
         private System.Windows.Forms.Label SearchByLabelValue;
         private System.Windows.Forms.TextBox SearchByTextBoxName;
         private System.Windows.Forms.Label SearchByLabelName;
+        private System.Windows.Forms.Button SearchBySearchButton;
     }
 }

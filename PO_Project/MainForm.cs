@@ -186,5 +186,15 @@ namespace PO_Project
             }
             Update();//zaladowanie elementow do listview
         }
+
+        private void PhotoList_ItemMouseHover(object sender, ListViewItemMouseHoverEventArgs e)
+        {
+            Element hoverElement = search.FindByID(e.Item.ImageKey);
+            StringBuilder builder = new StringBuilder("Typ elementu:    " + hoverElement.ElementType + Environment.NewLine);
+            foreach (KeyValuePair<string, string> pair in hoverElement.ExtraAttributes)
+                builder.Append(pair.Key + ":    " + pair.Value + Environment.NewLine);
+            System.Windows.Forms.ToolTip ToolTip1 = new System.Windows.Forms.ToolTip();
+            ToolTip1.SetToolTip(this.PhotoList, builder.ToString());
+        }
     }
 }
