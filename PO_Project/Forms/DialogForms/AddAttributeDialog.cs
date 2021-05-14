@@ -30,6 +30,8 @@ namespace PO_Project
                 if ((!AddAttribute_NameTextBox.Text.Contains(";") && !AddAttribute_ValueTextBox.Text.Contains(";")))//sprawdzenie czy nie wpisano znaku ";"
                 {
                     Attributes.Add(AddAttribute_NameTextBox.Text, AddAttribute_ValueTextBox.Text);//dodanie nowego atrybutu
+                    if (Owner.Owner is MainForm)
+                        (Owner.Owner as MainForm).observable.Notify();
                     Close();//zamkniecie formularza
                 }
                 else

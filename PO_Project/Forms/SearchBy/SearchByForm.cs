@@ -122,7 +122,7 @@ namespace PO_Project
                             break;
                         }
                 }
-                (Owner as MainForm).Update();//odswiezenie kontrolki listview w formularzu glownym
+                (Owner as MainForm).observable.Notify();//odswiezenie kontrolki listview w formularzu glownym
             }
 
 

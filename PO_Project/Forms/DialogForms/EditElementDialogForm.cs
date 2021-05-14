@@ -52,10 +52,12 @@ namespace PO_Project
             {
                 MessageBox.Show("Najpierw wybierz atrybut ktory chcesz edytowac", "Blad wprowadzanych danych", MessageBoxButtons.OK);
             }
-            if (Owner is EditElementForm)//wywolanie odswiezenia kontrolek listview w formularzach rodzica
-                (Owner as EditElementForm).Update();
-            else if(Owner is AddElementForm)
-                (Owner as AddElementForm).Update();
+            if (Owner.Owner is MainForm)
+                (Owner.Owner as MainForm).observable.Notify();
+            // if (Owner is EditElementForm)//wywolanie odswiezenia kontrolek listview w formularzach rodzica
+            //     (Owner as EditElementForm).Update();
+            // else if(Owner is AddElementForm)
+            //     (Owner as AddElementForm).Update();
         }
 
         private void EditElementDialog_FinishButton_Click(object sender, EventArgs e)

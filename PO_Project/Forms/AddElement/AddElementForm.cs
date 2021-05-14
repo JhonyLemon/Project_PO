@@ -63,7 +63,6 @@ namespace PO_Project
                 DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu deleteElementDialog
                 deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 deleteElementDialog.Dispose();//zwolnienie pamieci
-                Update();//aktualizacja listview
             }
         }
 
@@ -74,7 +73,6 @@ namespace PO_Project
                 EditElementDialogForm addAttribute = new EditElementDialogForm(element);//stworzenie nowego formularza typu addAttribute
                 addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 addAttribute.Dispose();//zwolnienie pamieci
-                Update();//aktualizacja listview
             }
         }
 
@@ -83,7 +81,6 @@ namespace PO_Project
             AddAttributeDialog addAttribute = new AddAttributeDialog(Attributes);//stworzenie nowego formularza typu addAttribute
             addAttribute.ShowDialog(this);// wyswietlenie go jako okno dialogowe
             addAttribute.Dispose();//zwolnienie pamieci
-            Update();//aktualizacja listview
         }
 
         private void AddElement_Add_Button_Click(object sender, EventArgs e)
@@ -134,6 +131,7 @@ namespace PO_Project
                     element.AddImage(element.ExtraAttributes["Lokacja zdjecia"]);//dodanie obrazu
                     elements.Add(element);//dodawanie elementu do listy
                 }
+                (Owner as MainForm).observable.Notify();
                 Close();//zamkniecie formularza
             }
             else

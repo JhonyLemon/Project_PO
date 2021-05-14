@@ -93,8 +93,9 @@
     <Compile Include="Forms\EditElement\EditElementForm.Designer.cs">
       <DependentUpon>EditElementForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Observer\IObservable.cs" />
-    <Compile Include="Observer\IObserver.cs" />
+    <Compile Include="Observer\Observable.cs" />
+    <Compile Include="Observer\Interfaces\IObservable.cs" />
+    <Compile Include="Observer\Interfaces\IObserver.cs" />
     <Compile Include="IO\DataIO.cs" />
     <Compile Include="Elements\Element.cs" />
     <Compile Include="Forms\AddElement\AddElementForm.cs">

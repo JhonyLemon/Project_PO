@@ -76,6 +76,8 @@ namespace PO_Project
                 {
                     element.ID = i++;//zmiana ID
                 }
+                if (Owner is MainForm)
+                    (Owner as MainForm).observable.Notify();
                 Close();//zamkniecie formularza
             }
         }

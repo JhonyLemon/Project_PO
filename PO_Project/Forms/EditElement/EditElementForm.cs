@@ -73,9 +73,7 @@ namespace PO_Project
                 EditElementDialogForm editElementForm = new EditElementDialogForm(element);//stworzenie nowego formularza typu  EditElementDialogForm
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 editElementForm.Dispose();//zwolnienie pamieci
-                Update();//aktualizacja listview
             }
-            (Owner as MainForm).Update();//aktualizacja listview w formluarzu glownym
         }
 
         private void EditElement_Cancel_Button_Click(object sender, EventArgs e)
@@ -98,8 +96,6 @@ namespace PO_Project
                 AddAttributeDialog addAttributeDialog = new AddAttributeDialog(element.ExtraAttributes);//stworzenie nowego formularza typu AddAttributeDialog
                 addAttributeDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 addAttributeDialog.Dispose();//zwolnienie pamieci
-                Update();//aktualizacja listview
-                (Owner as MainForm).Update();//aktualizacja listview w formluarzu glownym
             }
         }
 
@@ -110,8 +106,6 @@ namespace PO_Project
                 DeleteElementDialog deleteElementDialog = new DeleteElementDialog(element.ExtraAttributes);//stworzenie nowego formularza typu DeleteElementDialog
                 deleteElementDialog.ShowDialog(this);// wyswietlenie go jako okno dialogowe
                 deleteElementDialog.Dispose();//zwolnienie pamieci
-                Update();//aktualizacja listview
-                (Owner as MainForm).Update();//aktualizacja listview w formluarzu glownym
             }
         }
     }

@@ -21,6 +21,7 @@ namespace PO_Project
         DataIO fileOperations;//zmienna z klasa do operacji na plikach
         public SearchBy search;//zmienna do szukania
         List<MyListViewItem> listViewItem = new List<MyListViewItem>();
+        public Observable observable = new Observable();
         /// <summary>
         /// MainForm constructor
         /// Initializes form components and read file with data
@@ -35,12 +36,14 @@ namespace PO_Project
             {
                 listViewItem.Add(new MyListViewItem(element));//dodanie elementow do rozszerzonej klasy listviewitem
             }
+            observable.Attach(this);
             Update();//zaladowanie elementow do listview
         }
 
         private void Add_Button_Click(object sender, EventArgs e)
         {
             AddElementForm AddElement = new AddElementForm(elements);//stworzenie instancji formularza AddElementForm
+            observable.Attach(AddElement);
             AddElement.ShowDialog(this);//wyswietlenie go jako okno dialogowe
              
             if (AddElement.element != null && AddElement.element.ID != 0)//jesli element zostal dodany
@@ -49,6 +52,7 @@ namespace PO_Project
                 listViewItem.Add(new MyListViewItem(AddElement.element));//dodanie nowego elementu do listviewitem
             }
             Update();//zaladowanie elementow do listview
+            observable.Detach(AddElement);
             AddElement.Dispose();//zwolnienie pamieci dla formularza AddElement
         }
 
@@ -57,14 +61,18 @@ namespace PO_Project
             if (PhotoList.SelectedItems.Count!=0 && elements.Count>0)//jesli wybrano element
             {
                 EditElementForm editElementForm = new EditElementForm(elements,element);//stworzenie nowego formularza typu EditElementForm
+                observable.Attach(editElementForm);
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                observable.Detach(editElementForm);
                 editElementForm.Dispose();//zwolnienie pamieci
                 fileOperations.Update(elements);//uaktualnienie zawartosci pliku
             }
             else if(elements.Count > 0)//jesli nie wybrano elementu
             {
                 EditElementForm editElementForm = new EditElementForm(elements);//stworzenie nowego formularza typu AddElement z przekazywana referencja na liste studentow
+                observable.Attach(editElementForm);
                 editElementForm.ShowDialog(this);// wyswietlenie go jako okno dialogowe
+                observable.Detach(editElementForm);
                 editElementForm.Dispose();//zwolnienie pamieci
                 fileOperations.Update(elements);//uaktualnienie zawartosci pliku
             }
@@ -92,7 +100,7 @@ namespace PO_Project
                     viewItem.ImageKey = viewItem.element.ID.ToString();//aktualizacja ID obrazkow
                 }
                 fileOperations.Update(elements);//uaktualnienie zawartosci pliku
-                Update();//zaladowanie elementow do listview
+                observable.Notify();//zaladowanie elementow do listview
                 deleteElement.Dispose();//zwolnienie pamieci
             }
             else if(elements.Count > 0)//jesli wybrano element
@@ -112,7 +120,7 @@ namespace PO_Project
                     viewItem.ImageKey = viewItem.element.ID.ToString();//aktualizacja ID obrazkow
                 }
                 fileOperations.Update(elements);//uaktualnienie zawartosci pliku
-                Update();//zaladowanie elementow do listview
+                observable.Notify();//zaladowanie elementow do listview
                 deleteElement.Dispose();//zwolnienie pamieci
             }
             else

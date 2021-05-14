@@ -103,7 +103,7 @@ namespace PO_Project
                         break;
                     }
             }
-            (Owner as MainForm).Update();//odswiezenie listview w formularzu glownym
+            (Owner as MainForm).observable.Notify();//odswiezenie listview w formularzu glownym
         }
 
         private void SortByCancelButton_Click(object sender, EventArgs e)

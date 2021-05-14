@@ -64,6 +64,8 @@ namespace PO_Project
             if (DeleteElementDIalog_ComboBox.SelectedItem != null)//jesli jest wybrany atrybut
             {
                 Attributes.Remove((string)DeleteElementDIalog_ComboBox.SelectedItem);//usuniecie atrybutu
+                if (Owner.Owner is MainForm)
+                    (Owner.Owner as MainForm).observable.Notify();
                 Close();//zamkniecie formularza
             }
         }
