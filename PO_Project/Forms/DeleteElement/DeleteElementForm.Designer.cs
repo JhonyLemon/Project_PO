@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteElementForm));
             this.DeleteElement_ComboBox = new System.Windows.Forms.ComboBox();
             this.AddElement_Type_Static = new System.Windows.Forms.Label();
             this.DeleteElement_Delete_Button = new System.Windows.Forms.Button();
@@ -134,6 +135,7 @@ namespace PO_Project
             this.Controls.Add(this.DeleteElement_Delete_Button);
             this.Controls.Add(this.AddElement_Type_Static);
             this.Controls.Add(this.DeleteElement_ComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(830, 486);
             this.Name = "DeleteElementForm";
             this.Text = "Usuń wybrany element";

@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAttributeDialog));
             this.AddAttribute_NameTextBox = new System.Windows.Forms.TextBox();
             this.AddAttribute_ValueTextBox = new System.Windows.Forms.TextBox();
             this.AddAttribute_NameLabel = new System.Windows.Forms.Label();
@@ -107,9 +108,11 @@ namespace PO_Project
             this.Controls.Add(this.AddAttribute_ValueTextBox);
             this.Controls.Add(this.AddAttribute_NameTextBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAttributeDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Text = "Dodaj atrybut";
             this.ResumeLayout(false);
             this.PerformLayout();
 

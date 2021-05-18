@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditElementDialogForm));
             this.EditElementDialog_ComboBox = new System.Windows.Forms.ComboBox();
             this.EditElementDialog_TextBox = new System.Windows.Forms.TextBox();
             this.EditElementDialog_ConfirmButton = new System.Windows.Forms.Button();
@@ -111,10 +112,12 @@ namespace PO_Project
             this.Controls.Add(this.EditElementDialog_TextBox);
             this.Controls.Add(this.EditElementDialog_ComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "EditElementDialogForm";
             this.ShowInTaskbar = false;
+            this.Text = "Edytuj atrybut";
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddElementForm));
             this.AddElement_Type_ComboBox = new System.Windows.Forms.ComboBox();
             this.AddElement_Type_Static = new System.Windows.Forms.Label();
             this.AddElement_Name_Static = new System.Windows.Forms.Label();
@@ -362,6 +363,7 @@ namespace PO_Project
             this.Controls.Add(this.AddElement_Type_Static);
             this.Controls.Add(this.AddElement_Type_ComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(570, 565);
             this.Name = "AddElementForm";
             this.ShowIcon = false;

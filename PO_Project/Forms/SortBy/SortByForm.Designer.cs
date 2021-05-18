@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SortByForm));
             this.SortByComboBox = new System.Windows.Forms.ComboBox();
             this.SortByLabel = new System.Windows.Forms.Label();
             this.SortByCancelButton = new System.Windows.Forms.Button();
@@ -87,9 +88,10 @@ namespace PO_Project
             this.Controls.Add(this.SortByLabel);
             this.Controls.Add(this.SortByComboBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SortByForm";
             this.ShowInTaskbar = false;
-            this.Text = "SortByForm";
+            this.Text = "Sortuj";
             this.ResumeLayout(false);
             this.PerformLayout();
 

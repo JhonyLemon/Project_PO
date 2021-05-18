@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EditElementForm));
             this.EditElement_ComboBox = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.EditElement_ListView = new System.Windows.Forms.ListView();
@@ -160,6 +161,7 @@ namespace PO_Project
             this.Controls.Add(this.EditElement_ListView);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EditElement_ComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(816, 474);
             this.Name = "EditElementForm";
             this.ShowInTaskbar = false;

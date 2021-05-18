@@ -48,6 +48,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ikonka_do_programu.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -207,6 +213,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\PhotoNotFound.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ikonka_do_programu.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ikonka_do_programu.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

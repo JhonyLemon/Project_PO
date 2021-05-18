@@ -34,6 +34,7 @@ namespace PO_Project
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.Add_Button = new System.Windows.Forms.MenuItem();
@@ -192,9 +193,9 @@ namespace PO_Project
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Podwojny_Kontener);
             this.DoubleBuffered = true;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Menu = this.mainMenu1;
             this.Name = "MainForm";
-            this.ShowIcon = false;
             this.Text = "Domowa Biblioteczka";
             this.Podwojny_Kontener.Panel1.ResumeLayout(false);
             this.Podwojny_Kontener.Panel2.ResumeLayout(false);

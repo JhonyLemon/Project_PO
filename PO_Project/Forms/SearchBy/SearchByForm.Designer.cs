@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchByForm));
             this.SearchByComboBox = new System.Windows.Forms.ComboBox();
             this.SearchByLabel = new System.Windows.Forms.Label();
             this.SearchByCancelButton = new System.Windows.Forms.Button();
@@ -129,9 +130,10 @@ namespace PO_Project
             this.Controls.Add(this.SearchBySearchButton);
             this.Controls.Add(this.SearchByLabel);
             this.Controls.Add(this.SearchByComboBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SearchByForm";
             this.ShowInTaskbar = false;
-            this.Text = "SearchBy";
+            this.Text = "Wyszukaj";
             this.ResumeLayout(false);
             this.PerformLayout();
 

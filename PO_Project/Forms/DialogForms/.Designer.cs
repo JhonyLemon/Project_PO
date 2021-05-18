@@ -29,6 +29,7 @@ namespace PO_Project
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeleteElementDialog));
             this.DeleteElementDialog_Cancel_Button = new System.Windows.Forms.Button();
             this.DeleteElementDialog_Label = new System.Windows.Forms.Label();
             this.DeleteElementDialog_Delete_Button = new System.Windows.Forms.Button();
@@ -97,11 +98,13 @@ namespace PO_Project
             this.Controls.Add(this.DeleteElementDialog_Cancel_Button);
             this.Controls.Add(this.DeleteElementDialog_Delete_Button);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DeleteElementDialog";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
+            this.Text = "Usun atrybut";
             this.ResumeLayout(false);
             this.PerformLayout();
 
