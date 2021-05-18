@@ -40,6 +40,7 @@ namespace PO_Project
             AddElement_FileDialog.ShowDialog();//otworzenie okna dialogowego z wybieraniem pliku
             AddElement_FileLocation_Dynamic.Text = AddElement_FileDialog.FileName;//przepisanie sciezki do pliku
             AddElement_FileDialog.Dispose();//zwolnienie pamieci
+            AddElement_FileDialog.FileName = "";//czyszczenie sciezki
             AddElement_FileLocation_Dynamic_LostFocus(this, null);//wywolanie zdarzenia 
         }
 
@@ -48,6 +49,7 @@ namespace PO_Project
             AddElement_FileDialog.ShowDialog();//otworzenie okna dialogowego z wybieraniem pliku
             AddElement_PhotoLocation_Dynamic.Text = AddElement_FileDialog.FileName;//przepisanie sciezki do pliku
             AddElement_FileDialog.Dispose();//zwolnienie pamieci
+            AddElement_FileDialog.FileName = "";//czyszczenie sciezki
         }
 
         private void AddElement_Exit_Button_Click(object sender, EventArgs e)

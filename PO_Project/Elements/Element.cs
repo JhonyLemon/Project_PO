@@ -17,7 +17,8 @@ namespace PO_Project
             ExtraAttributes = extraAttributes;
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
             {
-                if (ExtraAttributes["Lokacja zdjecia"] == "" || !File.Exists(ExtraAttributes["Lokacja zdjecia"]))
+                string ext = (Path.GetExtension(ExtraAttributes["Lokacja zdjecia"]).ToUpperInvariant());
+                if (ExtraAttributes["Lokacja zdjecia"] == "" || !File.Exists(ExtraAttributes["Lokacja zdjecia"]) || ext != "PNG" || ext != "JPG" || ext != "ICO" || ext != "BMP" || ext != "JPE")
                 {
 
                     if (this.ElementType == TypeOfElement.Film.ToString())
@@ -28,6 +29,7 @@ namespace PO_Project
                         Image = Properties.Resources.MusicImage;
                     else
                         Image = Properties.Resources.PhotoNotFound;
+                    ExtraAttributes["Lokacja zdjecia"] = "";
                 }
                 else
                     Image = Image.FromFile(ExtraAttributes["Lokacja zdjecia"]);
@@ -40,11 +42,11 @@ namespace PO_Project
 
         public void AddImage(string path)//dodanie zdjecia
         {
+            string ext = (Path.GetExtension(path).ToUpperInvariant());
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))//jesli slownik zawiera klucz
             {
-                if (path=="" || !File.Exists(path))//jesli sciezka do pliku jest pusta lub plik nie istnieje
+                if (path=="" || !File.Exists(path) || ext!="PNG" || ext != "JPG" || ext != "ICO" || ext != "BMP" || ext != "JPE")//jesli sciezka do pliku jest pusta lub plik nie istnieje
                 {
-
                     if (this.ElementType == TypeOfElement.Film.ToString())//ustawienie zdjecia domyslnego
                         Image = Properties.Resources.FilmImage;
                     else if (this.ElementType == TypeOfElement.Ksiazka.ToString())
@@ -53,6 +55,7 @@ namespace PO_Project
                         Image = Properties.Resources.MusicImage;
                     else
                         Image = Properties.Resources.PhotoNotFound;
+                    path = "";
                 }
                 else
                     Image = Image.FromFile(path);//ustawienie zdjecia z pliku
