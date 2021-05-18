@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PO_Project
 {
@@ -119,7 +120,10 @@ namespace PO_Project
         }
         public void Open(string path)
         {
-            System.Diagnostics.Process.Start(path);//otwarcie pliku domyslna aplikacja
+            if(File.Exists(path))
+                System.Diagnostics.Process.Start(path);//otwarcie pliku domyslna aplikacja
+            else
+                MessageBox.Show("Podana lokalizacja pliku jest bledna", "Blędna lokacja", MessageBoxButtons.OK);
         }
 
     }
