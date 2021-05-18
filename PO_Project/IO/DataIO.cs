@@ -120,7 +120,7 @@ namespace PO_Project
         }
         public void Open(string path)
         {
-            if(File.Exists(path))
+            if(File.Exists(path) || Directory.Exists(path))
                 System.Diagnostics.Process.Start(path);//otwarcie pliku domyslna aplikacja
             else
                 MessageBox.Show("Podana lokalizacja pliku jest bledna", "Blędna lokacja", MessageBoxButtons.OK);
