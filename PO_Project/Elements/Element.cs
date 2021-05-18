@@ -18,7 +18,7 @@ namespace PO_Project
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))
             {
                 string ext = (Path.GetExtension(ExtraAttributes["Lokacja zdjecia"]).ToUpperInvariant());
-                if (ExtraAttributes["Lokacja zdjecia"] == "" || !File.Exists(ExtraAttributes["Lokacja zdjecia"]) || ext != "PNG" || ext != "JPG" || ext != "ICO" || ext != "BMP" || ext != "JPE")
+                if (ExtraAttributes["Lokacja zdjecia"] == "" || !File.Exists(ExtraAttributes["Lokacja zdjecia"]) && ( ext == ".PNG" || ext == ".JPG" || ext == ".ICO" || ext == ".BMP" || ext == ".JPE"))
                 {
 
                     if (this.ElementType == TypeOfElement.Film.ToString())
@@ -45,7 +45,7 @@ namespace PO_Project
             string ext = (Path.GetExtension(path).ToUpperInvariant());
             if (ExtraAttributes.ContainsKey("Lokacja zdjecia"))//jesli slownik zawiera klucz
             {
-                if (path=="" || !File.Exists(path) || ext!="PNG" || ext != "JPG" || ext != "ICO" || ext != "BMP" || ext != "JPE")//jesli sciezka do pliku jest pusta lub plik nie istnieje
+                if (path=="" || !File.Exists(path) && (ext == ".PNG" || ext == ".JPG" || ext == ".ICO" || ext == ".BMP" || ext == ".JPE"))//jesli sciezka do pliku jest pusta lub plik nie istnieje
                 {
                     if (this.ElementType == TypeOfElement.Film.ToString())//ustawienie zdjecia domyslnego
                         Image = Properties.Resources.FilmImage;
