@@ -149,7 +149,8 @@ namespace PO_Project
             {
                 element = search.FindByID(item.ImageKey);//znalezienie zaznaczonego elementu
             }
-            SelectElement(element);//aktualizacja listview z atrybutami
+            if(element!=null)
+                SelectElement(element);//aktualizacja listview z atrybutami
         }
 
         private void PhotoList_DoubleClick(object sender, EventArgs e)
